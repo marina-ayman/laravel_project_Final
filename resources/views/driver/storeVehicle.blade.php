@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>storeVehicle</title>
-    <link rel="stylesheet" href="./assets/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/css/framework.css" />
-    <link rel="stylesheet" href="./assets/css/master.css" />
+    <link rel="stylesheet" href="{{asset("./assets/css/all.min.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/framework.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/master.css")}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
@@ -60,13 +60,13 @@
         </div>
         <!-- End Head -->
         <h1 class="p-relative">Dashboard</h1>
-     
+
         <div class="wrapper d-grid gap-20">
 
           <div class="quick-draft p-20 bg-white rad-10">
            <span>
             <h2 class="mt-0 mb-10">Add vehicle </h2>
-            </span>  
+            </span>
 
             <form  action="{{route('storeVehicle')}}" method="post">
                 @csrf

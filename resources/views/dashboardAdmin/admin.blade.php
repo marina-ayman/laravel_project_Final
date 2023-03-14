@@ -1,7 +1,7 @@
 @extends('dashboardAdmin.dashboardViewAdmin')
 
 @section('dashbourdAdmon')
-    
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,18 +10,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="assets/Admindash/css/all.min.css" />
-    <link rel="stylesheet" href="assets/Admindash/css/framework.css" />
-    <link rel="stylesheet" href="assets/Admindash/css/master.css" />
+    <link rel="stylesheet" href="{{asset("assets/Admindash/css/all.min.css")}}" />
+    <link rel="stylesheet" href="{{asset("assets/Admindash/css/framework.css")}}" />
+    <link rel="stylesheet" href="{{asset("assets/Admindash/css/master.css")}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- 
+
 </head>
 <body>
   {{-- {{dd($chosentrips)}} --}}
-    
+
 <div class="content w-full">
         <!-- Start Head -->
         <div class="head bg-white p-15 between-flex">
@@ -43,7 +43,7 @@
             <div class="intro p-20 d-flex space-between bg-eee">
               <div>
                 <h2 class="m-0">Welcome</h2>
-                
+
               </div>
               <img class="hide-mobile" src="imgs/welcome.png" alt="" />
             </div>
@@ -56,7 +56,7 @@
             <a href="profile.html" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
           </div>
           <!-- End Welcome Widget -->
-          /* View */
+          {{-- /* View */ --}}
 
           <!-- Start Ticket Widget -->
           <div class="tickets p-20 bg-white rad-10">
@@ -116,7 +116,7 @@
 
           </div>
           <!-- End Top Search Word Widget -->
- 
+
           <!-- Start End Media Stats Widget -->
         </div>
         <!-- Start Trips Table -->
@@ -140,9 +140,9 @@
                   <td>
                     {{-- <span class="label btn-shape bg-orange c-white">{{$chosenTrip->status}}</span> --}}
                   </td>
-                </tr> 
+                </tr>
                 {{-- @endforeach --}}
-                
+
               </tbody>
             </table>
           </div>
@@ -169,13 +169,13 @@
                   <tr>
                     <td>{{$orderedPlace->user_id}}</td>
                     <td>{{$orderedPlace->trip_id}}</td>
-  
+
                     <td>
                       <span class="label btn-shape bg-orange c-white">{{$orderedPlace->status}}</span>
                     </td>
-                  </tr> 
+                  </tr>
                   @endforeach --}}
-                  
+
                 </tbody>
               </table>
             </div>

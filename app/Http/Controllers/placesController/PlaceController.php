@@ -23,10 +23,10 @@ class PlaceController extends Controller
         $placeImg=PlaceImg::all();
         // return response()->json([
         //     'allPlaces '=> $places,
-           
-        // ]);  
 
-        
+        // ]);
+
+
         return view("dashboardAdmin\allPlaces\placesTable",["places"=> $places],['placeImg'=>$placeImg]);
     }
 
@@ -56,7 +56,7 @@ class PlaceController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'description'=>['required','min:10'],
+            'description'=>'required','min:10',
             // 'price'=>'numric'
         ]);
 // dd($request['image']);
@@ -67,25 +67,20 @@ class PlaceController extends Controller
             'cover_img' =>$request['cover_img']->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName()),
             'type'=>$request['type']
         ]);
-        
+
         foreach( $request['image'] as $img){
 
             // dd($img);
                PlaceImg::create([
                     'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
                     'place_id'=>$place->id
-                    // 
+                    //
                   ]);
-        
-        }
-        $placeImgs= PlaceImg::where('place_id',$place->id)->get();
-        // return response()->json([
-        //     'place info '=> $place,
-        //     'place img'=>$placeImgs,
-        //     'message'=>'place info is saved successfully ' 
-        // ]);  
 
-     return   redirect(route('dashboardAdmin.allPlaces.placesTable'));
+        }
+
+
+     return   redirect(route('PlaceeDash.index'));
     }
 
     /**
@@ -100,7 +95,7 @@ class PlaceController extends Controller
         // dd($placeID);
         return  view('MUT.placeDetails',[
             'place'=> $place,
-        ]);  
+        ]);
     }
 
 
@@ -113,27 +108,27 @@ class PlaceController extends Controller
      */
     public function update(Request $request,Place $id)
     {
-  
+
           $id->update([
             'name' => $request['name'],
             'description' =>$request['description'],
             'price' =>$request['price'],
             'cover_img' =>$request['cover_img']->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName()),
             'type'=>$request['type']
-    
+
           ]);
-          
+
           foreach( $request['image'] as $img){
 
             // dd($img);
-            PlaceImg::where('place_id',$id->id)->update([ 
+            PlaceImg::where('place_id',$id->id)->update([
                     'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
                     'place_id'=>$id->id
-                    // 
+                    //
                   ]);
-        
+
         }
-        
+
         // $place=Place::find($place);
         // $placeID->update($request->all());
         // dd($placeID->id);
@@ -141,12 +136,12 @@ class PlaceController extends Controller
         // return response()->json([
         //       'place updated successfully'=>$placeID
         //   ]);
-        
+
 return back();
-         
+
           }
-  
-    
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -161,12 +156,12 @@ return back();
         // Place::($id)->delete();
 
 
-   
+
         if($DelplaceID){
             PlaceImg::where ('place_id',$id->id)->delete();
         }
 
-       
+
         // return response()->json([
         //     'message' =>'place deleted'
         // ]);

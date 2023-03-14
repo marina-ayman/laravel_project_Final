@@ -1,7 +1,7 @@
 @extends('dashboardAdmin.dashboardViewAdmin')
 
 @section('dashbourdAdmon')
-    
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,8 @@
   </head>
   <body>
     <div class="page d-flex">
-    
-        <form action="{{route('PlaceeDash.store')}}"  enctype="multipart/form-data">
+
+        <form action="{{route('PlaceeDash.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
       <div class="content w-full">
         <!-- Start Head -->
@@ -52,21 +52,21 @@
               <option value="Outdoor" >Outdoor</option>
               <option value="3" >Triple</option>
             </select>
-           
+
               <textarea class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" id="desc" placeholder="Description"  name='description'></textarea>
 
-           
-           
+
+
               <label for="cover_img">Enter Your Cover img </label>
               <input class=" mb-20 p-10  bg-eee rad-6" type="file" id='cover_img' placeholder="Address" name='cover_img'/>
 
               <label for="image">Enter Your Places Images </label>
-              <input class=" mb-20 p-10  bg-eee rad-6" type="file"  id='image' placeholder="Address" multiple 
+              <input class=" mb-20 p-10  bg-eee rad-6" type="file"  id='image' placeholder="Address" multiple
               accept="image/png, image/jpeg"  name="image" />
-           
 
-           
-             
+
+
+
               <input class="save d-block fs-14 bg-blue c-white b-none w-fit btn-shape" type="submit" value="Save" />
             </form>
           </div>

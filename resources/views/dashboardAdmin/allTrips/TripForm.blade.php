@@ -1,7 +1,7 @@
 @extends('dashboardAdmin.dashboardViewAdmin')
 
 @section('dashbourdAdmon')
-    
+
 
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="assets/Admindash/css/all.min.css" />
     <link rel="stylesheet" href="assets/Admindash/css/framework.css" />
@@ -22,8 +22,8 @@
    </head>
   <body>
     <div class="page d-flex">
-    
-        <form action="{{route('TrippDash.store')}}"  enctype="multipart/form-data">
+
+        <form  action="{{route('TrippDash.store')}}"  enctype="multipart/form-data" method="POST">
             @csrf
       <div class="content w-full">
         <!-- Start Head -->
@@ -55,12 +55,12 @@
               <input class=" mb-20 p-10  bg-eee rad-6" type="file" id='cover_img' placeholder="Address" name='cover_img'/>
 
               <label for="image">Enter Your Trip Images </label>
-              <input class=" mb-20 p-10  bg-eee rad-6" type="file"  id='image' placeholder="Address" multiple 
+              <input class=" mb-20 p-10  bg-eee rad-6" type="file"  id='image' placeholder="Address" multiple
               accept="image/png, image/jpeg"  name="image" />
-           
 
-           
-             
+
+
+
               <input class="save d-block fs-14 bg-blue c-white b-none w-fit btn-shape" type="submit" value="Save" />
             </form>
           </div>

@@ -72,16 +72,16 @@ foreach( $request['image'] as $img){
        TripImg::create([
             'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
             'trip_id'=>$trip->id
-            // 
+            //
           ]);
 
 }
-       
+
         //   return response()->json([
         //     //   'Trips'=>$trip ,
         //       'message'=> 'trip info is saved successfully '
         // ]);
-        return redirect(route('TripDash.create'));
+        return redirect(route('TrippDash.index'));
     }
 
     /**
@@ -172,7 +172,7 @@ foreach( $request['image'] as $img){
     public function destroy($id)
     {
 
-   
+
 
 
         $delTrip= Trip::find($id)->delete();
