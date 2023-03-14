@@ -69,8 +69,9 @@ Route::get('/PlaceDash/{id}/edit', [PlaceController::class, 'edit'])->name('Plac
 Route::get('/VehicleDashForm',[VehicleController :: class ,"create"])->name("VehiclleDash.create");
 Route::get('/VehicleDash',[VehicleController :: class ,"index"])->name("VehiclleDash.index");
 Route::post('/VehicleDash',[VehicleController :: class ,"store"])->name("VehiclleDash.store");
-Route::delete('/deleteVehicleDash/{id}',[VehicleController::class,'destroy'])->name("VehiclleDash.destroy");
-
+Route::get('/deleteVehicleDash/{id}',[VehicleController::class,'destroy'])->name("VehiclleDash.destroy");
+Route::get('/updateVehicle/{id}',[VehicleController::class,'edit'])->name("editVehicle");
+Route::post('/updateVehicle/{id}',[VehicleController::class,'update'])->name("updateVehicle");
 // //=============================================================================================================================================
 
 

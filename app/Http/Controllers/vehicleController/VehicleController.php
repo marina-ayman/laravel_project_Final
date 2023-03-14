@@ -61,10 +61,10 @@ class VehicleController extends Controller
         return $target;
     }
 
-    public function update(Request $request, vehicle $vehicleId )
+    public function update(Request $request, vehicle $id )
     {
-    // dd($hotelid);
-    $request->update($request->all());
+    dd($id);
+    $id->update($request->all());
 
     return response()->json([
             'vehicle updated successfully'=>$request
