@@ -111,7 +111,7 @@
             </div> --}}
             <div class="items d-flex space-between pt-15 pb-15">
               <span>Vehicles</span>
-              <span class="bg-eee btn-shape fs-13">{{ $vehicles->count()}}</span>
+              {{-- <span class="bg-eee btn-shape fs-13">{{ $vehicles->count()}}</span> --}}
             </div>
 
           </div>
@@ -132,16 +132,16 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($chosenTrips as $chosenTrip)
+                {{-- @foreach ($chosenTrips as $chosenTrip) --}}
                 <tr>
-                  <td>{{$chosenTrip->user_id}}</td>
-                  <td>{{$chosenTrip->trip_id}}</td>
+                  {{-- <td>{{$chosenTrip->user_id}}</td>
+                  <td>{{$chosenTrip->trip_id}}</td> --}}
 
                   <td>
-                    <span class="label btn-shape bg-orange c-white">{{$chosenTrip->status}}</span>
+                    {{-- <span class="label btn-shape bg-orange c-white">{{$chosenTrip->status}}</span> --}}
                   </td>
                 </tr> 
-                @endforeach
+                {{-- @endforeach --}}
                 
               </tbody>
             </table>
@@ -165,7 +165,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($orderedPlaces as $orderedPlace)
+                  {{-- @foreach ($orderedPlaces as $orderedPlace)
                   <tr>
                     <td>{{$orderedPlace->user_id}}</td>
                     <td>{{$orderedPlace->trip_id}}</td>
@@ -174,7 +174,7 @@
                       <span class="label btn-shape bg-orange c-white">{{$orderedPlace->status}}</span>
                     </td>
                   </tr> 
-                  @endforeach
+                  @endforeach --}}
                   
                 </tbody>
               </table>

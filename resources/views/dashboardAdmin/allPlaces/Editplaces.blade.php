@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="page d-flex">
-        <form method="POST" action="{{route('PlaceeDash.store',['places'=>$places->id])}}"   enctype="multipart/form-data">
+        <form action="{{route('PlaceDash.update',['id'=>$places->id])}}"  enctype="multipart/form-data" method="POST">
             @csrf
             @method("PUT")
       <div class="content w-full">
@@ -48,7 +48,13 @@
                 <input class="d-block mb-20 w-full p-10 b-none bg-eee rad-6"  type="text" placeholder="price" name='price' value="{{$places->price}}"/>
               
              <select class="form-select bg-eee mb-20 " name='type' Type aria-label="Default select example">
-              <option   value="{{$places->type == 'indoor'}}? <?php echo 'selected' ?> : '' " >indoor</option>
+          
+              <option   value="<?php isset($places->type)?echo'selected':?>" >{{$places->type}}</option>
+              <option   value="indoor" >indoor</option>
+              <option   value="outdoor" >outdoor</option>
+              <option   value="islands" >islands</option>
+              <option   value="cruise" >cruise</option>
+             
               <option   value="{{$places->type == 'Outdoor'}}? <?php echo 'selected' ?>  : '' ">Outdoor</option>
               <option   value="{{$places->type == '3'}}? <?php echo 'selected' ?> : '' ">Triple</option>
             </select>
@@ -61,8 +67,8 @@
               <input class=" mb-20 p-10  bg-eee rad-6" type="file" id='cover_img' placeholder="Address" name='cover_img' value="Storage/img/{{$places->cover_img}}">
 
               <label for="image">Enter Your Places Images </label>
-              <input class=" mb-20 p-10  bg-eee rad-6" type="file"  id='image' placeholder="Address" multiple 
-              accept="image/png, image/jpeg"  name="image" value="Storage/img/{{$places->PlaceImg->image}}">
+              <input class=" mb-20 p-10  bg-eee rad-6" type="file" name="image[]" id='image' placeholder="Address" multiple >
+              {{-- accept="image/png, image/jpeg"  name="image" value="Storage/img/{{$places->PlaceImg->image}}"> --}}
            
 
            

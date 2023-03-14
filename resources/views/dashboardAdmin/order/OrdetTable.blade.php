@@ -39,10 +39,10 @@
                 </tr>
               </thead>
               <tbody>
-         
-         @foreach ($orders as $order)
+              
+         @foreach ($OrdersDetail as $order)
            <tr>
-         
+       
              <td>{{$order->user_id->users['name']}}</td>
              <td>{{$order->budget}}</td>
              <td>{{$order->check_in}}</td>
@@ -54,7 +54,7 @@
              <td>
               
              <form method="POST" action="{{route('OrderrDetails.destroy'),['orderID'=>$order->id]}}" accept-charset="UTF-8" style="display:inline">
-             @crsf
+             @csrf
                @method('delete');
                  <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
                  <i class="fa fa-trash-o" aria-hidden="true"></i>

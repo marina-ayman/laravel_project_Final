@@ -29,15 +29,22 @@ class DriverController extends Controller
         $driver=driver::all();
         return view("driverRegistrations.index",[ "driver" => $driver->paginate(15)],["users"=> $users->paginate(15)]);
 
-        return view("dashboardAdmin.user.users",[ "driver" => $driver],["users"=> $users]);
-        //show table from DB
+      
      }
-
-     public function indexprofile()
+     public function indexDriver()
      {
          $users=User::all(); //fk
          $driver=driver::all();
+      
+         return view("dashboardAdmin.Driver.driver",["driver" => $driver],["users"=> $users]);
+         //show table from DB
+      }
 
+
+
+     public function indexprofile()
+     {
+        
          return view("dashboardDriver.driverindex",[ "driver" => $driver],["users"=> $users]);
          //show table from DB
 

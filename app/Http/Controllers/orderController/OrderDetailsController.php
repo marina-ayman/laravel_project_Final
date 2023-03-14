@@ -17,13 +17,14 @@ class OrderDetailsController extends Controller
 {
     public function index()
     {
+
       $OrdersDetail= OrderDetail::all();
       $orders = $OrdersDetail->order;
     //   return response()->json([
     //     'OrdersDetail'=>$OrdersDetail,
     // ]);
 
-    return view("dashboardAdmin\order\OrdetTable",["OrdersDetail"=> $OrdersDetail],["orders"=>$orders]);
+    return view("dashboardAdmin.order.OrdetTable",["OrdersDetail"=> $OrdersDetail],["orders"=>$orders]);
 
        
     }

@@ -114,7 +114,7 @@ ul li ul li a {
 
 
         <!-- End Head -->
-        <h1 class="p-relative">Users</h1>
+        <h1 class="p-relative">Admin</h1>
         <div class="projects p-20 bg-white rad-10 m-20">
           <h2 class="mt-0 mb-20">Admin</h2>
           <div class="responsive-table">
@@ -136,8 +136,8 @@ ul li ul li a {
               @foreach ($users as $admin)
                 <tr>
               
-{{-- {{dd($admin->user_type)}} --}}
-                 @if($admin['user_type']= 1  )  
+         {{-- {{dd($admin->user_type)}} --}}
+                 @if($admin['user_type'] == 1  )  
                                       <td>{{ $admin['id'] }}</td> 
                                       <td><img src="{{ $admin['image'] }}" ></td>
                                       <td>{{ $admin['name'] }}</td>
@@ -188,7 +188,7 @@ ul li ul li a {
               @foreach ($users as $user)
                 <tr>
               
-                 @if($user->role_id = 1 )  
+                 @if($user->user_type == 0 )  
                                       <td>{{ $user['id'] }}</td> 
                                       <td><img src="{{ $user['image'] }}" ></td>
                                       <td>{{ $user['name'] }}</td>
@@ -219,167 +219,7 @@ ul li ul li a {
         
  <!--===================================================================================================================  -->
         
-        <h2 class="mt-0 mb-20">Tourgide</h2>
-          <div class="responsive-table">
-            <table class="fs-15 w-full">
-              <thead>
-                <tr>
-                  <td>#</td>
-                  <td>image</td>
-                  <td>Name</td>
-                  <td>Email</td>
-                  <td>Gender</td>
-                  <td>Type</td>
-                  <td>price_per_day</td>
-                  <td>syndicate_No</td>
-                  <td>desc</td>
-                  <td>Action</td>
-                </tr>
-              </thead>
-              <tbody>
 
-              @foreach ($users as $Tourgide)
-                <tr>
-     
-                          @if($Tourgide->role_id == 3 )  
-                                      <td>$Tourgide->users->id</td> 
-                                      <td><img src="$Tourgide->users->image'] }}" ></td>
-                                      <td>{{$Tourgide->name}}</td>
-                                      <td>{{$Tourgide->email}}</td>
-                                      <td>{{$Tourgide->gender}}</td>
-                                      <td>Tourgide</td>
-                                      <td>{{$Tourgide->Tourguide->price_per_day}}</td>
-                                     <td>{{$Tourgide->Tourguide->syndicate_No}}</td>
-                                     <td>{{$Tourgide->Tourguide->desc}}</td>
-
-                                     <td>     
-                                       <a href="{{route('deleteUser',['UserID'=>$Tourgide->User->id])}}" class="title bg-red c-white btn-shape"  onclick="return confirm('Are you sure you want to delete?')" >delete </a>
-                                       @endif                       
-                          {{-- <form method="POST" action="{{route('tourgideDash.destroy'),['id'=>$Tourgide->id]}}" accept-charset="UTF-8" style="display:inline">
-                            @csrf
-                    @method('delete');
-                      <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
-                      <i class="fa fa-trash-o" aria-hidden="true"></i>
-                       Delete
-                      </button>
-                </form> --}}
-                  </td>
-                </tr>
-             
-              </tbody>
-             @endforeach
-            </table>
-          </div>
-        </div> 
-        
-<!-- ================================================================================================================== -->
-             
-<h2 class="mt-0 mb-20">Hotel Owner</h2>
-          <div class="responsive-table">
-            <table class="fs-15 w-full">
-              <thead>
-                <tr>
-                  <td>#</td>
-                  <td>image</td>
-                  <td>Name</td>
-                  <td>Email</td>
-                  <td>Gender</td>
-                  <td>Type</td>
-                  <td>commercial_reg_No</td>
-                  <td>Action</td>
-                </tr>
-              </thead>
-              <tbody>
-
-              @foreach ($hotelOwners as $HotelOwner)
-                <tr>
-                  {{-- {{dd($HotelOwner->role_id)}} --}}
-     
-                          @if($HotelOwner->role_id = 4 )  
-                                      <td>{{$HotelOwner->User->name}}</td> 
-                                      <td><img src="$HotelOwner->users->image" ></td>
-                                      <td>{{$HotelOwner->User->name}}</td>
-                                      <td>{{$HotelOwner->User->email}}</td>
-                                      <td>{{$HotelOwner->User->gender}}</td>
-                                      <td>HotelOwner</td>
-                                      <td>{{$HotelOwner->commercial_reg_No}}</td>
-
-                                      
-                                      <td>
-                                        <a href="{{route('deleteUser',['UserID'=>$HotelOwner->User->id])}}" class="title bg-red c-white btn-shape"  onclick="return confirm('Are you sure you want to delete?')" >delete </a>
-                                                          
-                {{-- <form method="POST" action="{{route('hotelOwnerDash.destroy'),['id'=>$HotelOwner->id]}}" accept-charset="UTF-8" style="display:inline">
-                  @csrf
-                    @method('delete');
-                      <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
-                      <i class="fa fa-trash-o" aria-hidden="true"></i>
-                       Delete
-                      </button>
-                </form> --}}
-                  </td>
-                  @endif 
-                </tr>
-             
-              </tbody>
-             @endforeach
-            </table>
-          </div>
-        </div> 
- 
-<!-- ============================================================================================================== -->
-                 
-<h2 class="mt-0 mb-20">Driver</h2>
-          <div class="responsive-table">
-            <table class="fs-15 w-full">
-              <thead>
-                <tr>
-                  <td>#</td>
-                  <td>image</td>
-                  <td>Type</td>
-                  <td>Name</td>
-                  <td>Email</td>
-                  <td>Gender</td>
-                  <td>license</td>
-                  <td>Action</td>
-                </tr>
-              </thead>
-              <tbody>
-
-              @foreach ($drivers as $Driver)
-                <tr>
-     
-                          @if($Driver->role_id == 2 )  
-                                      <td>{{$Driver->User->id}}</td> 
-                                      <td><img src="$Driver->users->image" ></td>
-                                      <td>Driver</td>
-                                      <td>{{$Driver->User->name}}</td>
-                                      <td>{{$Driver->User->email}}</td>
-                                      <td>{{$Driver->User->gender}}</td>
-                                      <td>{{$Driver->license}}</td>
-                                      
-                                      
-                                      <td>
-                                        <a href="{{route('deleteUser',['UserID'=>$Driver->User->id])}}" class="title bg-red c-white btn-shape"  onclick="return confirm('Are you sure you want to delete?')" >delete </a>
-                                        @endif                       
-                  {{-- <form method="POST" action="{{route('driverDash.destroy'),['id'=>$Driver->id]}}" accept-charset="UTF-8" style="display:inline">
-                  @csrf
-                    @method('delete');
-                      <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
-                      <i class="fa fa-trash-o" aria-hidden="true"></i>
-                       Delete
-                      </button>
-                  </form> --}}
-                  </td>
-                </tr>
-             
-              </tbody>
-             @endforeach
-            </table>
-          </div>
-        </div> 
-     
-        
-        
         
         
         

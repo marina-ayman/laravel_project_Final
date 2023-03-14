@@ -20,40 +20,58 @@
       <div class="sidebar bg-white p-20 p-relative">
         <h3 class="p-relative txt-c mt-0">SAFARY</h3>
         <ul>
+
           <li>
-            <a class="active d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="index.html">
-              <i class="fa-regular fa-chart-bar fa-fw"></i>
-              <span>Dashboard Admin</span>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('UserDash.index')}}">
+              <i class="fa-regular fa-credit-card fa-fw"></i>
+              <span> userss </span>
             </a>
           </li>
+
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="allTrip.html">
-              <i class="fa-solid fa-gear fa-fw"></i>
-              <span> <a href="{{route('hotelOwnerDash.index')}}" > All Hotels </a> </span>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('tourgideDash.index')}}">
+              <i class="fa-regular fa-credit-card fa-fw"></i>
+              <span> Tourgide </span>
             </a>
           </li>
+
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="customers.html">
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('hotelOwnerDash.index')}}">
+              <i class="fa-regular fa-credit-card fa-fw"></i>
+              <span> Hotel Owner </span>
+            </a>
+          </li>
+
+          <li>
+            {{-- <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('getdriverDash.index')}}">
+              <i class="fa-regular fa-credit-card fa-fw"></i>
+              <span> Driver </span>
+            </a> --}}
+          </li>
+
+
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('PlaceeDash.index')}}">
               <i class="fa-regular fa-user fa-fw"></i>
-              <span><a href="{{route('PlaceeDash.index')}}" > placessTable </a></span>
+              <span> placessTable</span>
             </a>
           </li>
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="hotels.html">
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('TrippDash.index')}}">
               <i class="fa-solid fa-diagram-project fa-fw"></i>
-              <span><a href="{{route('TrippDash.index')}}" > trippTable </a></span>
+              <span>trippTable </span>
             </a>
           </li>
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="vehicle.html">
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('VehiclleDash.index')}}">
               <i class="fa-solid fa-graduation-cap fa-fw"></i>
-              <span><a href="{{route('VehiclleDash.index')}}" > vechileeTable </a></span>
+              <span>vechileeTable </span>
             </a>
           </li>
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="tourguide.html">
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none"  href="{{route('OrderrDetails.index')}}" >
               <i class="fa-regular fa-circle-user fa-fw"></i>
-              <span><a href="{{route('OrderrDetails.index')}}" > OrderrTable </a></span>
+              <span> Orderr details </span>
             </a>
           </li>
           {{-- <li>
@@ -70,17 +88,12 @@
             </a>
           </li> --}}
 
-          <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="plans.html">
-              <i class="fa-regular fa-credit-card fa-fw"></i>
-              <span><a href="{{route('UserDash.index')}}" > userss </a></span>
-            </a>
-          </li>
+     
 
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="plans.html">
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none"href="{{route('AdminDash')}}">
               <i class="fa-regular fa-credit-card fa-fw"></i>
-              <span><a href="{{route('adminn')}}" > adminn</a></span>
+              <span> Request </span>
             </a>
           </li>
 

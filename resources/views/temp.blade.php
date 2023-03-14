@@ -33,16 +33,16 @@
 									<a class="nav-link" href="{{route("homePage")}}">HOME</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">PLACES</a>
+									<a class="nav-link" href="{{route('places')}}">PLACES</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">TOURGUIDES</a>
+									<a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">HOTELS</a>
+									<a class="nav-link" href="">HOTELS</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">ROUTES</a>
+									<a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a>
 								</li>
                           
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
@@ -59,13 +59,13 @@
 									<a class="nav-link" href="{{route('driverprofileDash.index')}}">MY driver</a>
                                     @endif
                                     @if( Auth::user()->user_type ==1)
-									<a class="nav-link" href="{{route('AdminDash.index')}}">MY AdminDash</a>
+									<a class="nav-link" href="{{route('AdminDash')}}">MY AdminDash</a>
                                     @endif
 								@endauth
                                 </li>
 
 @endif
-
+<a class="nav-link" href="{{route('AdminDash')}}">MY AdminDash</a>
                                 {{-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                   
 									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">MY hotelOwner</a>

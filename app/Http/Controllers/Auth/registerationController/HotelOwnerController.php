@@ -22,7 +22,7 @@ class HotelOwnerController extends Controller
         $users=User::all(); //fk
         $hotelOwner=hotelOwner::all();
 
-        return view("dashboardAdmin.user.users",["users"=> $users],["hotelOwner"=> $hotelOwner]);
+        return view("dashboardAdmin.HotelOwner.Hotels",["users"=> $users],["hotelOwner"=> $hotelOwner]);
         //show table from DB
     }
 

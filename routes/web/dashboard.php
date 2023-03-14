@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\registerationController\HotelOwnerController;
 use App\Http\Controllers\Auth\registerationController\TourguideController;
 use App\Http\Controllers\Auth\registerationController\userController;
 use App\Http\Controllers\orderController\OrderController;
+use App\Http\Controllers\orderController\OrderDetailsController;
+
 use App\Http\Controllers\orderController\BookedRoomController;
 use App\Http\Controllers\orderController\OrderedPlaceController;
 use App\Http\Controllers\placesController\PlaceController;
@@ -22,7 +24,7 @@ use App\Http\Controllers\dashboard\DashboardController;
 
 // //Driverregistrations---
 Route::get('/driverDashForm',[DriverController :: class ,"createDriver"])->name("driverDash.create");
-Route::get('/driverRegistrations',[DriverController :: class ,"index"])->name("driverDash.index");
+Route::get('/driverRegistrations',[DriverController :: class ,"indexDriver"])->name("getdriverDash.index");
 Route::post('/driverRegistrations',[DriverController :: class ,"storeDriver"])->name("driverDash.store");
 Route::delete('/deldriverReg/{id}',[DriverController::class,'destroy'])->name("driverDash.destroy");
 
@@ -56,7 +58,7 @@ Route::post('/login',[userController :: class ,"login"]);
 Route::get('/PlaceDashForm',[PlaceController :: class ,"create"])->name("PlaceeDash.create");
 Route::get('/PlaceDash',[PlaceController :: class ,"index"])->name("PlaceeDash.index");
 Route::post('/PlaceDash',[PlaceController :: class ,"store"])->name("PlaceeDash.store");
-Route::delete('/deletePlaceDash/{id}',[PlaceController::class,'destroy'])->name("PlaceeDash.destroy");
+Route::get('/deletePlaceDash/{id}',[PlaceController::class,'destroy'])->name("PlaceeDash.destroy");
 Route::PUT('/PlaceDash/{id}', [PlaceController::class, 'update'])->name('PlaceDash.update');
 Route::get('/PlaceDash/{id}/edit', [PlaceController::class, 'edit'])->name('PlaceDash.edit');
 
@@ -189,7 +191,7 @@ Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name
 //     $users=User::all();
 //     return view('/dashboardAdmin/user/users',['users'=>$users]);})->name('userss');
 
-Route::get('/admin',function(){return view('/dashboardAdmin/admin');})->name('adminn');
+// Route::get('/admin',function(){return view('/dashboardAdmin/admin');})->name('adminn');
 
 
 // Route::get('/index',function(){return view('/layouts/nav');})->name('index');
@@ -197,11 +199,3 @@ Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('a
 Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
 Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
 
-// @extends('layouts/nav')
-// @section('bodyContent')
-
-
-
-
-Route::get('/landingPage',function(){return view('/landingPage/index');})->name('landingPage');
-Route::get('/CustomizeTrip',function(){return view('/MUt.multiStepsCustom');})->name('CustomizeTrip');

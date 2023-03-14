@@ -37,12 +37,13 @@ class PlaceController extends Controller
     }
 
 
-    public function edit(place $Place)
+    public function edit(place $id)
     {
-        $places =Place::find($Place);
-        // $PlaceImg=PlaceImg::find($PlaceImg['place_id']);
+        // dd($id->id);
+        // $places =Place::find($Place);
+        $PlaceImg=PlaceImg::where('place_id',$id->id)->get();
 
-        return view('dashboardAdmin.allPlaces.Editplaces',['places'=>$places],['PlaceImg'=>$PlaceImg]);
+        return view('dashboardAdmin.allPlaces.Editplaces',['places'=>$id],['PlaceImg'=>$PlaceImg]);
     }
 
     /**
@@ -110,10 +111,10 @@ class PlaceController extends Controller
      * @param  \App\Models\place  $place
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Place $placeID)
+    public function update(Request $request,Place $id)
     {
   
-          Place::where ('id',$placeID)->update([
+          $id->update([
             'name' => $request['name'],
             'description' =>$request['description'],
             'price' =>$request['price'],
@@ -125,9 +126,9 @@ class PlaceController extends Controller
           foreach( $request['image'] as $img){
 
             // dd($img);
-            PlaceImg::where('place_id',$place->id)->update([ 
+            PlaceImg::where('place_id',$id->id)->update([ 
                     'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
-                    'place_id'=>$place->id
+                    'place_id'=>$id->id
                     // 
                   ]);
         
@@ -141,7 +142,7 @@ class PlaceController extends Controller
         //       'place updated successfully'=>$placeID
         //   ]);
         
-
+return back();
          
           }
   
@@ -153,15 +154,16 @@ class PlaceController extends Controller
      * @param  \App\Models\place  $place
      * @return \Illuminate\Http\Response
      */
-    public function destroy($ID)
+    public function destroy(Place $id)
     {
-        // $placeID->delete();
-        // Place::find($ID)->delete();
+        // dd($id);
+        $DelplaceID=  $id->delete();
+        // Place::($id)->delete();
 
 
-        $DelplaceID= Place::find($ID)->delete();
+   
         if($DelplaceID){
-            HotelImg::where ('place_id',$ID)->delete();
+            PlaceImg::where ('place_id',$id->id)->delete();
         }
 
        

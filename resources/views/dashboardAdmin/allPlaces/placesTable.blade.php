@@ -21,8 +21,7 @@
  
 </head>
 <body>
-    
-<h1 class="p-relative">All Places</h1>
+    {{dd($places)}}
         <div class="projects p-20 bg-white rad-10 m-20">
           <h2 class="mt-0 mb-20">Places</h2>
           <div class="responsive-table">
@@ -38,34 +37,48 @@
               </thead>
               <tbody>
          
-              @foreach ($places as $place)
+              {{-- @foreach ($places as $place) --}}
                 <tr>
-       
+       {{-- {{dd($place->id)}}; --}}
                   <td>{{$place->name}}</td>
-                  <td><img src="{{ asset('img/'.'$place->cover_img') }}" alt="" width="75px">
+                  {{-- <td><img src="{{ asset('img/'.'$place->cover_img') }}" alt="" width="75px"> --}}
                   </td>
                   <td>{{$place->description}}</td>
                   <td>{{$place->price}}</td>
                   <td>{{$place->type}}</td>
+                  
+
+                  {{-- @foreach ($placeImg as $placeimg)
+                  <td><img src="{{$placeimg->image}}"></td>
+                  @endforeach --}}
                   <td>
 
-                    <button type="submit" class="label btn-shape bg-green c-white">
+                    <button  class="label btn-shape bg-green c-white">
                       <a href="{{route('PlaceDash.edit',['id'=>$place->id])}}" class="btn btn-outline-success">Edit</a>
                       </button>
+
+                      <button  class="label btn-shape bg-red c-white">
+                        <a href="{{route('PlaceeDash.destroy',['id'=>$place->id])}}" class="title bg-red c-white btn-shape"  onclick="return confirm('Are you sure you want to delete?')" >delete </a>
+                      </button>
                    
-                  {{-- <form method="POST" action="{{route('PlaceeDash.destroy'),['placeID'=>$place->id] }}" accept-charset="UTF-8" style="display:inline">
-                  @crsf
-                    @method('delete');
+                      {{-- {{dd($place->id)}} --}}
+                    {{-- <form method="POST" action="{{route('PlaceeDash.destroy'),[ 'id'=>$place->id ] }}" accept-charset="UTF-8" style="display:inline">
+                      @csrf
+                      @method('DELETE');
+                   
+              
+                   
                       <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
                       <i class="fa fa-trash-o" aria-hidden="true"></i>
-                       Delete
-                      </button>
-                  </form> --}}
-            
+                       Deletee
+                      </button>  
+                  
+                  </form>  --}}
                   </td>
+
                 </tr>
        
-                @endforeach
+                  {{-- @endforeach --}}
               </tbody>
              
             </table>
