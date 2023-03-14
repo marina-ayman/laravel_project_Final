@@ -25,8 +25,8 @@ class RegularBookedRoom extends Model
         return $this->belongsTo(User::class);
     }
     
-    public function Hotel()
+    public function Room()
     {
-        return $this->belongsTo(Hotel::class);
+        return $this->belongsTo(Room::class);
     }
 }

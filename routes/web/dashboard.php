@@ -64,6 +64,9 @@ Route::get('/PlaceDash/{id}/edit', [PlaceController::class, 'edit'])->name('Plac
 
 
 // //=============================================================================================================================================
+Route::post('/driverRegistrations/{id}', [DriverController::class, 'update'])->name('driverprofileDash.update');
+Route::get('/driverRegistrations/{id}/edit', [DriverController::class, 'edit'])->name('driverprofileDash.edit');
+Route::get('/driverRegistrations',[DriverController :: class ,"indexprofile"])->name("driverprofileDash.index");
 
 
 Route::get('/VehicleDashForm',[VehicleController :: class ,"create"])->name("VehiclleDash.create");
@@ -88,8 +91,8 @@ Route::delete('/deleteHotelDash/{id}',[HotelController::class,'destroy'])->name(
 Route::get('/TripDashForm',[TripController :: class ,"create"])->name("TrippDash.create");
 Route::get('/TripDash',[TripController :: class ,"index"])->name("TrippDash.index");
 Route::post('/TripDash',[TripController :: class ,"store"])->name("TrippDash.store");
-Route::delete('/deleteTripDash/{id}',[TripController::class,'destroy'])->name("TrippDash.destroy");
-Route::PUT('/TripDash/{id}', [TripController::class, 'update'])->name('TripDash.update');
+Route::get('/deleteTripDash/{id}',[TripController::class,'destroy'])->name("TrippDash.destroy");
+Route::post('/TripDash/{id}', [TripController::class, 'update'])->name('TripDash.update');
 Route::get('/TripDash/{id}/edit', [TripController::class, 'edit'])->name('TripDash.edit');
 
 
@@ -111,7 +114,7 @@ Route::delete('/deleteOrderDetails/{id}',[OrderDetailsController::class,'destroy
 
 Route::get('/TourguideProfile',[TourguideController :: class ,"index"])->name("TourguideProfile.index");
 Route::delete('/deleterequest/{id}',[TourguideController::class,'destroy'])->name("deleterequest.destroy");
-Route::post('/TourguideProfile',[TourguideController :: class ,"store"])->name("TourguideProfile.store");
+Route::post('/TourguideProfile',[TourguideController :: class ,"storeTourguide"])->name("TourguideProfile.store");
 Route::PUT('/TourguideProfile/{id}', [TourguideController::class, 'update'])->name('TourguideProfile.update');
 Route::get('/TourguideProfile/{id}/edit', [TourguideController::class, 'edit'])->name('TourguideProfile.edit');
 
@@ -156,15 +159,7 @@ Route::get('/allRequests',[DashboardController :: class ,"allRequests"])->name("
 Route::get('/changeRequest/{bookedRoom}',[DashboardController :: class ,"allRequests"])->name("changeStatus");
 
 
-
-
 // /=====================================================================================================================
-Route::PUT('/driverRegistrations/{id}', [DriverController::class, 'update'])->name('driverprofileDash.update');
-Route::get('/driverRegistrations/{id}/edit', [DriverController::class, 'edit'])->name('driverprofileDash.edit');
-Route::get('/driverRegistrations',[DriverController :: class ,"indexprofile"])->name("driverprofileDash.index");
-
-
-
 
 
 
@@ -198,4 +193,5 @@ Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name
 Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
 Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
 Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
+Route::get('/cart',function(){return view('/cart');})->name('cart');
 

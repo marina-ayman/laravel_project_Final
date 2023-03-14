@@ -20,6 +20,6 @@ class OrderedPlace extends Model
         return $this->hasMany(Order::class);
     }
     public function Place(){
-        return $this->hasOne(Place::class);
+        return $this->hasMany(Place::class);
     }
 }

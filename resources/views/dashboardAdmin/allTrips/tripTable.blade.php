@@ -43,7 +43,7 @@
               @foreach ($allTrips as $Trips)
            <tr>
            <td>{{$Trips->id}}</td>
-             <td>{{$Trips->trip_id->users['name']}}</td>
+             {{-- <td>{{$Trips->trip_id->users['name']}}</td> --}}
              <td><img src="{{ asset('img/'.$Trips->cover_img) }}" alt="" width="75px">
            </td>
            <td>{{$Trips->description}}</td>
@@ -57,11 +57,11 @@
              <td>
 
               <button type="submit" class="label btn-shape bg-green c-white">
-              <a href="{{route('TripDash.edit',['trip'=>$Trips->id])}}" class="btn btn-outline-success">Edit</a>
+              <a href="{{route('TripDash.edit',['id'=>$Trips->id])}}" class="btn btn-outline-success">Edit</a>
               </button>
-              <form action="{{route('TrippDash.destroy'),['id'=>$Trips->id]}}"  accept-charset="UTF-8" style="display:inline">
-              @crsf
-              @method('delete')
+              <form action="{{route('TrippDash.destroy',['id'=>$Trips->id])}}"  accept-charset="UTF-8" style="display:inline">
+              @csrf
+
                <!-- method('delete',$Trips['hotel_owner_id']); -->
                  <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
                  <i class="fa fa-trash-o" aria-hidden="true"></i>

@@ -21,7 +21,7 @@
  
 </head>
 <body>
-    {{dd($places)}}
+    {{-- {{dd($places)}} --}}
         <div class="projects p-20 bg-white rad-10 m-20">
           <h2 class="mt-0 mb-20">Places</h2>
           <div class="responsive-table">
@@ -37,7 +37,7 @@
               </thead>
               <tbody>
          
-              {{-- @foreach ($places as $place) --}}
+              @foreach ($places as $place)
                 <tr>
        {{-- {{dd($place->id)}}; --}}
                   <td>{{$place->name}}</td>
@@ -78,7 +78,7 @@
 
                 </tr>
        
-                  {{-- @endforeach --}}
+                  @endforeach
               </tbody>
              
             </table>

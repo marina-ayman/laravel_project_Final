@@ -17,7 +17,7 @@ class PlacesOfRecommTrips extends Model
     ];
 
     public function Trip(){
-        return $this->hasMany(Recommended_trip::class);
+        return $this->hasMany(Trip::class);
     }
     public function Place(){
         return $this->hasMany(Place::class);

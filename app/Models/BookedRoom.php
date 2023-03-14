@@ -20,16 +20,16 @@ class BookedRoom extends Model
 
     public function Order()
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
-    // public function Room()
-    // {
-    //     return $this->hasOne(Room::class);
-    // }
+    public function Room()
+    {
+        return $this->belongsTo(Room::class);
+    }
     public function Hotel()
     {
-        return $this->belongsToMany(Hotel::class );
+        return $this->belongsTo(Hotel::class );
     }
 
 

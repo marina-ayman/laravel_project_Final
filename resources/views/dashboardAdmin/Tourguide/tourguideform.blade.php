@@ -30,7 +30,7 @@
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup">
-			<form action="{{route('tourguide.store')}}" class="form" id="form1" method="post" enctype="multipart/form-data">
+			<form action="{{route('TourguideProfile.store')}}" class="form" id="form1" method="post" enctype="multipart/form-data">
 @csrf
                 <h2 class="form__title">Sign Up</h2>
 				{{-- <div class="profImg"> <label for="files">

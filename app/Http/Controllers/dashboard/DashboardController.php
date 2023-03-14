@@ -79,23 +79,24 @@ class DashboardController extends Controller
         return view('dashboardHotelOwner.index');
     }
     public function addHotel(Request $request){
-        // dd($request);
+        // dd(Auth::user()->HotelOwner);
       $hotel=  Hotel::create([
-            'hotel_owner_id'=>Auth::user()->HotelOwner->id,
+            'hotel_owner_id'=>Auth::user()->HotelOwner[0]->id,
             'name'=>$request->name,
             'address'=>$request->address,
             'cover_img'=>$request->file("cover_img")->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName()),
             'type'=>$request->type,
       ]);
-      if(!is_null($request->image[0])){
-      foreach($request->image as $img){
+// dd($request['image']);
+      foreach ($request['image'] as  $value) {
+        // dd($value->getClientOriginalName());
+        $name=md5(microtime()).$value->getClientOriginalName();
+        $value ->storeAs("public/imgs",$name);
 
         HotelImg::create([
-            'image'=>$img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
-            'hotel_id'=>$hotel->id
-        ]);
-    }
-    }
+           'hotel_id'=>$hotel["id"],'image'=>isset($name)?$name:null],
+           );
+  }
     Alert::success('Congrats', 'You\'ve Successfully added the hotel ^^');
 
       return redirect(route('MyOwnedHotels'));
@@ -153,18 +154,24 @@ class DashboardController extends Controller
             ]);
         }
         // dd($request->image);
-        foreach($request->image as $img){
-            // dd($img);
-
-        }
-        if(!is_null($request->image[0])){
-               foreach($request->image as $img){
-            //  dd(HotelImg::where('hotel_id',$hotelID->id)->update(['image']));
-                   HotelImg::where('hotel_id',$hotelID->id)->update([
-                       'image'=>$img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName())
-                    ]);
-               }
-        }
+        foreach ($request['image'] as  $value) {
+            // dd($value->getClientOriginalName());
+            $name=md5(microtime()).$value->getClientOriginalName();
+            $value ->storeAs("public/imgs",$name);
+    
+            HotelImg::create([
+               'hotel_id'=>$hotelID["id"],'image'=>isset($name)?$name:null],
+               );
+      }
+        // if(!is_null($request->image[0])){
+        //        foreach($request->image as $img){
+        //     //  dd(HotelImg::where('hotel_id',$hotelID->id)->update(['image']));
+        //            HotelImg::where('hotel_id',$hotelID->id)->update([
+        //                'image'=>$img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName())
+        //             ]);
+        //        }
+        // }
+        
         Alert::success('Congrats', 'You\'ve Successfully updated the hotel ^^');
 
         return redirect(route('MyOwnedHotels'));
@@ -212,44 +219,46 @@ if(count($rooms)==0){
    'cover_img'=>$request->file("cover_img")->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName()),
    'hotel_id'=>$request->hotel_id
   ]);
-  if(!is_null($request->image[0])){
-    foreach($request->image as $img){
+  foreach ($request['image'] as  $value) {
+    // dd($value->getClientOriginalName());
+    $name=md5(microtime()).$value->getClientOriginalName();
+    $value ->storeAs("public/imgs",$name);
 
-      RoomImg::create([
-          'image'=>$img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
-          'room_id'=>$room->id
-      ]);
-  }
-  }
+    RoomImg::create([
+       'room_id'=>$room["id"],'image'=>isset($name)?$name:null],
+       );
+}
   Alert::success('Congrats', 'You\'ve Successfully added the Room ^^');
   return back();
 
     }
 
-public function allRequests(){
-    // dd(Auth::user()->HotelOwner[0]->Hotel->BookedRoom);
-    // foreach(Auth::user()->HotelOwner[0]->Hotel as $hotel){
-
-    //    dd($hotel->BookedRoom);
-    //     $orderedRooms = BookedRoom::where('hotel_id',$hotel->id)->get();
-    //     dd($orderedRooms);
-    // }
-    // $query='select * from booked_rooms where hotel_id =(select id from hotels'
-    $hotels= Auth::user()->HotelOwner[0]->Hotel;
-    // $orderedRooms = BookedRoom::where('hotel_id',Auth::user()->HotelOwner[0]->id);
-    $orderedRooms = BookedRoom::all();
-    // dd($orderedRooms);
-    return view('dashboardHotelOwner.allRequests',['hotels'=>$hotels,
-'orderedRooms'=>$orderedRooms]);
-}
-
-public function changeStatus(BookedRoom $bookedRoom,Request $request){
-$bookedRoom->update([
-    'status'=>$request->status,
-]);
-Alert::success('Done', 'status udated Successfully ^^');
-return back();
-}
+    public function allRequests(){
+        // dd(Auth::user()->HotelOwner[0]->Hotel->BookedRoom);
+        // foreach(Auth::user()->HotelOwner[0]->Hotel as $hotel){
+    
+        //    dd($hotel->BookedRoom);
+        //     $orderedRooms = BookedRoom::where('hotel_id',$hotel->id)->get();
+        //     dd($orderedRooms);
+        // }
+        // $query='select * from booked_rooms where hotel_id =(select id from hotels'
+        $hotels= Auth::user()->HotelOwner->Hotel;
+        // dd($hotels);
+        // foreach($hotels as $hotel){
+        //     dd($hotel->BookedRoom);
+        // }
+        // $orderedRooms = BookedRoom::where('hotel_id',Auth::user()->HotelOwner[0]->id);
+    
+        return view('dashboardHotelOwner.allRequests',['hotels'=>$hotels]);
+    }
+    
+    public function changeStatus(BookedRoom $bookedRoom,Request $request){
+    $bookedRoom->update([
+        'status'=>$request->status,
+    ]);
+    Alert::success('Done', 'status udated Successfully ^^');
+    return back();
+    }
 
 
 
@@ -285,12 +294,12 @@ return back();
 
     public function allOwnedHotels(){
         // if(Auth::user()->)
-        $allHotels =Hotel::all();
+        $allHotels =Hotel::where('hotel_owner_id',Auth::user()->HotelOwner[0]->id)->get();
 
-        $hotelsImg=  HotelImg::all();
+    
             return view('dashboardHotelOwner.hotels',[
                 'allHotels'=>$allHotels,
-                'AllImgs'=>$hotelsImg
+            
             ]);
         }
 

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset("./assets/css/all.min.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/framework.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/master.css")}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
     <title>Document</title>
 </head>
 <body>
@@ -85,7 +91,8 @@
 
                 <div class="fs-14">
                     <span class="c-grey">Email:</span>
-                    <span>{{ auth()->user()->driver->license }}</span>
+                    {{-- {{dd(auth()->user()->Driver[0]->license)}} --}}
+                    <span>license {{ auth()->user()->Driver[0]->license}}</span>
                   </div>
 
               <div class="fs-14">
@@ -97,7 +104,7 @@
             </div>
 
             <div class="buttons"> 
-              <button >  <a href="{{ route('driverprofileDash.edit', [auth()->user()->Driver->id]) }}" class="ms-auto fs-4 me-4 text-dark"> Edit </a>
+              <button >  <a href="{{ route('driverprofileDash.edit', [auth()->user()->Driver[0]->id]) }}" class="ms-auto fs-4 me-4 text-dark"> Edit </a>
              </button>
            
           </div>

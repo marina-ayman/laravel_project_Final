@@ -22,10 +22,10 @@ class Place extends Model
         return $this->hasMany(PlaceImg::class);
      }
      public function Order(){
-        return $this->belongsTo(order::class);
+        return $this->hasMany(order::class);
      }
      public function Trip()
      {
-         return $this->hasMany(Trip::class , 'PlacesOfRecommTrips', 'trip_id', 'trip_id');
+         return $this->hasMany(Trip::class);
      }
 }

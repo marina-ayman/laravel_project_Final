@@ -21,12 +21,12 @@ class Trip extends Model
        
     public function Place()
     {
-        return $this->hasMany(Place::class , 'PlacesOfRecommTrips', 'trip_id', 'trip_id');
+        return $this->hasMany(Place::class );
     }
     public function User(){
-        return $this->hasMany(User::class  , 'ChosenTrip', 'order_id', 'room_id');
+        return $this->hasMany(User::class  );
     }
     public function TripImg(){
-        return $this->hasMany(TripImg::class  , 'ChosenTrip', 'order_id', 'room_id');
+        return $this->hasMany(TripImg::class );
     }
 }

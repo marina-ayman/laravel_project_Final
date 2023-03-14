@@ -140,7 +140,31 @@ return redirect('dashboardAdmin.user.users',['role'=>$request->role]);
      */
     public function update(Request $request, hotelOwner $hotelOwner)
     {
-        //
+        
+       User::where('id',$hotelOwner->user_id)->update([
+        'name' => $request['name'] ,
+        'email' => $request['email'],
+        'password' => $request['password'],
+        'gender' => $request['gender'] ,
+        'phone' => $request['phone'],
+        'image'=>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
+        ]);
+
+    $hotelOwner->update([
+        'price_per_day' =>(int)$request['price_per_day'] ,
+        'syndicate_No' => $request['syndicate_No'] ,
+        'bio' => $request['bio']  ,
+          // 'bio' =>isset($request['bio'])?$request['bio']:null  ,
+
+       ]);
+// print_r($request['language']);
+// foreach ($request['language'] as  $lang) {
+//     // dd($value->getClientOriginalName());
+
+//     TourguideLanguage::where('tourguide_id',$ID->id)->update([
+//        'language'=>$lang],
+//        );
+// }
     }
 
     /**

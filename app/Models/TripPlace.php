@@ -12,5 +12,10 @@ class TripPlace extends Model
         'trip_id',
         'place_id'
     ];
-    
+    public function Trip(){
+        return $this->hasMany(Trip::class);
+    }
+    public function Place(){
+        return $this->hasMany(Place::class);
+    }
 }

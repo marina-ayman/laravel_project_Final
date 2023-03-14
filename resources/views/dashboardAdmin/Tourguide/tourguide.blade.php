@@ -113,6 +113,26 @@ ul li ul li a {
         </div>
 
 
+
+
+
+        -- Add Users -->
+        <nav  class="primary-navigation">
+          <ul>
+          
+            <li  style="background-color: rgb(196, 228, 255);padding: 1rem; ;"><a  href="#">Add User &dtrif;</a>
+              <ul class="dropdown">
+                <li>  <a class="dropdown-item" href="{{route('UserDash.create')}}"> 😎User</a></li>
+                <li>   <a class="dropdown-item" href="{{route('driverDash.create')}}">🚐User AS Driver</a></li>
+                <li>   <a class="dropdown-item"  href="{{route('tourgideDash.create')}}">💁‍♂️User AS Tourguide</a></li>
+                {{-- <li>  <a class="dropdown-item" href="{{route('hotelOwnerDash.create')}}">💖User AS HotelOwner</a></li> --}}
+              </ul>
+              </li>
+            </ul>
+        </nav>
+        <!-- =========== -->
+
+
         <!-- End Head -->
         <h2 class="mt-0 mb-20">Tourgide</h2>
         <div class="responsive-table">
@@ -180,7 +200,7 @@ ul li ul li a {
         
         
         
-        
+{{--         
         
         
         <!-- start pagination -->
@@ -198,26 +218,11 @@ ul li ul li a {
                 </nav>
               </div>
       </div>
-    </div>
+    </div> --}}
 
 
 
 
-    -- Add Users -->
-<nav  class="primary-navigation">
-  <ul>
-  
-    <li  style="background-color: rgb(196, 228, 255);padding: 1rem; ;"><a  href="#">Add User &dtrif;</a>
-      <ul class="dropdown">
-        <li>  <a class="dropdown-item" href="{{route('UserDash.create')}}"> 😎User</a></li>
-        <li>   <a class="dropdown-item" href="{{route('driverDash.create')}}">🚐User AS Driver</a></li>
-        <li>   <a class="dropdown-item"  href="{{route('tourgideDash.create')}}">💁‍♂️User AS Tourguide</a></li>
-        {{-- <li>  <a class="dropdown-item" href="{{route('hotelOwnerDash.create')}}">💖User AS HotelOwner</a></li> --}}
-      </ul>
-      </li>
-    </ul>
-</nav>
-<!-- =========== -->
 
 
   </body>

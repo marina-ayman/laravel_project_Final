@@ -33,10 +33,10 @@ class DriverController extends Controller
      }
      public function indexDriver()
      {
-         $users=User::all(); //fk
-         $driver=driver::all();
+        //  $users=User::all(); //fk
+        //  $driver=driver::all();
       
-         return view("dashboardAdmin.Driver.driver",["driver" => $driver],["users"=> $users]);
+         return view("dashboardAdmin.Driver.driver");
          //show table from DB
       }
 
@@ -45,7 +45,7 @@ class DriverController extends Controller
      public function indexprofile()
      {
         
-         return view("dashboardDriver.driverindex",[ "driver" => $driver],["users"=> $users]);
+         return view("dashboardDriver.driverindex");
          //show table from DB
 
      }
@@ -144,12 +144,12 @@ class DriverController extends Controller
      * @param  \App\Models\driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function edit(driver $driver)
+    public function edit(driver $id)
     {
-        $users=User::all($driver); //fk
-        $driver=driver::find($driver['user_id']);
+        // $users=User::all($driver); //fk
+        $driver=$id;
 
-        return view('dashboardDriver.editDriver',['users'=>$users],['driver'=>$driver]);
+        return view('dashboardDriver.editDriver',['driver'=>$driver]);
 
     }
 
@@ -163,7 +163,7 @@ class DriverController extends Controller
     public function update(Request $request, driver $driver)
     {
 
-       $user= User::where('id',$driver)->update([
+       $user= User::where('id',$driver->user_id)->update([
             'name' => $request['name'] ,
             'email' => $request['email'],
             'password' => $request['password'],
@@ -172,7 +172,7 @@ class DriverController extends Controller
             'image'=>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
             ]);
 
-        Driver::where('user_id',$driver)->update([
+        $driver->update([
 
         'license' => $request['license'],
         'user_id' => $user['id']

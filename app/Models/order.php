@@ -35,22 +35,28 @@ class Order extends Model
     // }
     public function BookedRoom()
     {
-        return $this->belongsToMany(BookedRoom::class );
+        return $this->hasMany(BookedRoom::class );
     }
     public function Hotel()
     {
-        return $this->hasMany(Hotel::class );
+        return $this->belongsToMany(Hotel::class );
     }
 
     public function Tourguide()
     {
-        return $this->hasOne(BookTourGuide::class );
+        return $this->belongsTo(Tourguide::class );
+    }
+    public function BookTourguide(){
+        return $this->belongsTo(BookTourguide::class );
     }
     public function Places()
     {
+        return $this->hasMany(Places::class );
+    }
+    public function OrderedPlaces(){
         return $this->hasMany(OrderedPlaces::class );
     }
-    public function OrderedRoomType()
+    public function OrderedRoom()
     {
         return $this->hasMany(OrderedRoom::class );
     }

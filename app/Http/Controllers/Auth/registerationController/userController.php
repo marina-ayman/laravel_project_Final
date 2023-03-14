@@ -116,7 +116,7 @@ $role= Role::where('id',$newUser->role_id)->first();
 $role= Role::where('id',$newUser->role_id)->first();
 // dd($role);
 //    return redirect(route('userRegistrations.index'));
- return redirect(route('login.create',['role'=>$role->name]));
+ return redirect()->route('login.create',['role'=>$role->name]);
 
     }
 
@@ -168,10 +168,10 @@ public function validateLogin(Request $request) {
 //     return redirect()->route('driverprofileDash.index');
 // }
 
-else{
+
 
     return redirect('/home');
-}
+
  }else{
 
      Alert::error('sorry', 'credentials invalid! :(');

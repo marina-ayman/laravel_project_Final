@@ -54,13 +54,6 @@ class User extends Authenticatable
         return $this->hasMany(HotelOwner::class );
     }
 
-
-
-    // public function hasRole(){
-    //     // dd('hi');
-    //     return $this->belongsTo(Role::class);
-    // }
-
     public function role(){
         // dd('hi');
         return $this->belongsTo(Role::class);

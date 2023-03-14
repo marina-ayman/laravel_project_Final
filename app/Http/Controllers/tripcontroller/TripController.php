@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\tripController;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+
 use App\Models\trip;
 use App\Models\TripImg;
 use Illuminate\Http\Request;
@@ -105,10 +107,10 @@ foreach( $request['image'] as $img){
      * @param  \App\Models\trip  $trip
      * @return \Illuminate\Http\Response
      */
-    public function edit(trip $trip)
+    public function edit(trip $id)
     {
-        $allTrips =Trip::find($trip);
-        $tripImg=TripImg::all($trip['trip_id']);
+        $allTrips =$id;
+        $tripImg=TripImg::where('trip_id',$id->id);
 
         return view('dashboardAdmin.allTrips.Edittrip',['allTrips'=>$allTrips],['tripImg'=>$tripImg]);
     }
@@ -124,17 +126,43 @@ foreach( $request['image'] as $img){
      * @param  \App\Models\trip  $trip
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Trip $trip)
+    public function update(Request $request, Trip $id)
     {
-        $trip->update($request->all());
+        if(!is_null($request->cover_img)){
 
-        // return response()->json([
-        //       'trip updated successfully'=>$trip
-        //   ]);
-        return   redirect(route('dashboardAdmin.allTrips.tripTable'));
+            $id->update([
+                'description'=>$request->description,
+                'price'=>$request->price,
+                'n_of_people'=>$request->n_of_people,
+                'n_of_days'=>$request->n_of_days,
+                'cover_img'=>$request->file("cover_img")->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName())
+            ]);
+        }else{
+            $id->update([
+                'name'=>$request->name,
+                'description'=>$request->description,
+                'price'=>$request->price,
+                'n_of_people'=>$request->n_of_people,
+                'n_of_days'=>$request->n_of_days,
+            ]);
+        }
+        // dd($request->image);
+        foreach($request->image as $img){
+            // dd($img);
 
+        }
+        if(!is_null($request->image[0])){
+               foreach($request->image as $img){
+            //  dd(HotelImg::where('hotel_id',$hotelID->id)->update(['image']));
+                   TripImg::where('trip_id',$id->id)->update([
+                       'image'=>$img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName())
+                    ]);
+               }
+        }
+        Alert::success('Congrats', 'You\'ve Successfully updated the hotel ^^');
+
+        return redirect(route('TrippDash.index'));
     }
-
     /**
      * Remove the specified resource from storage.
      *

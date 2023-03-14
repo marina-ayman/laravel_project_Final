@@ -27,7 +27,7 @@ class Hotel extends Model
     }
     public function BookedRoom()
     {
-        return $this->belongsToMany(bookedRoom::class);
+        return $this->hasMany(bookedRoom::class);
     }
     public function HotelOwner()
     {
@@ -40,7 +40,7 @@ class Hotel extends Model
     }
         public function Order()
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsToMany(Order::class);
 
     }
 

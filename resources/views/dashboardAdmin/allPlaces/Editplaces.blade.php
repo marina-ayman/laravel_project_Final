@@ -48,15 +48,13 @@
                 <input class="d-block mb-20 w-full p-10 b-none bg-eee rad-6"  type="text" placeholder="price" name='price' value="{{$places->price}}"/>
               
              <select class="form-select bg-eee mb-20 " name='type' Type aria-label="Default select example">
-          
-              <option   value="<?php isset($places->type)?echo'selected':?>" >{{$places->type}}</option>
+              
+              <option selected value="{{$places->type}}">{{$places->type}} </option>
               <option   value="indoor" >indoor</option>
               <option   value="outdoor" >outdoor</option>
               <option   value="islands" >islands</option>
               <option   value="cruise" >cruise</option>
-             
-              <option   value="{{$places->type == 'Outdoor'}}? <?php echo 'selected' ?>  : '' ">Outdoor</option>
-              <option   value="{{$places->type == '3'}}? <?php echo 'selected' ?> : '' ">Triple</option>
+            
             </select>
            
               <textarea class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" id="desc" placeholder="Description"  name='description' value="{{$places->description}}"></textarea>

@@ -76,6 +76,16 @@ class TourguideController extends Controller
           // 'bio' =>isset($request['bio'])?$request['bio']:null  ,
         'user_id' => $user['id']
        ]);
+       if($request['language']){
+
+           foreach ($request['language'] as  $lang) {
+            // dd($value->getClientOriginalName());
+        
+            TourguideLanguage::create([
+               'tourguide_id'=>$tourguide["id"],'language'=>$lang],
+               );
+        }
+       }
 // print_r($request['language']);
     //    if(is_array($request['language'])){
     //     foreach($request['language'] as $lang){
@@ -138,29 +148,36 @@ class TourguideController extends Controller
           // 'bio' =>isset($request['bio'])?$request['bio']:null  ,
         'user_id' => $user['id']
        ]);
-// print_r($request['language']);
-       if(is_array($request['language'])){
-        foreach($request['language'] as $lang){
+// dd($request['language']);
+foreach ($request['language'] as  $lang) {
+    // dd($value->getClientOriginalName());
 
-       $tourguide=TourguideLanguage::create([
-               'language' => $lang ,
-               'tourguide_id' => $tourguide['id']
-              ]);
-        }
-       }else{
-       TourguideLanguage::create([
-            'language' => $request['language'] ,
-            'tourguide_id' => $tourguide['id']
-           ]);
-       }
+    TourguideLanguage::create([
+       'tourguide_id'=>$tourguide["id"],'language'=>$lang],
+       );
+}
+    //    if(is_array($request['language'])){
+    //     foreach($request['language'] as $lang){
+
+    //    $tourguide=TourguideLanguage::create([
+    //            'language' => $lang ,
+    //            'tourguide_id' => $tourguide['id']
+    //           ]);
+    //     }
+    //    }else{
+    //    TourguideLanguage::create([
+    //         'language' => $request['language'] ,
+    //         'tourguide_id' => $tourguide['id']
+    //        ]);
+    //    }
        $newUser = User::find($user->id);
 
        if(!empty ($tourguide)){
-           $role_id =Role::where('name','tourguide')->limit(1)->get();
-           $newUser->update(['role_id'=>$role_id[0]->id]);
+           $role_id =Role::where('name','tourguide')->first();
+           $newUser->update(['role_id'=>$role_id->id]);
        }
 
-       return redirect('dashboardAdmin.user.users');
+       return redirect()->route('TourguideProfile.index');
     }
 
 
@@ -200,11 +217,11 @@ class TourguideController extends Controller
      * @param  \App\Models\tourgide  $tourgide
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $ID)
+    public function update(Request $request,tourguide $ID)
     {
 
 
-       User::where('id',$ID)->update([
+       User::where('id',$ID->user_id)->update([
             'name' => $request['name'] ,
             'email' => $request['email'],
             'password' => $request['password'],
@@ -213,28 +230,35 @@ class TourguideController extends Controller
             'image'=>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
             ]);
 
-        TourGuide::where('user_id',$ID)->update([
+        $ID->update([
             'price_per_day' =>(int)$request['price_per_day'] ,
             'syndicate_No' => $request['syndicate_No'] ,
             'bio' => $request['bio']  ,
               // 'bio' =>isset($request['bio'])?$request['bio']:null  ,
-            'user_id' => $user['id']
+
            ]);
     // print_r($request['language']);
-           if(is_array($request['language'])){
-            foreach($request['language'] as $lang){
+    foreach ($request['language'] as  $lang) {
+        // dd($value->getClientOriginalName());
+    
+        TourguideLanguage::where('tourguide_id',$ID->id)->update([
+           'language'=>$lang],
+           );
+    }
+        //    if(is_array($request['language'])){
+        //     foreach($request['language'] as $lang){
 
-                TourGuide::where('tourguide_id',$ID)->update([
-                   'language' => $lang ,
-                   'tourguide_id' => $tourguide['id']
-                  ]);
-            }
-           }else{
-            TourGuide::where('tourguide_id',$ID)->update([
-                'language' => $request['language'] ,
-                'tourguide_id' => $tourguide['id']
-               ]);
-           }
+        //         TourGuide::where('tourguide_id',$ID)->update([
+        //            'language' => $lang ,
+        //            'tourguide_id' => $tourguide['id']
+        //           ]);
+        //     }
+        //    }else{
+        //     TourGuide::where('tourguide_id',$ID)->update([
+        //         'language' => $request['language'] ,
+        //         'tourguide_id' => $tourguide['id']
+        //        ]);
+        //    }
 
 
           return redirect('dashboardTourguide.tourguideProfile');

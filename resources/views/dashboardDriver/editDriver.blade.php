@@ -9,8 +9,8 @@
 <body>
     
 
-    <form action="{{route('driverprofileDash.update',auth()->user()->Driver->id)}}" class="form" id="form1" method="Post" enctype="multipart/form-data">
-        @method('put')
+    <form action="{{route('driverprofileDash.update',['id'=>$driver->id])}}" class="form" id="form1" method="Post" enctype="multipart/form-data">
+    
         @csrf
 
 <div class="head bg-white p-15 between-flex">
@@ -62,8 +62,8 @@
                   ></span>
         </div>
 
-
-          <input type="text" placeholder="License" name="license" class="input" required value="{{auth()->user()->Driver->license}}" />
+{{-- {{dd($driver->license)}} --}}
+          <input type="text" placeholder="License" name="license" class="input" value="{{$driver->license}}" required  />
           <input type="text" class="input" name="role" value="driver" hidden>
           <div class="fs-14">
        
@@ -93,13 +93,13 @@
         <!-- Start Information Row -->
         <div class="box p-20 d-flex align-center">
 
-            <div class="fs-14">
+            {{-- <div class="fs-14">
                 <span class="c-grey">Email:</span>
-                <span>{{ auth()->user()->driver->license }}</span>
+                <span>{{$driver->license }}</span>
               </div>
 
 
-        </div>
+        </div> --}}
         <!-- End Information Row -->
         <!-- Start Information Row -->
 

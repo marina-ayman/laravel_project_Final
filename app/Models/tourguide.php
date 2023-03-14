@@ -24,12 +24,12 @@ class Tourguide extends Model
     }
     public function Order()
     {
-        return $this->hasMany(Order::class , 'book_tour_guide', 'order_id', 'tourGuide_id');
+        return $this->hasMany(Order::class );
 
     }
     public function languages()
     {
-        return $this->hasMany(TourguideLanguage::class , 'book_tour_guide', 'order_id', 'tourGuide_id');
+        return $this->hasMany(TourguideLanguage::class);
 
     }
 
