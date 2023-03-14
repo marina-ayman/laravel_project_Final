@@ -59,7 +59,7 @@ Route::get('/PlaceDashForm',[PlaceController :: class ,"create"])->name("PlaceeD
 Route::get('/PlaceDash',[PlaceController :: class ,"index"])->name("PlaceeDash.index");
 Route::post('/PlaceDash',[PlaceController :: class ,"store"])->name("PlaceeDash.store");
 Route::get('/deletePlaceDash/{id}',[PlaceController::class,'destroy'])->name("PlaceeDash.destroy");
-Route::PUT('/PlaceDash/{id}', [PlaceController::class, 'update'])->name('PlaceDash.update');
+Route::post('/PlaceDash/{id}', [PlaceController::class, 'update'])->name('PlaceDash.update');
 Route::get('/PlaceDash/{id}/edit', [PlaceController::class, 'edit'])->name('PlaceDash.edit');
 
 

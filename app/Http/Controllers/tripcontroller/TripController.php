@@ -70,16 +70,16 @@ foreach( $request['image'] as $img){
        TripImg::create([
             'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
             'trip_id'=>$trip->id
-            // 
+            //
           ]);
 
 }
-       
+
         //   return response()->json([
         //     //   'Trips'=>$trip ,
         //       'message'=> 'trip info is saved successfully '
         // ]);
-        return redirect(route('TripDash.create'));
+        return redirect(route('TrippDash.index'));
     }
 
     /**
@@ -105,10 +105,10 @@ foreach( $request['image'] as $img){
      * @param  \App\Models\trip  $trip
      * @return \Illuminate\Http\Response
      */
-    public function edit(trip $trip)
+    public function edit(trip $id)
     {
-        $allTrips =Trip::find($trip);
-        $tripImg=TripImg::all($trip['trip_id']);
+        $allTrips =$id;
+        $tripImg=TripImg::where('trip_id',$id->id);
 
         return view('dashboardAdmin.allTrips.Edittrip',['allTrips'=>$allTrips],['tripImg'=>$tripImg]);
     }
@@ -144,7 +144,7 @@ foreach( $request['image'] as $img){
     public function destroy($id)
     {
 
-   
+
 
 
         $delTrip= Trip::find($id)->delete();

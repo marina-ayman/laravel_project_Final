@@ -1,7 +1,7 @@
 @extends('dashboardAdmin.dashboardViewAdmin')
 
 @section('dashbourdAdmon')
-    
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +17,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- 
+
 </head>
 <body>
     {{-- {{dd($allTrips)}} --}}
-   
-<h1 class="p-relative">Customer</h1>
+
+
         <div class="projects p-20 bg-white rad-10 m-20">
-          <h2 class="mt-0 mb-20">Customers</h2>
+          <h2 class="mt-0 mb-20">Trips</h2>
+          <a href="{{route("TrippDash.create")}}" class="label btn-shape bg-red c-white">+</a>
           <div class="responsive-table">
             <table class="fs-15 w-full">
               <thead>
@@ -43,7 +44,7 @@
               @foreach ($allTrips as $Trips)
            <tr>
            <td>{{$Trips->id}}</td>
-             <td>{{$Trips->trip_id->users['name']}}</td>
+             {{-- <td>{{$Trips->trip_id->users['name']}}</td> --}}
              <td><img src="{{ asset('img/'.$Trips->cover_img) }}" alt="" width="75px">
            </td>
            <td>{{$Trips->description}}</td>
@@ -51,27 +52,24 @@
              <td>{{$Trips->n_of_people}}</td>
              <td>{{$Trips->n_of_places}}</td>
              <td>{{ $Trips->n_of_days}}</td>
-         
-          
-          
+
+
+
              <td>
 
               <button type="submit" class="label btn-shape bg-green c-white">
-              <a href="{{route('TripDash.edit',['trip'=>$Trips->id])}}" class="btn btn-outline-success">Edit</a>
-              </button>
-              <form action="{{route('TrippDash.destroy'),['id'=>$Trips->id]}}"  accept-charset="UTF-8" style="display:inline">
-              @crsf
-              @method('delete')
+              <a href="{{route('TripDash.edit',['id'=>$Trips->id])}}" class="btn btn-outline-success">Edit</a>
+              edit
+            </a>
+              <a href="{{route('TrippDash.destroy',['id'=>$Trips->id])}}"  accept-charset="UTF-8" style="display:inline" onclick="return confirm('Confirm delete?')">
+delete
+            </a>
                <!-- method('delete',$Trips['hotel_owner_id']); -->
-                 <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
-                 <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  Delete
-                 </button>
-              </form> 
+                 {{-- <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')"> --}}
+                
 
 
 
-       
              </td>
            </tr>
 
