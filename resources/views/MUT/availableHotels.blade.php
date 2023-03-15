@@ -86,8 +86,9 @@
         <form action="{{route('getAvailablePlaces',['order'=>$order->id])}}" method="POST">
             @csrf
             <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
+            <input type="text" name="percent" value="{{ $percent }}" hidden>
             <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
-          <button type="submit" >Skip this step </button>
+          <button type="submit" >Next Step </button>
         </form>
       </div>
     </div>

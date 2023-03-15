@@ -61,33 +61,21 @@
 
   </div>
 
+            <input type="checkbox" name="room_id[]" value="{{ $room->id }}" >
+
+            <input type="text" name="percent" value="{{ $percent }}" hidden>
+        </div>
+    </div>
+    @endif
+    @endif
+    @endforeach
+    <button type="submit" >Book Now & next step </button>
 </form>
-<form action="{{route('getAvailableHotels',['budgetForHotels'=>$percent*100,'order'=>$order->id])}}" >
-  @csrf
- 
-<button type="submit" >Back </button>
-</form>
+      <form action="{{route('getAvailableHotels',['budgetForHotels'=>$percent*100,'order'=>$order->id])}}" >
+        @csrf
 
-
-
-
-
-
-
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/home/lib/easing/easing.min.js"></script>
-    <script src="./assets/home/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="./assets/home/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="./assets/home/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
- 
-    <!-- Template Javascript -->
-    <script src="./assets/home/js/main.js"></script>
+      <button type="submit" >Back </button>
+    </form>
 </body>
 </html>
 

@@ -5,27 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RegularBookedRoom extends Model
+class RegularBookedTourguide extends Model
 {
-    protected $table = 'regular_booked_room';
+    protected $table = 'regular_booked_tourguide';
     use HasFactory;
-
-
     protected $fillable =[
         'check_in',
         'check_out',
-        'n_of_adults',
-        'n_of_childeren',
         'status',
         'user_id',
-        'room_id'
+        'tourguide_id'
     ];
     public function User()
     {
         return $this->belongsTo(User::class);
     }
-    public function Room()
+
+    public function Tourguide()
     {
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(Tourguide::class);
     }
 }

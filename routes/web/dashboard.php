@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\registerationController\DriverController;
 use App\Http\Controllers\Auth\registerationController\HotelOwnerController;
 use App\Http\Controllers\Auth\registerationController\TourguideController;
 use App\Http\Controllers\Auth\registerationController\userController;
+use App\Http\Controllers\Controllers\regularController;
 use App\Http\Controllers\orderController\OrderController;
 use App\Http\Controllers\orderController\OrderDetailsController;
 
@@ -194,10 +195,9 @@ Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name
 
 
 // Route::get('/index',function(){return view('/layouts/nav');})->name('index');
-// Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
-// Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
-// Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
-Route::get('/cart',function(){return view('/cart');})->name('cart');
+Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
+Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
+Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
 
 
 Route::get('/Placesall',[ViewPlacesController::class,'index'])->name('Placesall');

@@ -32,7 +32,7 @@
 
     <form action="{{route('bookPlaces',['order'=>$order])}}" method="POST">
       @csrf
-
+@if(!empty($availablePlaces))
           @foreach ($availablePlaces as $place )
      <div class="col-lg-3  col-sm-6 col-12 rounded">
 
@@ -76,11 +76,33 @@
 
   </div>
   @endforeach
-  <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+  <input type="text" name="percent" value="{{ $percent }}" hidden>
+  <button type="submit">Book</button>
+
+    </form>
+
+@else
+
+
+    <form action="{{route('getAvailableTourguides',['order'=>$order->id])}}">
+
+        <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+        <button type="submit">Next step</button>
+    </form>
+    <form action="{{route('getAvailablePlaces')}}">
+        <input type="text" name="percent" value="{{ $percent }}" hidden>
+
+        <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+        <button type="submit">back step</button>
+    </form>
+    <form action="{{route('MUTE',['order'=>$order])}}">
+
+        <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+        <button type="submit">Finish My trip ^^ </button>
+    </form>
 
   </div>
 </div>
 
 @endsection
-
-@endsection
+@endif

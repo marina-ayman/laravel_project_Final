@@ -18,11 +18,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('place_id');
-            $table->foreign('tourguide_id')->references('id')->on('tourguides')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade')->onUpdate('cascade');
             // managed by admin
             $table->enum('status',['Accept','pending','Reject'])->default('pending');
-            $table->dateTime("check_in");
-            $table->dateTime("check_out");
+            $table->date("check_in");
+            $table->date("check_out");
         });
 
     }
