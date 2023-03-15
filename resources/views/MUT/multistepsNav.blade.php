@@ -123,7 +123,7 @@ margin-left: 7rem;
     {{-- <a class="breadcrumb__step" href="{{route(getAvailableHotels)}}">Hotels  MUTE</a> --}}
     {{-- <a class="breadcrumb__step" href="{{route('getAvailablePlaces')}}">Places MUTE</a> --}}
     {{-- <a class="breadcrumb__step" href="{{route('bookWithTourguide')}}">Tourguide MUTE</a> --}}
-    <a class="breadcrumb__step" href="{{route('cart')}}">cart</a>
+    {{-- <a class="breadcrumb__step" href="{{route('cart')}}">cart</a> --}}
 
 </div>
 

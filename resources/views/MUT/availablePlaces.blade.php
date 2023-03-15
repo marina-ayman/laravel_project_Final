@@ -59,6 +59,8 @@
         <div class="card-body" >
           <h3 class="card-title fs-4" style="color: rgb(190, 143, 23);">
 {{$place->name}}
+<br>
+ Ticket Price:   {{$place->price}}
           </h3>
           <!-- <p class="card-text">This is a wider card with</p> -->
         </div>
@@ -77,6 +79,7 @@
   </div>
   @endforeach
   <input type="text" name="percent" value="{{ $percent }}" hidden>
+  <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
   <button type="submit">Book</button>
 
     </form>

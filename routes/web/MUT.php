@@ -23,7 +23,7 @@ Route::get('/showPlace/{place}',[PlaceController::class,'show'])->name('showPlac
 Route::post('/bookPlaces/{order}',[MUTController::class,'bookPlaces'])->name("bookPlaces");
 Route::get('/availableTourguides/{order}',[MUTController::class,'getAvailableTourguides'])->name("getAvailableTourguides");
 
-Route::post('/bookWithTourguide/{order}/{tourguide}',[MUTController::class,'bookWithTourguide'])->name("bookWithTourguide");
+Route::get('/bookWithTourguide/{order}/{tourguide}',[MUTController::class,'bookWithTourguide'])->name("bookWithTourguide");
 
 Route::get('/MUTE/{order}',[MUTController::class,'MUTE'])->name("MUTE");
 // Route::get('/payForMyMUTE/{order}',[MUTController::class,'viewPayForMUTE'])->name("viewPayForMUTE");
