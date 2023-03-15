@@ -178,3 +178,9 @@ Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourg
 Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
 Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
 Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
+// =========================================
+Route::get('/tourguideRequests/{id}',[DashboardController :: class ,"tourguideRequests"])->name("tourguideRequests");
+Route::post('/tourChangeStatus/{order}',[DashboardController :: class ,"tourChangeStatus"])->name("tourChangeStatus");
+Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
+Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
+Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");

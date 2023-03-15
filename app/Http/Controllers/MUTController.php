@@ -249,7 +249,7 @@ class MUTController extends Controller
     public function bookPlaces(Order $order, Request $request)
     {
         // dd($request);
-     
+
 
             // foreach ($request->place_id as $placeID) {
             //     // dd($placeID);
@@ -258,7 +258,7 @@ class MUTController extends Controller
             //         'place_id' => $placeID
             //     ]);
             // }
-     
+
         $totalPaidInPlaces = DB::table("places")
             ->select(DB::raw('sum(places.price)as sum'))
             ->join('ordered_places', 'places.id', '=', 'ordered_places.place_id')
@@ -328,10 +328,35 @@ class MUTController extends Controller
             'order_id' => $order->id,
             'n_of_days' => $order->n_of_days
         ]);
-        $restOfBudgetAfterAllBooking = $order->budget - ($request->restBudgetBeforeTourguide + ($tourguide->price_per_day * $order->n_of_days));
-        // dd($restOfBudgetAfterAllBooking);
-        return view('MUT.MUTDetails', [
-            'order' => $order,
+        $BookedRooms = BookedRoom::where('order_id',$order->id)->get();
+        // $order->Tourguide
+        $BookedTourguide = BookTourGuide::where('order_id',$order->id)->get();
+        // $order->place
+        $orderedPlaces = OrderedPlace::where('order_id',$order->id)->get();
+        $totalPaidInPlaces = DB::table("places")
+        ->select(DB::raw('sum(places.price)as sum'))
+        ->join('ordered_places', 'places.id', '=', 'ordered_places.place_id')
+        ->where('ordered_places.order_id', '=', $order->id)
+        ->get();
+        $totalPaidInTourguide = DB::table("tourguides")
+        ->select(DB::raw('sum(tourguides.price)as sum'))
+        ->join('book_tour_guide', 'tourguides.id', '=', 'book_tour_guide.tourguide_id')
+        ->where('book_tour_guide.order_id', '=', $order->id)
+        ->get();
+        $totalPaidInRooms = DB::table("rooms")
+        ->select(DB::raw('sum(rooms.price)as sum'))
+        ->join('booked_room', 'rooms.id', '=', 'booked_room.room_id')
+        ->where('booked_room.order_id', '=', $order->id)
+        ->get();
+        return view('cart',[
+            'order'=>$order,
+            'BookedRooms'=>isset($BookedRooms)?$BookedRooms:'not found ',
+            'BookedTourguide'=>isset($BookedTourguide)?$BookedTourguide:'not found ',
+            'orderedPlaces'=>isset($orderedPlaces)?$orderedPlaces:'not found ',
+            'totalPaidInPlaces'=>isset($totalPaidInPlaces[0]->sum)?$totalPaidInPlaces:0,
+            'totalPaidInRooms'=>isset($totalPaidInRooms[0]->sum)?$totalPaidInRooms:0,
+            'totalPaidInTourguide'=>isset($totalPaidInTourguide[0]->sum)?$totalPaidInTourguide:0
+
         ]);
     }
 
@@ -340,7 +365,7 @@ class MUTController extends Controller
         OrderDetail::create([
             'order_id' => $order->id
         ]);
-        return view('MUT.cart', [
+        return view('cart', [
             'order' => $order
         ]);
     }
