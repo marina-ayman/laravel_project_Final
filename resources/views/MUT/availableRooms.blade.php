@@ -34,8 +34,8 @@
           <p class="card-text">Nice Place</p>
 
             <input type="checkbox" name="room_id[]" value="{{ $room->id }}" >
-            
-            
+
+            <input type="text" name="percent" value="{{ $percent }}" hidden>
         </div>
     </div>
     @endif
@@ -45,7 +45,7 @@
 </form>
       <form action="{{route('getAvailableHotels',['budgetForHotels'=>$percent*100,'order'=>$order->id])}}" >
         @csrf
-       
+
       <button type="submit" >Back </button>
     </form>
 </body>

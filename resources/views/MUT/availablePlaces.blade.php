@@ -71,9 +71,13 @@
 
   </div>
   @endforeach
+  <input type="text" name="percent" value="{{ $percent }}" hidden>
   <button type="submit">Book</button>
-  @endif
+
     </form>
+
+@else
+
 
     <form action="{{route('getAvailableTourguides',['order'=>$order->id])}}">
 
@@ -81,6 +85,7 @@
         <button type="submit">Next step</button>
     </form>
     <form action="{{route('getAvailablePlaces')}}">
+        <input type="text" name="percent" value="{{ $percent }}" hidden>
 
         <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
         <button type="submit">back step</button>
@@ -95,3 +100,4 @@
 </div>
 
 @endsection
+@endif
