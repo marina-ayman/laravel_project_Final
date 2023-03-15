@@ -115,15 +115,15 @@
 }
 </style>
 <body>
-    
-    
+
+
 <div class="breadcrumb">
-    <a class="breadcrumb__step breadcrumb__step--active" href="#"> orders Details </a>
+    <a class="breadcrumb__step breadcrumb__step--active" href="#"> Book Hotel </a>
     {{-- <a class="breadcrumb__step" href="{{route('getAvailableHotels')}}">Hotel</a>
     <a class="breadcrumb__step" href="{{route('getAvailablePlaces')}}">places</a>
     <a class="breadcrumb__step" href="{{route('bookWithTourguide')}}">tourguide</a> --}}
-    <a class="breadcrumb__step" href="#">MUT.store</a>
-    <a class="breadcrumb__step" href="#">cart</a>
+    <a class="breadcrumb__step" href="#">Book Places</a>
+    <a class="breadcrumb__step" href="#">Book tourguide</a>
     <a class="breadcrumb__step" href="#">cart</a>
     <a class="breadcrumb__step" href="#">cart</a>
     <a class="breadcrumb__step" href="#">cart</a>
@@ -152,7 +152,7 @@ const breadcrumbSteps: NodeList<HTMLElement> = $$('.breadcrumb__step');
         if (index >= i) {
           array[i].classList.add('breadcrumb__step--active');
         } else {
-         array[i].classList.remove('breadcrumb__step--active'); 
+         array[i].classList.remove('breadcrumb__step--active');
         }
       }
     };

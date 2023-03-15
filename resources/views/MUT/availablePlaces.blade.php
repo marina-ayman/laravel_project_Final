@@ -14,7 +14,7 @@
 <body>
     {{-- {{dd($restOfBudget)}} --}}
 
- 
+
 <section class="blog top mt-3" id="blog">
     <div class="container">
       <div class="heading">
@@ -24,8 +24,10 @@
 <!-- CARD ==================================================================-->
 <div class="container">
   <div class="row g-5" style="margin-top: 1rem;" >
+
     <form action="{{route('bookPlaces',['order'=>$order])}}" method="POST">
       @csrf
+
           @foreach ($availablePlaces as $place )
      <div class="col-lg-3  col-sm-6 col-12 rounded">
 
@@ -47,8 +49,8 @@
                 <path d="M1.114,7.567C87.544-33.817,150,150.5,150,150.5H1.361L1.114,7.567z"></path>
             </svg>
         </div>
-      
-      
+
+
         <div class="card-body" >
           <h3 class="card-title fs-4" style="color: rgb(190, 143, 23);">
 {{$place->name}}
@@ -57,7 +59,7 @@
         </div>
         <div class="card-footer" >
           <small class="text-muted">
-           
+
                 <a href="#" class="mx-1"><i class="fa fa-search m-1 border border-2 rounded-5" style="color: rgb(249, 182, 12);"></i></a><span>
                   <a href="{{route('showPlace',['place'=>$place->id])}}">{{$place->name}}</a>
                 </span>
@@ -66,7 +68,7 @@
         </div>
       </div>
 
-      
+
   </div>
   @endforeach
   <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
