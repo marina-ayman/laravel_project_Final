@@ -1,8 +1,6 @@
 
-
-
-
-
+@extends("temp")
+@section('bodyContent')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +16,12 @@
   /* background: #b0ddff; */
   height: 10vh;
   /* display: flex; */
-  justify-content: center;
-  align-items: center;
+text-align: center;
+margin-left: 7rem;
 }
 /* ------------------------- Separate line ------------------------- */
 :root {
-  --breadcrumb-theme-1: #1a006f;
+  --breadcrumb-theme-1: #0c1f6c;
   --breadcrumb-theme-2: #fff;
   --breadcrumb-theme-3: #0c0c47;
   --breadcrumb-theme-4: #0b0529;
@@ -43,7 +41,7 @@
   float: left;
   font-size: 12px;
   line-height: 36px;
-  padding: 0 10px 0 60px;
+  padding: 0 30px 0 80px;
   position: relative;
   background: var(--breadcrumb-theme-2);
   color: var(--breadcrumb-theme-1);
@@ -118,15 +116,15 @@
     
     
 <div class="breadcrumb">
-    <a class="breadcrumb__step breadcrumb__step--active" href="#"> orders Details </a>
+    <a class="breadcrumb__step breadcrumb__step--active" href="{{route('MUT.store')}}"> orders Details </a>
     {{-- <a class="breadcrumb__step" href="{{route('getAvailableHotels')}}">Hotel</a>
     <a class="breadcrumb__step" href="{{route('getAvailablePlaces')}}">places</a>
     <a class="breadcrumb__step" href="{{route('bookWithTourguide')}}">tourguide</a> --}}
-    <a class="breadcrumb__step" href="#">MUT.store</a>
-    <a class="breadcrumb__step" href="#">cart</a>
-    <a class="breadcrumb__step" href="#">cart</a>
-    <a class="breadcrumb__step" href="#">cart</a>
-    <a class="breadcrumb__step" href="#">cart</a>
+    <a class="breadcrumb__step" href="{{route(getAvailableHotels)}}">Hotels  MUTE</a>
+    <a class="breadcrumb__step" href="{{route('getAvailablePlaces')}}">Places MUTE</a>
+    <a class="breadcrumb__step" href="{{route('bookWithTourguide')}}">Tourguide MUTE</a>
+    <a class="breadcrumb__step" href="{{route('cart')}}">cart</a>
+
 </div>
 
 

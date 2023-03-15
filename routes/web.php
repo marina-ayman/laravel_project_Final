@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\hotelsController\HotelController;
+use App\Http\Controllers\ViewPlacesController;
+use App\Http\Controllers\viewHotelsController;
 // use App\Models\Room ;
 use App\Models\Room;
 use Illuminate\Support\Facades\Route;
@@ -142,7 +144,6 @@ Route::get('/Customize_hotelCustom', function () { return view('/CustomizeTrip/h
 Route::get('/Customize_placesCustom', function () { return view('/CustomizeTrip/placesCustom');});
 Route::get('/Customize_tourguideCard', function () { return view('/CustomizeTrip/tourguideCard');});
 Route::get('/Customize_viewCustomize', function () { return view('/CustomizeTrip/viewCustomize');});
-
 
 
 

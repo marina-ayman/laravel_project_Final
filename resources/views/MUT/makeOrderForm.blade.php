@@ -1,3 +1,7 @@
+@extends("temp")
+@section('bodyContent')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,3 +107,5 @@
   
 </body>
 </html>
+
+@endsection

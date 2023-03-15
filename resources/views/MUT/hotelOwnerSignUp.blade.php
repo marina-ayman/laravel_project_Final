@@ -1,3 +1,7 @@
+
+@extends("temp")
+@section('bodyContent')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,3 +96,5 @@
 <script src="{{asset("./assets/Js/signning.js")}}"></script>
 
 </html>
+
+@endsection

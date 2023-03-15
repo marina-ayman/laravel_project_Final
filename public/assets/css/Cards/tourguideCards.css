@@ -170,7 +170,7 @@ a{
   }
   .about-text,
   .about-item-text {
-    color:  hsl(0, 0%, 53%);
+    color:  hsl(0, 0%, 18%);
     font-size: 1.2rem;
    
   }
@@ -192,7 +192,7 @@ a{
   
   .about-item-title {
     /* color: hsl(0, 0%, 40%); */
-    color: #24416B;
+    color: #eef5ff;
     font-weight: 600;
     /* margin-bottom: 5px; */
   }
@@ -222,7 +222,7 @@ a{
   
     .Bbtn{
       /* background:#CC8C18; */
-       color:#24416B;
+       color:#ecf4ff;
        font-weight: bold;
        padding: 10px;
        border: 2px solid #CC8C18;
@@ -235,14 +235,14 @@ a{
   
     /* botton TOURGUIDE ----------------------------------------------------------------------------------------*/
     button {
-      --c:  #24416B; /* text color */
-         background-color :  #24416B;
+      --c:  #e8f2ff; /* text color */
+         background-color :  #e8f1fe;
          color: #CC8C18;
        
       background: 
         linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
         #ffa527;
-      color: #0000;
+      color: #ffffff8d;
       border: none;
       transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
       text-shadow: 
@@ -307,7 +307,7 @@ a{
         margin: 3px;
         /* font-weight: bold; */
         /* margin: 0; */
-        border: 2px solid  #24416B;
+        border: 2px solid  #eaac38;
         border-radius: 4px;
         border-radius: 0;
         display: block;
@@ -322,7 +322,7 @@ a{
         /* line-height: 38px;
         height: 41px; */
         /* margin: -5px 0 -3px; */
-        border: 2px solid #24416B;
+        border: 2px solid #eff6ff;
         padding: 13px;
         border-radius: 4px;
     }
@@ -357,7 +357,7 @@ a{
   
   section .section-title {
       text-align: center;
-      color: #24416B;
+      color: #eaf3ff;
       margin-bottom: 50px;
       text-transform: uppercase;
   }

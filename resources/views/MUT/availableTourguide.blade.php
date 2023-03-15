@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,10 @@
 </head>
 <body>
     
+  @extends("temp")
+  @section('bodyContent')
 
+<link rel="stylesheet" href="{{asset('assets/css/Cards/tourguideCards.css')}}">
 <section class="blog top mt-3" id="blog">
     <div class="container">
       <div class="heading">
@@ -20,12 +26,18 @@
         <h3>Discover your best trip in Aswan</h3>
       </div>
 
+      <div style="text-align: center;" class="mb-4">
+        <button class="button">TOURGUIDE</button>
+     </div>
 
-       <div class="container"  >
+
+       <div class="container tourguideCard"  >
          <div class="row g-5  "style="margin-left:10rem " >
             @foreach ($availableTourguides as $tourguide )
           <div class="col-lg-4  col-sm-6 col-12 rounded g-5" >
        
+
+
              <!-- ===================Card================= -->
   
              <div class="card border-0 me-lg-4 mb-lg-0 mb-4">
@@ -78,6 +90,8 @@
   
     </div>
   </section>
+  @endsection
+
 
     </body>
 </html>

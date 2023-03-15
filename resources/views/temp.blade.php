@@ -40,16 +40,17 @@
 									<a class="nav-link" href="{{route("homePage")}}">HOME</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="{{route('places')}}">PLACES</a>
+									<a class="nav-link" href="{{route("allHotell")}}">HOTEL</a>
+								</li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{route('Placesall')}}">PLACES</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
 								</li>
+                             
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="">HOTELS</a>
-								</li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a>
+									{{-- <a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a> --}}
 								</li>
                           
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
@@ -118,25 +119,14 @@
 		</div>
 	</div>
 
+
+    <div style="margin-bottom:15rem ">
+
   @yield('bodyContent')
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 

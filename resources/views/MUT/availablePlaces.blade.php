@@ -1,3 +1,8 @@
+
+@extends("temp")
+@section('bodyContent')
+
+
 @extends('MUT.multistepsNav')
 @section('customBoddy')
 <!DOCTYPE html>
@@ -7,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('./assets/css/Cards/placesCards.css')}}" >
-    <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js')}}" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    {{-- <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js')}}" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> --}}
 
     <title>Document</title>
 </head>
@@ -73,5 +78,7 @@
 
   </div>
 </div>
+
+@endsection
 
 @endsection

@@ -16,6 +16,9 @@ use App\Http\Controllers\vehicleController\vehicleController;
 use App\Http\Controllers\hotelsController\hotelsController;
 use App\Http\Controllers\tripController\tripController;
 use App\Http\Controllers\dashboard\DashboardController;
+use App\Http\Controllers\ViewPlacesController;
+use App\Http\Controllers\viewHotelsController;
+use App\Http\Controllers\ViewTourGidesController;
 
 
 
@@ -190,8 +193,18 @@ Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name
 
 
 // Route::get('/index',function(){return view('/layouts/nav');})->name('index');
-Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
-Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
-Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
+// Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
+// Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
+// Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
 Route::get('/cart',function(){return view('/cart');})->name('cart');
 
+
+Route::get('/Placesall',[ViewPlacesController::class,'index'])->name('Placesall');
+
+Route::get('allHotel',[viewHotelsController::class,'index'])->name('allHotell');
+Route::get('Hotel/{id}',[viewHotelsController::class,'showhotel'])->name('hotel.show');
+Route::get('Room/{id}',[viewHotelsController::class,'room'])->name('roomm');
+
+Route::post('/bookRoom', [viewHotelsController::class, 'store'])->name('bookRoomm');
+
+Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
