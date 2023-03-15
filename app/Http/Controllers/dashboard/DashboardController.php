@@ -21,7 +21,9 @@ use App\Models\Driver;
 use App\Models\Order;
 use App\Models\Vehicle;
 use App\Models\OrderedPlace;
+use App\Models\RegularBookedTourguide;
 use App\Models\Role;
+use App\Models\Tourguide;
 use Illuminate\Console\View\Components\Alert as ComponentsAlert;
 use Illuminate\Database\PDO\Connection as PDOConnection;
 use Illuminate\Support\Facades\DB;
@@ -162,7 +164,7 @@ class DashboardController extends Controller
             // dd($value->getClientOriginalName());
             $name=md5(microtime()).$value->getClientOriginalName();
             $value ->storeAs("public/imgs",$name);
-    
+
             HotelImg::create([
                'hotel_id'=>$hotelID["id"],'image'=>isset($name)?$name:null],
                );
@@ -175,7 +177,7 @@ class DashboardController extends Controller
         //             ]);
         //        }
         // }
-        
+
         Alert::success('Congrats', 'You\'ve Successfully updated the hotel ^^');
 
         return redirect(route('MyOwnedHotels'));
@@ -277,8 +279,26 @@ Alert::success('Done', 'status udated Successfully ^^');
 return redirect()->route("allRequests",['id'=>$request->hotel_id]);
 }
 
+public function tourguideRequests(Tourguide $id, Request $request){
 
 
+    $data= DB::table("regular_booked_tourguide")
+    ->select('regular_booked_tourguide.check_in','regular_booked_tourguide.check_out' ,'regular_booked_tourguide.status','users.name as clientName' )
+    ->join('users','users.id','=','regular_booked_tourguide.user_id')
+     // $order = Order::find($request['order_id']);
+ ->where('regular_booked_tourguide.tourguide_id', '=', $id->id)
+   ->get();
+   return view('dashboardTourguide.allRequests',['requests'=>$data]);
+}
+
+public function tourChangeStatus(Tourguide $order,Request $request){
+    // dd($room);
+RegularBookedTourguide::where('tourguide_id',$order->id)->update([
+    'status'=>$request->status,
+]);
+Alert::success('Done', 'status udated Successfully ^^');
+return redirect()->route("allRequests",['id'=>$request->hotel_id]);
+}
 
 
 
@@ -313,10 +333,10 @@ return redirect()->route("allRequests",['id'=>$request->hotel_id]);
         // if(Auth::user()->)
         $allHotels =Hotel::where('hotel_owner_id',Auth::user()->HotelOwner[0]->id)->get();
 
-    
+
             return view('dashboardHotelOwner.hotels',[
                 'allHotels'=>$allHotels,
-            
+
             ]);
         }
 

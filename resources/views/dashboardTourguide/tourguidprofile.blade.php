@@ -4,21 +4,26 @@
 
 
 <div class="container mt-5">
-    
+
     <div class="row d-flex justify-content-center">
-        
+
         <div class="col-md-7">
-            
+
             <div class="card p-3 py-4" >
 
-                
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('tourguideRequests',['id'=>Auth::user()->TourGuide->id])}}" >
+                      <i class="fa-regular fa-chart-bar fa-fw"></i>
+                      <span>Booking Requests</span>
+                    </a>
+                  </li>
                 <div class="user_icon">
-  
+
                     {{-- <img [src]=" 'http://localhost:8000/' + Tourguide?.touguide?.image" style="width: 70px;height: 70px; border-radius: 10px;" > --}}
                 </div>
-                
+
                 <div class="text-center mt-3">
-              
+
                     <span class="bg-secondary p-1 px-4 rounded text-white">{{ Auth::user()->name }}</span>
                     <h5 class="mt-2 mb-0">{{ Auth::user()->email }}</h5>
                     <span>{{ Auth::user()->gender }}</span>
@@ -29,7 +34,7 @@
                     <div class="px-4 mt-1">
                         <p class="fonts">{{Auth::user()->TourGuide->syndicate_No}}</p>
                     </div>
-                    
+
                      <ul class="social-list">
                         <li><i class="fa fa-facebook"></i></li>
                         <li><i class="fa fa-dribbble"></i></li>
@@ -44,22 +49,22 @@
                 <div   *ngFor="let lang of TourguideDashboard ;">
                     <button class="btn btn-primary px-4 ms-3">{{Auth::user()->TourGuide()->TourguideLanguage->language}}</button>
                 </div>
-                          
+
                 </div>
-                
-    
-                <div class="buttons"> 
+
+
+                <div class="buttons">
                     <button >  <a href="{{ route('TourguideProfile.edit', [Auth::user()->TourGuide->id]) }}" class="ms-auto fs-4 me-4 text-dark"> Update</a>
                    </button>
-                 
+
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
+
     </div>
-    
+
 </div>
 
 
@@ -70,20 +75,20 @@
 
 <div class="container">
     <div class="card" *ngFor="let User of UsersList ;" >
-    
+
         <div class="card-content">
             <div class="image">
                 {{-- <img [src]=" 'http://localhost:8000/' + User.image " style="width: 70px;height: 70px; border-radius: 10px;" > --}}
 
-            </div>   
-            @foreach ($places as $place ) 
+            </div>
+            @foreach ($places as $place )
               <div class="text-center">
                 <h2>{{$place->name}}</h2>
                 @endforeach
               </div>
               @endforeach
               <div class="stats">
-                @foreach ($orders as $order ) 
+                @foreach ($orders as $order )
                   <div class="stat1">
                       <span>{{$order->user_id->User->name}}</span>
                       <span>{{$order->check_in}}</span>
@@ -100,7 +105,7 @@
                          Accept
                          </button>
                   </div>
-                  
+
                   <div class="stat1">
                     <button class="btn btn-outline-primary px-4" >
                         <input type="radio" name="book_tourguide" value="regect">
@@ -109,12 +114,12 @@
                   </div>
                   <button type="submit" class="btn btn-primary px-4 ms-3" >Send</button>
                   </form>
-                  
+
               </div>
-            
+
         </div>
-         
-        
+
+
     </div>
 </div>
 
