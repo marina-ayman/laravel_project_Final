@@ -78,7 +78,7 @@ public function editUser(){
         'password' =>  Hash::make($request['password']),
         'gender' => $request['gender'],
         'phone' => $request['phone'],
-        'image' =>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
+        'image' =>isset($request['image'])?$request['image']-> storeAs("",md5(microtime()).$request['image']->getClientOriginalName()):null,
         // 'role_id' => $request['role_id']
     ]);
             // print_r($user);
@@ -106,7 +106,7 @@ $role= Role::where('id',$newUser->role_id)->first();
         'password' =>  Hash::make($request['password']),
         'gender' => $request['gender'],
         'phone' => $request['phone'],
-        'image' =>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
+        'image' =>isset($request['image'])?$request['image']-> storeAs("",md5(microtime()).$request['image']->getClientOriginalName()):null,
         // 'role_id' => $request['role_id']
     ]);
             // print_r($user);
@@ -156,7 +156,7 @@ public function validateLogin(Request $request) {
         // if(Auth::user())
         if(Auth::user()->user_type ==1){
             return redirect()->route('AdminDash');
-        
+
         }
 
 // if(Auth::user()->Role->name =="hotelOwner"){
@@ -245,6 +245,6 @@ public function validateLogin(Request $request) {
         $UserID->delete();
         return back();
     }
- 
+
 }
 
