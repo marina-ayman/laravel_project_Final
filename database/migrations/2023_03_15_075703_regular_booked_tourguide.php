@@ -13,19 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('regular_booked_room', function (Blueprint $table) {
+        Schema::create('regular_booked_tourguide', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
-            // managed by hotelOwner
+            $table->unsignedBigInteger('tourguide_id');
+            $table->foreign('tourguide_id')->references('id')->on('tourguides')->onDelete('cascade')->onUpdate('cascade');
+            // managed by tourguide
             $table->enum('status',['Accept','pending','Reject'])->default('pending');
             $table->dateTime("check_in");
             $table->dateTime("check_out");
-            $table->integer("n_of_adults")->default(0);
-            $table->integer("n_of_childeren")->default(0);
-            $table->timestamps();
         });
     }
 
@@ -36,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regular_booked_room');
+        //
     }
 };
