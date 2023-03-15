@@ -44,8 +44,9 @@
               @foreach ($allTrips as $Trips)
            <tr>
            <td>{{$Trips->id}}</td>
+           {{-- <td>{{$Trips->id}}</td> --}}
              {{-- <td>{{$Trips->trip_id->users['name']}}</td> --}}
-             <td><img src="{{ asset('img/'.$Trips->cover_img) }}" alt="" width="75px">
+             <td><img src="storage/imgs/{{ asset('img/'.$Trips->cover_img) }}" alt="" width="75px">
            </td>
            <td>{{$Trips->description}}</td>
              <td>{{$Trips->price}}</td>
