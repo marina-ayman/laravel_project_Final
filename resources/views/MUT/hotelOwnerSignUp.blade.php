@@ -1,6 +1,6 @@
-
+{{-- 
 @extends("temp")
-@section('bodyContent')
+@section('bodyContent') --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,4 +97,4 @@
 
 </html>
 
-@endsection
+{{-- @endsection --}}

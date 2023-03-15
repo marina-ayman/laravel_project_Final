@@ -116,7 +116,7 @@ $role= Role::where('id',$newUser->role_id)->first();
 $role= Role::where('id',$newUser->role_id)->first();
 // dd($role);
 //    return redirect(route('userRegistrations.index'));
- return redirect()->route('login.create',['role'=>$role->name]);
+ return route('login.create',['role'=>$role->name]);
 
     }
 

@@ -43,7 +43,7 @@
                 <tr>
        {{-- {{dd($place->id)}}; --}}
                   <td>{{$place->name}}</td>
-                  {{-- <td><img src="{{ asset('img/'.'$place->cover_img') }}" alt="" width="75px"> --}}
+                  <td><img src="../../storage/imgs/{{$place->cover_img}}" alt="" width="75px">
 
                   <td>{{$place->description}}</td>
                   <td>{{$place->price}}</td>
