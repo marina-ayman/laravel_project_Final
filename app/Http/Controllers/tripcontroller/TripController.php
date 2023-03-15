@@ -54,20 +54,23 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
+        $name=md5(microtime()).$request->cover_img->getClientOriginalName();
+        $request->cover_img->storeAs("public/imgs",$name);
         $trip = Trip::create([
             'description' => $request['description'],
             'price' => $request['price'],
             'n_of_people' =>$request['n_of_people'],
             'n_of_places' =>$request['n_of_places'],
             'n_of_days' => $request['n_of_days'],
-            'cover_img'=>$request['cover_img']->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName())
+            'cover_img'=>$name
           ]);
         //   loop
         // if the loop didn't be managed
         // we can handle it by sending two routes
 // dd(is_file($request['image'])); //true
 foreach( $request['image'] as $img){
-
+    $name=md5(microtime()).$img->getClientOriginalName();
+    $img->storeAs("public/imgs",$name);
     // dd($img);
        TripImg::create([
             'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
@@ -129,13 +132,14 @@ foreach( $request['image'] as $img){
     public function update(Request $request, Trip $id)
     {
         if(!is_null($request->cover_img)){
-
+            $name=md5(microtime()).$request->cover_img->getClientOriginalName();
+            $request->cover_img->storeAs("public/imgs",$name);
             $id->update([
                 'description'=>$request->description,
                 'price'=>$request->price,
                 'n_of_people'=>$request->n_of_people,
                 'n_of_days'=>$request->n_of_days,
-                'cover_img'=>$request->file("cover_img")->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName())
+                'cover_img'=>$name
             ]);
         }else{
             $id->update([
@@ -149,16 +153,14 @@ foreach( $request['image'] as $img){
         // dd($request->image);
         foreach($request->image as $img){
             // dd($img);
+            $name=md5(microtime()).$img->getClientOriginalName();
+            $img->storeAs("public/imgs",$name);
+            TripImg::where('trip_id',$id->id)->update([
+                'image'=>$name
+             ]);
 
         }
-        if(!is_null($request->image[0])){
-               foreach($request->image as $img){
-            //  dd(HotelImg::where('hotel_id',$hotelID->id)->update(['image']));
-                   TripImg::where('trip_id',$id->id)->update([
-                       'image'=>$img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName())
-                    ]);
-               }
-        }
+
         Alert::success('Congrats', 'You\'ve Successfully updated the hotel ^^');
 
         return redirect(route('TrippDash.index'));
@@ -177,7 +179,7 @@ foreach( $request['image'] as $img){
 
         $delTrip= Trip::find($id)->delete();
         if($delTrip){
-            TripImg :: where ('trip_id',$id)->delete();
+            TripImg :: where('trip_id',$id)->delete();
         }
         //  return response()->json([
         //     'trip deleted'

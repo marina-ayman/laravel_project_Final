@@ -54,6 +54,8 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
+        $name=md5(microtime()).$request['cover_img']->getClientOriginalName();
+        $request['cover_img']->storeAs("public/imgs",$name);
         $request->validate([
             'name'=>'required',
             'description'=>'required','min:10',
@@ -64,15 +66,16 @@ class PlaceController extends Controller
             'name' => $request['name'],
             'description' =>$request['description'],
             'price' =>$request['price'],
-            'cover_img' =>$request['cover_img']->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName()),
+            'cover_img' =>$name,
             'type'=>$request['type']
         ]);
 
         foreach( $request['image'] as $img){
-
+            $name=md5(microtime()).$request['image']->getClientOriginalName();
+            $request['image']->storeAs("public/imgs",$name);
             // dd($img);
                PlaceImg::create([
-                    'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
+                    'image'=> $name,
                     'place_id'=>$place->id
                     //
                   ]);
@@ -108,21 +111,24 @@ class PlaceController extends Controller
      */
     public function update(Request $request,Place $id)
     {
+        $name=md5(microtime()).$request['cover_img']->getClientOriginalName();
+        $request['cover_img']->storeAs("public/imgs",$name);
 
           $id->update([
             'name' => $request['name'],
             'description' =>$request['description'],
             'price' =>$request['price'],
-            'cover_img' =>$request['cover_img']->storeAs("public/imgs",md5(microtime()).$request['cover_img']->getClientOriginalName()),
+            'cover_img' =>$name,
             'type'=>$request['type']
 
           ]);
 
           foreach( $request['image'] as $img){
-
+            $name=md5(microtime()).$img->getClientOriginalName();
+            $img->storeAs("public/imgs",$name);
             // dd($img);
             PlaceImg::where('place_id',$id->id)->update([
-                    'image'=> $img->storeAs("public/imgs",md5(microtime()).$img->getClientOriginalName()),
+                    'image'=> $name,
                     'place_id'=>$id->id
                     //
                   ]);
