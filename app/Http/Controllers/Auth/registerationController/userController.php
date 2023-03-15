@@ -118,7 +118,7 @@ $role= Role::where('id',$newUser->role_id)->first();
 $role= Role::where('id',$newUser->role_id)->first();
 // dd($role);
 //    return redirect(route('userRegistrations.index'));
- return route('login.create',['role'=>$role->name]);
+ return redirect()->route('login.create',['role'=>$role->name]);
 
     }
 
@@ -160,16 +160,6 @@ public function validateLogin(Request $request) {
             return redirect()->route('AdminDash');
 
         }
-
-// if(Auth::user()->Role->name =="hotelOwner"){
-//     return redirect()->route('hotelOwnerDashboard');
-// }if(Auth::user()->Role->name == "tourguide"){
-//     return redirect()->route('TourguideProfile.index');
-// }if(Auth::user()->Role->name =="driver"){
-
-//     return redirect()->route('driverprofileDash.index');
-// }
-
 
 
     return redirect('/home');
