@@ -52,31 +52,15 @@
             <!-- <i class="fal fa-alarm-clock"></i> -->
             <i class="fa-regular fa-credit-card"></i>
             <p>Free Cost</p>
-            <h3><a href="#" style="">Book Now</a></h3>
+
+
+
+
+            <h3><div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div></h3>
           </div>
 
           
 
-          <!-- <div class="box">
-            <i class="fab fa-resolving"></i>
-            <p>Free Cost</p>
-            <h3>Reservations 24/7</h3>
-          </div>
-          <div class="box">
-            <i class="fal fa-alarm-clock"></i>
-            <p>Free Cost</p>
-            <h3>High-speed Wi-Fi</h3>
-          </div>
-          <div class="box">
-            <i class="fas fa-mug-hot"></i>
-            <p>Free Cost</p>
-            <h3>Free breakfast</h3>
-          </div>
-          <div class="box">
-            <i class="fas fa-user-tie"></i>
-            <p>Free Cost</p>
-            <h3>One person free</h3>
-          </div> -->
         </div>
         <!-- room img -->
         <div class="right">
@@ -84,6 +68,66 @@
         </div>
       </div>
     </div>
+
+
+    
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" id="modal">
+              <div id="booking" class="section">
+                  <div class="section-center">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-10">
+                                  <!-- col-md-push-5 -->
+                                  <div class="booking-cta mt-0">
+                                      <h3>Make your reservation</h3>
+                                  </div>
+                              </div>
+                              <div class="col-md-10 ">
+                                  <!-- col-md-pull-7 -->
+                                  <div class="booking-form">
+                                      <form> 
+                                          <div class="row">
+                                              <div class="col-6">
+                                                  <div class="form-group">
+                                                      <span class="form-label">Check In</span>
+                                                      <input class="form-control" type="date" required>
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <span class="form-label">Check out</span>
+                                                      <input class="form-control" type="date" required>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="form-btn">
+                                              <button class="submit-btn bookbtnn"onclick()><a href="">Send a request</a></button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 </body>
 </html>

@@ -36,11 +36,11 @@
             <h3>Discover your best stay in Aswan</h3>
           </div>
           <div class="content grid mtop">
-            @foreach ($hotelInfo as $Hotel)
+            @foreach ($allHotels as $Hotel)
             <div class="box">
               <!-- hotel img -->
               <div class="img">
-                <img src="{{ asset('img/'.{{$Hotel->cover_img)}} }}" alt="">
+                <img src="  asset('img/'.{{$Hotel->cover_img}}" alt="">
                 <span>HOTEL</span>
               </div>
               <!-- hotel details -->
