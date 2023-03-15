@@ -39,7 +39,7 @@
               </thead>
               <tbody>
          
-              {{-- @foreach ($places as $place) --}}
+              @foreach ($places as $place)
                 <tr>
        {{-- {{dd($place->id)}}; --}}
                   <td>{{$place->name}}</td>
@@ -55,7 +55,7 @@
 
                  @foreach ($placeImg as $placeimg)
                   <td><img src="{{$placeimg->image}}"></td>
-                  {{-- @endforeach --}}
+                  @endforeach
                   <td>
 
                     <button  class="label btn-shape bg-green c-white">
@@ -83,7 +83,7 @@
 
                 </tr>
        
-                  {{-- @endforeach --}}
+                  @endforeach
               </tbody>
 
             </table>

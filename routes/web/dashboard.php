@@ -108,8 +108,8 @@ Route::get('/TripDash/{id}/edit', [TripController::class, 'edit'])->name('TripDa
 
 Route::get('/OrderDetails',[OrderDetailsController :: class ,"create"])->name("OrderrDetails.create");
 Route::get('/OrderDetails',[OrderDetailsController :: class ,"index"])->name("OrderrDetails.index");
-Route::post('/OrderDetails',[OrderDetailsController :: class ,"store"])->name("OrderrDetails.store");
-Route::delete('/deleteOrderDetails/{id}',[OrderDetailsController::class,'destroy'])->name("OrderrDetails.destroy");
+Route::post('/OrderDetails/{order}',[OrderDetailsController :: class ,"store"])->name("OrderrDetails.store");
+Route::get('/deleteOrderDetails/{id}',[OrderDetailsController::class,'destroy'])->name("OrderrDetails.destroy");
 
 // //=============================================================================================================================================
 // //=============================================================================================================================================

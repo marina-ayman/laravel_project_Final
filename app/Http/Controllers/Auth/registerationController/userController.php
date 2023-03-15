@@ -155,7 +155,7 @@ public function validateLogin(Request $request) {
         // dd(Auth::user());
         // if(Auth::user())
         if(Auth::user()->user_type ==1){
-            return redirect()->route('AdminDash.index');
+            return redirect()->route('AdminDash');
         
         }
 

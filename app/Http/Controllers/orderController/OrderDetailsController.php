@@ -19,16 +19,17 @@ class OrderDetailsController extends Controller
     {
 
       $OrdersDetail= OrderDetail::all();
-      $orders = $OrdersDetail->order;
+    //   $orders = $OrdersDetail->order;
+      
     //   return response()->json([
     //     'OrdersDetail'=>$OrdersDetail,
     // ]);
 
-    return view("dashboardAdmin.order.OrdetTable",["OrdersDetail"=> $OrdersDetail],["orders"=>$orders]);
+    return view("dashboardAdmin.order.OrdetTable",["OrdersDetail"=> $OrdersDetail]);
 
        
     }
-    public function store(Order $orderID)
+    public function store(Order $order)
     {
         $roomsType=OrderedRoom::where('order_id',$orderID->id)->get();
         // dd($roomsType);

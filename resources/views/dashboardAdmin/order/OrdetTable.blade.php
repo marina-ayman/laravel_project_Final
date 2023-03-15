@@ -39,7 +39,7 @@
                 </tr>
               </thead>
               <tbody>
-              
+              @if(!is_null($OrdersDetail))
          @foreach ($OrdersDetail as $order)
            <tr>
        
@@ -53,9 +53,9 @@
           
              <td>
               
-             <form method="POST" action="{{route('OrderrDetails.destroy'),['orderID'=>$order->id]}}" accept-charset="UTF-8" style="display:inline">
+             <form  action="{{route('OrderrDetails.destroy',['id'=>$order->id])}}" accept-charset="UTF-8" style="display:inline">
              @csrf
-               @method('delete');
+
                  <button type="submit" class="btn btn-outline-danger" title="Delete Student" onclick="return confirm('Confirm delete?')">
                  <i class="fa fa-trash-o" aria-hidden="true"></i>
                   Delete
@@ -66,6 +66,7 @@
            </tr>
   
            @endforeach
+           @endif
          </tbody>
             </table>
           </div>

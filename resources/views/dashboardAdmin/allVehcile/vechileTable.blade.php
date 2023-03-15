@@ -32,7 +32,7 @@
             <a href="{{route('editVehicle',['id'=>$Vehicle->id])}}" class="btn btn-outline-success">Edit</a>
             edit
           </a>
-            <a href="{{route('VehiclleDash.destroy',['id'=>$Vehicle->id]}}"  accept-charset="UTF-8" style="display:inline" onclick="return confirm('Confirm delete?')" >
+            <a href="{{route('VehiclleDash.destroy',['id'=>$Vehicle->id])}}"  accept-charset="UTF-8" style="display:inline" onclick="return confirm('Confirm delete?')"  >
 delete
 
 </a>
