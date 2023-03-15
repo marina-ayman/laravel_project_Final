@@ -7,6 +7,7 @@ use App\Models\orderedRoom;
 use App\Models\BookTourGuide;
 use App\Models\Hotel;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\OrderedPlace;
 use App\Models\Place;
 use App\Models\Room;
@@ -191,7 +192,7 @@ $percent=(int)$budgetForHotels / 100;
     }
     public function getAvailablePlaces(Order $order,Request $request){
 // dd($request->restOfBudget);
-if(!$request->restOfBudget){
+if($request->restOfBudget != $order->budget){
     $rooms = OrderedRoom::where('order_id',$order['id'])->get();
     $roomsBooked = BookedRoom::where('order_id',$order['id'])->get();
     // if(!empty($roombooked[0])&& !empty($rooms[0])){
@@ -204,12 +205,12 @@ if(!$request->restOfBudget){
     if($totalPaidInroomsPerDay[0]->sum !=0||$totalPaidInroomsPerDay[0]->sum == null){
         $totalPaidInRooms=$totalPaidInroomsPerDay[0]->sum*(int)$order->n_of_days;
         $restOfBudget = ($order->budget )-$totalPaidInRooms;
-
+    }
     }else{
         $restOfBudget=(int)$order->budget;
     }
-}
-$restOfBudget=$request->restOfBudget;
+
+// $restOfBudget=$request->restOfBudget;
 //    dd($restOfMaxBudget);
 
         $availablePlaces= Place::where('price','<',$restOfBudget)->get();
@@ -273,6 +274,8 @@ $restOfBudget=$request->restOfBudget;
             ]);
         }
         else{
+             Alert::alert('sorry :(', 'there is no available Tourguides
+            change the days or your budget to listen fron u soon ^^');
             return view('MUT.availableTourguides',[
                 'availableTourguides' => $availableTourguides,
                 'order' => $order,
@@ -283,18 +286,64 @@ $restOfBudget=$request->restOfBudget;
 
         }
         }
+        public function getAvailableTourguides(Order $order,Request $request){
+            if($request->restBudget){
+                $restBudgetBeforeTourguide=$order->budget- $request->restOfBudget;
+                if( $restBudgetBeforeTourguide > 0){
+
+                    $budgetperday=$restBudgetBeforeTourguide/$order->n_of_days;
+                    $availableTourguides=Tourguide::where('price_per_day','<',$budgetperday)->get();
+                    return view('MUT.availableTourguides',[
+                        'availableTourguides' => $availableTourguides,
+                        'order' => $order,
+                        'restBudgetBeforeTourguide'=>$restBudgetBeforeTourguide
+
+
+                    ]);
+                }else{
+                    if(empty($availableTourguides[0])){
+
+                        return view('MUT.availableTourguide',[
+
+
+                        ]);
+                }
+                // dd($restBudget);
+                // dd($budgetperday);
+                // dd($availableTourguides);
+
+
+            }
+
+            }
+        }
         public function bookWithTourguide(Order $order,Request $request,Tourguide $tourguide){
             // dd($tourguide);
             // dd($request->restBudgetBeforeTourguide);
-        //     BookTourGuide::create([
-        //    'tourguide_id'=>$tourguide->id,
-        //    'order_id'=>$order->id,
-        //    'n_of_days'=>$order->n_of_days
-        //     ]);
+            BookTourGuide::create([
+           'tourguide_id'=>$tourguide->id,
+           'order_id'=>$order->id,
+           'n_of_days'=>$order->n_of_days
+            ]);
 $restOfBudgetAfterAllBooking=$order->budget-($request->restBudgetBeforeTourguide+($tourguide->price_per_day*$order->n_of_days));
 dd($restOfBudgetAfterAllBooking);
             return view('MUT.MUTDetails',[
                 'order' => $order,
+            ]);
+        }
+
+        public function MUTE(Order $order){
+               OrderDetail::create([
+               'order_id'=>$order->id
+               ]);
+               return view('MUT.cart',[
+                'order' => $order
+            ]);
+        }
+        public function viewPayForMUTE(Order $order){
+
+            return view('MUT.cart',[
+                'order' => $order
             ]);
         }
 

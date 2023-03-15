@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 
 <section class="blog top mt-3" id="blog">
     <div class="container">
@@ -23,11 +23,12 @@
 
        <div class="container"  >
          <div class="row g-5  "style="margin-left:10rem " >
+            @if(!empty($availableTourguides))
             @foreach ($availableTourguides as $tourguide )
           <div class="col-lg-4  col-sm-6 col-12 rounded g-5" >
-       
+
              <!-- ===================Card================= -->
-  
+
              <div class="card border-0 me-lg-4 mb-lg-0 mb-4">
               <div class="backgroundEffect"></div>
               <div class="pic"> <img class=""
@@ -39,30 +40,35 @@
                   <h6 class="h-2 mt-4" >{{$tourguide->syndicate_No}}<br>lang : {{$tourguide->languages}} </h6>
                   <p class="text-muted mt-3">{{$tourguide->price_per_day}}</p>
                   <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
-          
+
                       <div class="btn " >book</div>
                       <div class="d-flex align-items-center justify-content-center foot">
                         <a href="{{route('showPlace',['place'=>$tourguide->id])}}">{{$tourguide->User->name}}</a>
                         <form action="{{route('bookWithTourguide',['order'=>$order->id,'tourguide'=>$tourguide->id])}}" method="post">
                 @csrf
-                             
+
                 <input type="text" name="restBudgetBeforeTourguide" value="{{ $restBudgetBeforeTourguide }}" hidden>
                             <button type="submit"  >BOOK a tour with me</button>
                     </form>
-                
+
                           <p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1"></span>
-                        
+
                         </p>
                       </div>
                   </div>
               </div>
           </div>
           @endforeach
-          
-                  <!-- ===================Card================= -->
+@endif
 
+<!-- ===================Card================= -->
+
+<form action="{{route('getAvailablePlaces',['order'=>$order->id])}}">
+
+    <button type="submit" >back</button>
+</form>
       </div>
-  
+
 </div>
 
 
@@ -71,11 +77,11 @@
 <form action="" method="POST">
     @csrf
     <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="submit-btn m-5" type="submit">skip &submit MT (my trip)</button>
+        <button class="submit-btn m-5" type="submit">skip &submit MUTE</button>
       </div>
 </form>
 
-  
+
     </div>
   </section>
 
