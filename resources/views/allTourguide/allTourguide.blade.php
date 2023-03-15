@@ -150,23 +150,24 @@
                                     <div class="col-md-10 ">
                                         <!-- col-md-pull-7 -->
                                         <div class="booking-form">
-                                            <form > 
+                                            <form action="{{route('storeRegPlace.store')}}" class="form" id="form2" method="POST">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <span class="form-label">Check In</span>
-                                                            <input class="form-control" type="date" required>
+                                                            <span class="form-label"   >Check In</span>
+                                                            <input class="form-control" type="date" name="check_in" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <span class="form-label">Check out</span>
-                                                            <input class="form-control" type="date" required>
+                                                            <input class="form-control" type="date" name="check_out" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-btn">
-                                                    <button class="submit-btn bookbtnn"onclick()><a href="">Send a request</a></button>
+                                                    <button class="submit-btn bookbtnn"onclick() type="submit">Send a request</button>
                                                 </div>
                                             </form>
                                         </div>

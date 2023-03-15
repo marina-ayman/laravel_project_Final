@@ -48,7 +48,7 @@ class viewHotelsController extends Controller
         $roomInfo =Room::find($roomID);
         $roomImgs= RoomImg::where('room_id',$roomID);
 
-        return view("hotels.room",["roomInfo"=> $roomInfo,"roomImgs"=>$roomImgs]);
+        return view("hotels.room",["roomInfo"=> $roomInfo,"roomImgs"=>$roomImgs,"rooms"=>$rooms]);
 
     }
 

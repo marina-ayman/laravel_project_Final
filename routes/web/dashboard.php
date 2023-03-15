@@ -209,3 +209,9 @@ Route::get('Room/{id}',[viewHotelsController::class,'room'])->name('roomm');
 Route::post('/bookRoom', [viewHotelsController::class, 'store'])->name('bookRoomm');
 
 Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
+
+
+
+Route::post('/storeRegRoom',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
+Route::post('/storeRegTourguide',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
+Route::post('/storeRegPlace',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
