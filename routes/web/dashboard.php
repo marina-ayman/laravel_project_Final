@@ -126,12 +126,6 @@ Route::get('/TourguideProfile/{id}/edit', [TourguideController::class, 'edit'])-
 
 
 
-// Route::get('/TourguideProfilee',function(){
-//     return view ('dashboardTourguide\tourguidprofile') ;
-// });
-
-
-
 // //==================Hotel Owner Dashboard=======================================================================================================
 // //=============================================================================================================================================
 // //=============================================================================================================================================
@@ -166,38 +160,9 @@ Route::post('/changeRequest/{order}',[DashboardController :: class ,"changeStatu
 
 // /=====================================================================================================================
 
-
-
-
-
-
-
 // ======================================================================================================
-// Route::get('/HotelTable',function(){return view('/dashboardAdmin/allHotels/HotelTable');})->name('HotellTable');
-// Route::get('/placesTable',function(){return view('/dashboardAdmin/allPlaces/placesTable');})->name('placessTable');
-// Route::get('/tripTable',function(){return view('/dashboardAdmin/allTrips/tripTable');})->name('trippTable');
-// Route::get('/vechileTable',function(){return view('/dashboardAdmin/allVehcile/vechileTable');})->name('vechileeTable');
-// Route::get('/OrderTable',function(){return view('/dashboardAdmin/order/OrdetTable');})->name('OrderrTable');
 
 Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name('AdminDash');
-// Route::get('/TougguideDash',function(){return view('/dashboardTourguide/dashboardview');})->name('TougguideDash');
-// Route::get('/dashboardDriver',function(){return view('/dashboardDriver/dashboardview');})->name('dashboardDriver');
-// Route::get('/dashboardHotelOwner',function(){return view('/dashboardHotelOwner/index');})->name('dashboardHotelOwner');
-
-
-// Route::get('/tourguideform',function(){return view('/dashboardAdmin/Tourguide/tourguideform');})->name('tourguideeeform');
-// Route::get('/userform',function(){return view('/dashboardAdmin/user/userform');})->name('userrform');
-// // Route::get('/users',function(){
-//     $users=User::all();
-//     return view('/dashboardAdmin/user/users',['users'=>$users]);})->name('userss');
-
-// Route::get('/admin',function(){return view('/dashboardAdmin/admin');})->name('adminn');
-
-
-// Route::get('/index',function(){return view('/layouts/nav');})->name('index');
-Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
-Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
-Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
 
 
 Route::get('/Placesall',[ViewPlacesController::class,'index'])->name('Placesall');
