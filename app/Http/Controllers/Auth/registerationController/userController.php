@@ -106,7 +106,7 @@ $role= Role::where('id',$newUser->role_id)->first();
         'password' =>  Hash::make($request['password']),
         'gender' => $request['gender'],
         'phone' => $request['phone'],
-        'image' =>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
+        'image' =>isset($request['image'])?$request['image']-> storeAs(md5(microtime()).$request['image']->getClientOriginalName()):null,
         // 'role_id' => $request['role_id']
     ]);
             // print_r($user);
@@ -116,7 +116,7 @@ $role= Role::where('id',$newUser->role_id)->first();
 $role= Role::where('id',$newUser->role_id)->first();
 // dd($role);
 //    return redirect(route('userRegistrations.index'));
- return route('login.create',['role'=>$role->name]);
+ return redirect()->route('login.create',['role'=>$role->name]);
 
     }
 
@@ -158,16 +158,6 @@ public function validateLogin(Request $request) {
             return redirect()->route('AdminDash');
         
         }
-
-// if(Auth::user()->Role->name =="hotelOwner"){
-//     return redirect()->route('hotelOwnerDashboard');
-// }if(Auth::user()->Role->name == "tourguide"){
-//     return redirect()->route('TourguideProfile.index');
-// }if(Auth::user()->Role->name =="driver"){
-
-//     return redirect()->route('driverprofileDash.index');
-// }
-
 
 
     return redirect('/home');

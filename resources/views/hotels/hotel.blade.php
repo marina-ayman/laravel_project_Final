@@ -31,7 +31,7 @@
           </div>
           <div class="content flex mtop">
             <div class="left">
-              <img src="{{$hotelInfo->cover_img}}" alt="">
+              <img src="{{url('http://localhost:8000/storage/imgs/0a14c4f1db3b3d98f77ba603b6ea1d1a314944226_496147149208483_2806866198037911874_n.jpg')}}" alt="">
             </div>
             <div class="right">
               <ul>
@@ -59,7 +59,7 @@
             @foreach($rooms as $room)
             <div class="box flex">
               <div class="left">
-                <img src="'img/'.{{$room->cover_img}}" alt="">
+                <img src="http:localhost:8000/storage/imgs/{{$room->cover_img}}" alt="">
               </div>
            
               <div class="right">

@@ -271,12 +271,12 @@
 
 
       <div class="booking-form">
-                                            <form action="{{route('storeRegPlace.store')}}" class="form" id="form2" method="POST">
+                                            <form action="{{route('storeRegPlace.store',)}}" class="form" id="form2" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <span class="form-label"   >Check In</span>
+                                                            <span class="form-label">Check In</span>
                                                             <input class="form-control" type="date" name="check_in" required>
                                                         </div>
                                                     </div>

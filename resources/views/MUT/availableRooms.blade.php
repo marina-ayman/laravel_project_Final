@@ -47,7 +47,7 @@
         @if($room->hotel_id  == $hotel['id'] && $prev_room->type == $room->type && $prev_room->price == $room->price)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="package-item bg-white mb-2">
-                <img class="img-fluid" src="imgs/'.{{$room->cover_img}}.'" alt="">
+                <img class="img-fluid" src="/storage/imgs/'.{{$room->cover_img}}.'" alt="">
                 <div class="p-4">
                     <div class="d-flex justify-content-between mb-3">
                         <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Aswan</small>
@@ -69,14 +69,34 @@
                             <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
                             <h5 class="m-0">{{$room->price}}EGP</h5>
                         </div>
+
                     </div>
+                    <input type="checkbox" name="room_id[]" value="{{ $room->id }}" >
+                    <input type="text" name="percent" value="{{ $percent }}" hidden>
                 </div>
             </div>
+
+          
+
+          
+
+         
         </div>
-      
-      </div>
+        @endif
+        @endif
+        @endforeach
+       
+    </div>
+    <button class="btn btn-success">send</button>
 </div>
  
+    </form>
+    <button type="submit" class="btn btn-success">Back </button>
+
+    <form action="{{route('getAvailableHotels',['budgetForHotels'=>$percent*100,'order'=>$order->id])}}" >
+        @csrf
+
+    
     </form>
        <!-- JavaScript Libraries -->
        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -98,21 +118,12 @@
 
 
 
-            <input type="checkbox" name="room_id[]" value="{{ $room->id }}" >
-
-            <input type="text" name="percent" value="{{ $percent }}" hidden>
-        </div>
+         
     </div>
-    @endif
-    @endif
-    @endforeach
+  
     <button type="submit" >Book Now & next step </button>
 </form>
-      <form action="{{route('getAvailableHotels',['budgetForHotels'=>$percent*100,'order'=>$order->id])}}" >
-        @csrf
-
-      <button type="submit" >Back </button>
-    </form>
+    
 
      
 </body>
