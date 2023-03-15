@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 use RealRashid\SweetAlert\Facades\Alert;
 // use Alert;
+use Illuminate\Database\Connection;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\tripController\ChosenTripController;
 use App\Models\BookedRoom;
@@ -17,10 +18,13 @@ use App\Models\OrderedRoom;
 use App\Models\RoomImg;
 use App\Models\User;
 use App\Models\Driver;
+use App\Models\Order;
 use App\Models\Vehicle;
 use App\Models\OrderedPlace;
 use App\Models\Role;
 use Illuminate\Console\View\Components\Alert as ComponentsAlert;
+use Illuminate\Database\PDO\Connection as PDOConnection;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -63,12 +67,12 @@ class DashboardController extends Controller
 
             'users'=> $users,
             // 'customers'=>$customers,
-            // 'hotelOwners'=>$hotelOwners,  
+            // 'hotelOwners'=>$hotelOwners,
             // 'tourGuides'=> $tourGuides,
             'drivers' => $drivers,
 
             'vehicles' => $vehicles,
-            
+
 
             'orderedPlaces' => $orderedPlaces,
         ]);
@@ -233,32 +237,45 @@ if(count($rooms)==0){
 
     }
 
-    public function allRequests(){
-        // dd(Auth::user()->HotelOwner[0]->Hotel->BookedRoom);
-        // foreach(Auth::user()->HotelOwner[0]->Hotel as $hotel){
-    
-        //    dd($hotel->BookedRoom);
-        //     $orderedRooms = BookedRoom::where('hotel_id',$hotel->id)->get();
-        //     dd($orderedRooms);
-        // }
-        // $query='select * from booked_rooms where hotel_id =(select id from hotels'
-        $hotels= Auth::user()->HotelOwner->Hotel;
-        // dd($hotels);
-        // foreach($hotels as $hotel){
-        //     dd($hotel->BookedRoom);
-        // }
-        // $orderedRooms = BookedRoom::where('hotel_id',Auth::user()->HotelOwner[0]->id);
-    
-        return view('dashboardHotelOwner.allRequests',['hotels'=>$hotels]);
-    }
-    
-    public function changeStatus(BookedRoom $bookedRoom,Request $request){
-    $bookedRoom->update([
-        'status'=>$request->status,
-    ]);
-    Alert::success('Done', 'status udated Successfully ^^');
-    return back();
-    }
+public function allRequests(Hotel $id,Order $order){
+    // dd(Auth::user()->HotelOwner[0]->Hotel->BookedRoom);
+    // foreach(Auth::user()->HotelOwner[0]->Hotel as $hotel){
+
+    //    dd($hotel->BookedRoom);
+    //     $orderedRooms = BookedRoom::where('hotel_id',$hotel->id)->get();
+    //     dd($orderedRooms);
+    // }
+    // $connection->select("SELECT orders.check_in,orders.check_out ,orders.n_of_days , booked_rooms.hotel_id , booked_rooms.room_id ,rooms.price ,hotels.name from orders INNER JOIN booked_rooms INNER JOIN rooms INNER JOIN hotels on orders.id = booked_rooms.order_id and booked_rooms.room_id = rooms.id and rooms.hotel_id = hotels.id where rooms.hotel_id = $id->id");
+    // dd($connection);
+    $data= DB::table("orders")
+    ->select('orders.check_in','orders.check_out' ,'orders.n_of_days','orders.id as order_id' , 'booked_rooms.hotel_id','booked_rooms.room_status as room_status' ,'booked_rooms.room_id','rooms.price' ,'hotels.name as hotel_name','users.name','rooms.type as type')
+    ->join('booked_rooms','orders.id','=','booked_rooms.order_id')
+    ->join('rooms','booked_rooms.room_id', '=', 'rooms.id')
+    ->join('hotels','rooms.hotel_id', '=', 'hotels.id')
+    ->join('users','orders.user_id', '=', 'users.id')
+    ->join('ordered_room','ordered_room.order_id','=','orders.id')
+     // $order = Order::find($request['order_id']);
+ ->where('rooms.hotel_id', '=', $id->id)
+   ->get();
+//    dd($data);
+//     $query='SELECT orders.check_in,orders.check_out ,orders.n_of_days , booked_rooms.hotel_id , booked_rooms.room_id ,rooms.price ,hotels.name from orders INNER JOIN booked_rooms INNER JOIN rooms INNER JOIN hotels on orders.id = booked_rooms.order_id and booked_rooms.room_id = rooms.id and rooms.hotel_id = hotels.id where rooms.hotel_id = '.$id->id;
+// $allReq= DB::get($query);
+// dd($allReq);
+    // $hotels= Auth::user()->HotelOwner[0]->Hotel;
+    // $orderedRooms = BookedRoom::where('hotel_id',Auth::user()->HotelOwner[0]->id);
+    // $orderedRooms = BookedRoom::all();
+    // dd($orderedRooms);
+    return view('dashboardHotelOwner.allRequests',['requests'=>$data]);
+}
+
+public function changeStatus(Order $order,Request $request){
+    // dd($room);
+BookedRoom::where('order_id',$order->id)->update([
+    'room_status'=>$request->status,
+]);
+Alert::success('Done', 'status udated Successfully ^^');
+return redirect()->route("allRequests",['id'=>$request->hotel_id]);
+}
 
 
 

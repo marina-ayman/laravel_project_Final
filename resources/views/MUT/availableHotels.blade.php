@@ -39,6 +39,7 @@
     <?php $prev_hotel =null;
     $allHotels=[];
          ?>
+         @if(!empty($availableRooms))
            @foreach ($availableRooms as $room )
 
            @if($prev_hotel != $room->Hotel  )
@@ -66,10 +67,10 @@
                     @csrf
                     <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
                     <input type="text" name="percent" value="{{ $percent }}" hidden>
-                 
+
                     <button type="submit" >view Rooms &Book here</button>
                 </form>
-                 
+
                 </p>
                 <a href="#">Read More <i class='fas fa-long-arrow-alt-right'></i></a>
               </div>
@@ -79,7 +80,9 @@
         </div>
         @endif
         @endif
+        <?php $prev_hotel = $room->Hotel; ?>
         @endforeach
+        @endif
         <form action="{{route('getAvailablePlaces',['order'=>$order->id])}}" method="POST">
             @csrf
             <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
@@ -88,10 +91,9 @@
         </form>
       </div>
     </div>
-    <?php $prev_hotel = $room->Hotel; ?>
-    <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">
+    {{-- <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">
       <button class="submit-btn m-5"   >Confirm</button>
-    </div>
+    </div> --}}
   </div>
 </section>
 

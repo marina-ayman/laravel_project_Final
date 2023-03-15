@@ -19,7 +19,7 @@
         <h3 class="p-relative txt-c mt-0">{{Auth::user()->name}}</h3>
         <ul>
             <li>
-                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="profile.html">
+                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('hotelOwnerDashboard')}}">
                   <i class="fa-regular fa-user fa-fw"></i>
                   <span>My profile</span>
                 </a>
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('allRequests')}}" >
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('MyOwnedHotels')}}" >
               <i class="fa-regular fa-chart-bar fa-fw"></i>
               <span>Booking Requests</span>
             </a>

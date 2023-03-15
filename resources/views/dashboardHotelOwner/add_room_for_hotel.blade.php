@@ -44,12 +44,12 @@
               <span>Add Rooms</span>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('allRequests')}}" >
               <i class="fa-regular fa-chart-bar fa-fw"></i>
               <span>Booking Requests</span>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <div class="content w-full">
@@ -85,7 +85,6 @@
               <?php $hotelOwnerID= isset(Auth::user()->hotelOwner)?Auth::user()->hotelOwner:1?>
               {{-- {{dd($hotelOwnerID->Hotel)}} --}}
               <select class="form-select bg-eee mb-20 " aria-label="Default select example" name="hotel_id">
-              
 
                 <option selected value="{{$hotel->id}}">{{$hotel->name}}</option>
 

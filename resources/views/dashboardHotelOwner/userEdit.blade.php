@@ -50,13 +50,12 @@
             </a>
           </li> --}}
           <li>
-            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('allRequests')}}" >
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('MyOwnedHotels')}}" >
               <i class="fa-regular fa-chart-bar fa-fw"></i>
               <span>Booking Requests</span>
             </a>
           </li>
         </ul>
-           
       </div>
       <div class="content w-full">
         <!-- Start Head -->

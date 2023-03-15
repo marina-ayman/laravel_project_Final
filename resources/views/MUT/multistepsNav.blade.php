@@ -113,8 +113,8 @@ margin-left: 7rem;
 }
 </style>
 <body>
-    
-    
+
+
 <div class="breadcrumb">
     <a class="breadcrumb__step breadcrumb__step--active" href="{{route('MUT.store')}}"> orders Details </a>
     {{-- <a class="breadcrumb__step" href="{{route('getAvailableHotels')}}">Hotel</a>
@@ -150,7 +150,7 @@ const breadcrumbSteps: NodeList<HTMLElement> = $$('.breadcrumb__step');
         if (index >= i) {
           array[i].classList.add('breadcrumb__step--active');
         } else {
-         array[i].classList.remove('breadcrumb__step--active'); 
+         array[i].classList.remove('breadcrumb__step--active');
         }
       }
     };

@@ -32,7 +32,7 @@ return view('MUT.makeOrderForm');
         // $percent=(int)$budgetForHotels/100;
 // dd($order->OrderedRoomType);
 $percent=(int)$budgetForHotels / 100;
-         
+
             // $ns = 5;
             // // DB::table('ordered_room')->  ->select(DB::raw('count(room_id)as count'))->where('order_id',$order->id)->where('type','single')->get() ;
             // $nd = 0;
@@ -67,7 +67,7 @@ $percent=(int)$budgetForHotels / 100;
 
 
         // dd($budgetForHotels);
-      
+
         $order->budget;
         // dd($order->budget);
         // dd($percent);
@@ -95,10 +95,24 @@ $percent=(int)$budgetForHotels / 100;
 
             ]);
         }else{
+               Alert::alert('we are very sorry :(', 'there is no available hotels
+            increase your budget or derease or change number of days you want to stay or skip this step....^^');
+            return view('MUT.availableHotels',[
+                'availableRooms' => "",
+                'order' => $order,
+                'percent'=>$percent,
+                'restOfBudget'=>$order->budget]);
+
+
+            // $availablePlaces= Place::where('price','<',$order->budget)->get();
+            // return view('MUT.availablePlaces',[
+            //     'availablePlaces' => $availablePlaces,
+            //     'order' => $order,
+            //     'restOfBudget'=>$order->budget]);
             // Alert::alert('sorry :(', 'there is no available hotels
             // increase your budget or derease or change number of days you want to stay ^^');
             // dd('error');
-            return redirect()->route('getAvailabletrip',['order'=>$order]);
+
             // return redirect('//'.$order['id']);
 
 
@@ -123,14 +137,14 @@ $percent=(int)$budgetForHotels / 100;
         // dd($hotel);
         // dd($request->room_id);
         // for($i =0 ; $i<$request->room_id;$i++){
-    // foreach($request->room_id as $room){
-    //     // dd($request->room_id);
-    //         BookedRoom::create([
-    //             'order_id'=>(int)$order->id,
-    //             'hotel_id'=>(int)$hotel->id,
-    //         'room_id'=>(int)$room
-    //         ]);
-    //     }
+    foreach($request->room_id as $room){
+        // dd($request->room_id);
+            BookedRoom::create([
+                'order_id'=>(int)$order->id,
+                'hotel_id'=>(int)$hotel->id,
+            'room_id'=>(int)$room
+            ]);
+        }
         // $bookedRooms=[];
         // $i=0;
         // foreach($request->room_id as $room){
@@ -139,7 +153,7 @@ $percent=(int)$budgetForHotels / 100;
         //         $room
         //     ];
         //     $i++;
-            
+
         // }
         // dd($bookedRooms);
         // dd($room);
@@ -152,11 +166,12 @@ $percent=(int)$budgetForHotels / 100;
         $roomBudget = $totalPaidInroomsPerDay[0]->sum * $order->n_of_days;
         // dd($roomBudget);
         $restOfBudget= $order->budget-$roomBudget;
-        dd($restOfBudget);
+        // dd($restOfBudget);
 
         $availablePlaces= Place::where('price','<',$restOfBudget)->get();
         // dd(empty($availablePlaces[0]));
-        // the places won't be empty 
+        // the places won't be empty
+        // dd($availablePlaces);
         if(empty($availablePlaces[0])){
             return view('MUT.availableTourguide',[
                 'message'=>'there is not enough budget raise it '
@@ -175,7 +190,7 @@ $percent=(int)$budgetForHotels / 100;
         }
     }
     public function getAvailablePlaces(Order $order,Request $request){
-// dd($order);
+// dd($request->restOfBudget);
 if(!$request->restOfBudget){
     $rooms = OrderedRoom::where('order_id',$order['id'])->get();
     $roomsBooked = BookedRoom::where('order_id',$order['id'])->get();
@@ -185,11 +200,11 @@ if(!$request->restOfBudget){
         ->join('booked_rooms','rooms.id', '=', 'booked_rooms.room_id')
        ->where('booked_rooms.order_id', '=', $order->id)
        ->get();
-    // dd($totalPaidInroomsPerDay);
+    dd($totalPaidInroomsPerDay[0]->sum);
     if($totalPaidInroomsPerDay[0]->sum !=0||$totalPaidInroomsPerDay[0]->sum == null){
         $totalPaidInRooms=$totalPaidInroomsPerDay[0]->sum*(int)$order->n_of_days;
         $restOfBudget = ($order->budget )-$totalPaidInRooms;
-    
+
     }else{
         $restOfBudget=(int)$order->budget;
     }
@@ -200,7 +215,7 @@ $restOfBudget=$request->restOfBudget;
         $availablePlaces= Place::where('price','<',$restOfBudget)->get();
         // dd($availablePlaces);
         if(empty($availablePlaces[0])){
-          
+
             // dd($totalPaidInPlaces[0]->sum);
             $restBudgetBeforeTourguide=$restOfBudget;
             // dd($restBudget);
