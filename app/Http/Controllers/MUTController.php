@@ -339,7 +339,7 @@ class MUTController extends Controller
         OrderDetail::create([
             'order_id' => $order->id
         ]);
-        return view('MUT.cart', [
+        return view('cart', [
             'order' => $order
         ]);
     }
