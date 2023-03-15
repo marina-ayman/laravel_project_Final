@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
             // managed by hotelOwner
             $table->enum('status',['Accept','pending','Reject'])->default('pending');
-            $table->dateTime("check_in");
-            $table->dateTime("check_out");
+            $table->date("check_in");
+            $table->date("check_out");
             $table->integer("n_of_adults")->default(0);
             $table->integer("n_of_childeren")->default(0);
             $table->timestamps();

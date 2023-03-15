@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\registerationController\DriverController;
 use App\Http\Controllers\Auth\registerationController\HotelOwnerController;
 use App\Http\Controllers\Auth\registerationController\TourguideController;
 use App\Http\Controllers\Auth\registerationController\userController;
+use App\Http\Controllers\Controllers\regularController;
 use App\Http\Controllers\orderController\OrderController;
 use App\Http\Controllers\orderController\OrderDetailsController;
 
@@ -199,4 +200,9 @@ Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name
 Route::get('/Vehciles',function(){return view('/Allvehcile/vehcile');})->name('allVehciles');
 Route::get('/touruides',function(){return view('/allTourguide/allTourguide');})->name('allTourguide');
 Route::get('/places',function(){return view('/allPlaces/allPlaces');})->name('places');
+
+//------Regular Booking----------------------------------------------------------------
+Route::post('/storeRegBooking/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegBookingTourguide");
+Route::post('/storeRegBooking/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegBookingplace");
+Route::post('/storeRegBooking/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegBookingRoom");
 

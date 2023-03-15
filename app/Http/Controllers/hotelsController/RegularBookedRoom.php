@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RegularBookedRoomController extends Controller
 
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +17,9 @@ class RegularBookedRoomController extends Controller
      */
     public function index()
     {
-      // in hotl owner dashboard 
+      // in hotl owner dashboard
       $regbookedRoom = RegularBookedRoom::all();
-        
+
         return isset($regbookedRoom)?$regbookedRoom:"";
 
     }
@@ -32,12 +32,13 @@ class RegularBookedRoomController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
-            'n_of_adults'=>'required',
-            
+            'check_in'=>'required',
+            'check_out'=>'required',
+
         ]);
-        
+
         $check_in = $request['check_in'];
         $check_out =$request['check_out'];
         $n_of_adults =$request['n_of_adults'];
@@ -46,9 +47,11 @@ class RegularBookedRoomController extends Controller
             'check_in' => $check_in,
             'check_out' =>$check_out,
             'n_of_childeren' => $nOfChild,
-            'n_of_adults' => $n_of_adults
+            'n_of_adults' => $n_of_adults,
+            'room_id'=>$request->room_id,
+            'user_id'=>auth()->user()->id
         ]);
-        return $booking; 
+        return $booking;
     }
 
     /**
@@ -61,7 +64,7 @@ class RegularBookedRoomController extends Controller
     {
         $room = RegularBookedRoom::find($bookedRoom);
         return $room;
-        
+
     }
 
     /**
@@ -76,7 +79,7 @@ class RegularBookedRoomController extends Controller
         if($request['status']){
 
             $results=RegularBookedRoom::where ('id',$bookedRoom)->update([
-                  'status'=> $request['status'], 
+                  'status'=> $request['status'],
               ]);
           }
 
