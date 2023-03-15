@@ -86,18 +86,20 @@ class DashboardController extends Controller
     }
     public function addHotel(Request $request){
         // dd(Auth::user()->HotelOwner);
+        $name=md5(microtime()).$request->cover_img->getClientOriginalName();
+        $request->cover_img->storeAs("public/imgs",$name);
       $hotel=  Hotel::create([
             'hotel_owner_id'=>Auth::user()->HotelOwner[0]->id,
             'name'=>$request->name,
             'address'=>$request->address,
-            'cover_img'=>$request->file("cover_img")->storeAs("",md5(microtime()).$request['cover_img']->getClientOriginalName()),
+            'cover_img'=> $name,
             'type'=>$request->type,
       ]);
 // dd($request['image']);
       foreach ($request['image'] as  $value) {
         // dd($value->getClientOriginalName());
         $name=md5(microtime()).$value->getClientOriginalName();
-        $value ->storeAs("",$name);
+        $value ->storeAs("public/imgs",$name);
 
         HotelImg::create([
            'hotel_id'=>$hotel["id"],'image'=>isset($name)?$name:null],
@@ -145,12 +147,13 @@ class DashboardController extends Controller
     public function updateHotel(Request $request, hotel $hotelID){
         //  dd($request['cover_img']);
         if(!is_null($request->cover_img)){
-
+            $name=md5(microtime()).$request->cover_img->getClientOriginalName();
+            $request->cover_img->storeAs("public/imgs",$name);
             $hotelID->update([
                 'name'=>$request->name,
                 'address'=>$request->address,
                 'type'=>$request->type,
-                'cover_img'=>$request->file("cover_img")->storeAs("",md5(microtime()).$request['cover_img']->getClientOriginalName())
+                'cover_img'=> $name
             ]);
         }else{
             $hotelID->update([
@@ -163,7 +166,7 @@ class DashboardController extends Controller
         foreach ($request['image'] as  $value) {
             // dd($value->getClientOriginalName());
             $name=md5(microtime()).$value->getClientOriginalName();
-            $value ->storeAs("",$name);
+            $value ->storeAs("public/imgs",$name);
 
             HotelImg::create([
                'hotel_id'=>$hotelID["id"],'image'=>isset($name)?$name:null],
@@ -218,17 +221,19 @@ if(count($rooms)==0){
     public function storeRoom(Request $request){
 
 //   dd($request);
+$name=md5(microtime()).$request->cover_img->getClientOriginalName();
+        $request->cover_img->storeAs("public/imgs",$name);
   $room= Room::create([
    'n_of_available_rooms'=>$request->n_of_available_rooms,
    'price'=>$request->price,
    'type'=>$request->type,
-   'cover_img'=>$request->file("cover_img")->storeAs("",md5(microtime()).$request['cover_img']->getClientOriginalName()),
+   'cover_img'=>$name,
    'hotel_id'=>$request->hotel_id
   ]);
   foreach ($request['image'] as  $value) {
     // dd($value->getClientOriginalName());
     $name=md5(microtime()).$value->getClientOriginalName();
-    $value ->storeAs("",$name);
+    $value ->storeAs("public/imgs",$name);
 
     RoomImg::create([
        'room_id'=>$room["id"],'image'=>isset($name)?$name:null],
