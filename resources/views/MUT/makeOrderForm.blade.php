@@ -1,5 +1,3 @@
-@extends("temp")
-@section('bodyContent')
 
 
 <!DOCTYPE html>
@@ -108,4 +106,3 @@
 </body>
 </html>
 
-@endsection

@@ -150,7 +150,7 @@
                                     <div class="col-md-10 ">
                                         <!-- col-md-pull-7 -->
                                         <div class="booking-form">
-                                            <form> 
+                                            <form > 
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">
