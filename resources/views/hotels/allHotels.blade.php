@@ -31,13 +31,13 @@
       <!-- HOTELS CARD -->
        <section class="blog top" id="blog">
         <div class="container">
-          <div class="heading" >
+          <div class="heading"  >
             <h5>OUR Hotels</h5>
             <h3>Discover your best stay in Aswan</h3>
           </div>
-          <div class="content grid mtop">
+          <div class="content grid mtop" >
             @foreach ($allHotels as $Hotel)
-            <div class="box" >
+            <div class="box" style="width:23rem">
               <!-- hotel img -->
               <div class="img">
                 <img src="{{url('http://localhost:8000/storage/imgs/'.$Hotel->cover_img)}}" alt="" style="height: 16rem; width:23rem">

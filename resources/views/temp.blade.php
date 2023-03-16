@@ -136,7 +136,7 @@
 
 
 
-  <div class="footer">
+  <div class="footer" style="margin-top:30rem ">
 
         <div class="waves">
             <div class="wave" id="wave1"></div>

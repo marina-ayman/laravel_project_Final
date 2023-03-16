@@ -72,30 +72,16 @@
     </div>
   </section>
     <!-- ===================== -->
- <div style="text-align: center;" class="mb-4">
-    <button class="button">TOURGUIDE</button>
- </div>
+
     <!-- ===================== bagination ===================== -->
- <div class="demo">
-    <nav class="pagination-outer" aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Spanish</a></li>
-            <li class="page-item"><a class="page-link" href="#">English</a></li>
-            <li class="page-item active"><a class="page-link" href="#">Arabic</a></li>
-            <li class="page-item"><a class="page-link" href="#">Frencey</a></li>
-            <li class="page-item"><a class="page-link" href="#">German</a></li>
-            <li class="page-item">
-            </li>
-        </ul>
-    </nav>
- </div>
+
     <!-- ===================== cards ===================== -->
     <section>
         <div class="container tourguideCard">
-            <div class="row g-5" style="margin-top: 1rem;" >
+            <div class="row g-5"  >
                 @foreach ($allTourGides as $Tourguide)
-                        <div class="col-lg-4  col-sm-6 col-12 rounded">
-                            <div class="card border-0 me-lg-4 mb-lg-0 mb-4 ">
+                        <div class="col-lg-4  col-sm-6 col-12 rounded" >
+                            <div class="card border-0 me-lg-4 mb-lg-0 mb-4 w-75" style="margin-top: 1rem;margin-button:1rem">
                                 <div class="backgroundEffect"></div>
                                 <div class="pic">
                                     <img class="" src="  'img/'.{{ asset($Tourguide->User->image) }}" alt="">
