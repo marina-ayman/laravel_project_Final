@@ -78,10 +78,22 @@
 
 
 
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
+    <!-- Libraries Stylesheet -->
+    <link href="./assets/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="./assets/home/css/style.css" rel="stylesheet">
+</head>
 
+<body>
 
 
     <!-- Carousel Start -->
@@ -132,20 +144,20 @@
             <div class="row">
                 <div class="col-lg-6" style="min-height: 300px;" >
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="./assets/imgs/Aswan-Nilme.jpg" style="object-fit: cover;" >
+                        <img class="position-absolute w-100 h-75" src="./assets/asset/img/happy-1600x900.png" style="object-fit: cover;" >
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                        <h1 class="mb-1">We Provide Best Tour Packages In Your Budget</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                                <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 12rem">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                                <img class="img-fluid" src="./assets/asset/img/imagey.png" alt="" style="height: 12rem">
                             </div>
                         </div>
                         <a href="" class="btn btn-primary mt-1">Book Now</a>
@@ -204,58 +216,58 @@
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
-                <h1>Explore Top Destination</h1>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">our Services</h6>
+                <h1>our Services & your custom Trip</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                        <img class="img-fluid" src="./assets/asset/img/Old Cataract Hotel - Aswan 1.jpg" alt="" style="height: 17rem ">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">United States</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">old Cataract</h5>
+                            <span>__Aswan__</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">United Kingdom</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Croas places</h5>
+                            <span>__Aswan__</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                        <img class="img-fluid" src="./assets/asset/img/imagey.png" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Australia</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Safary</h5>
+                            <span>__Aswan__</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                        <img class="img-fluid" src="./assets/asset/img/istockphoto-869707314-612x612.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">India</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Friendly Tourguide</h5>
+                            <span>__Aswan__</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                        <img class="img-fluid" src="./assets/asset/img/313435305_5270331853076727_6941305933810485371_n.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">South Africa</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Motel</h5>
+                            <span>__Aswan__</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="">
+                        <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Indonesia</h5>
                             <span>100 Cities</span>

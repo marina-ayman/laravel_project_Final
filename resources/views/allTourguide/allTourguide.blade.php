@@ -150,7 +150,7 @@
                                     <div class="col-md-10 ">
                                         <!-- col-md-pull-7 -->
                                         <div class="booking-form">
-                                            <form action="{{route('storeRegPlace.store')}}" class="form" id="form2" method="POST">
+                                            <form action="{{route('storeRegTourguide.store',['id'=>$Tourguide->id])}}" class="form" id="form2" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-6">
