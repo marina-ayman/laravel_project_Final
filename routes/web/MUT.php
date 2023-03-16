@@ -25,5 +25,5 @@ Route::get('/availableTourguides/{order}',[MUTController::class,'getAvailableTou
 
 Route::get('/bookWithTourguide/{order}/{tourguide}',[MUTController::class,'bookWithTourguide'])->name("bookWithTourguide");
 
-Route::get('/MUTE/{order}',[MUTController::class,'MUTE'])->name("MUTE");
+Route::post('/MUTE/{order}',[MUTController::class,'MUTE'])->name("MUTE");
 // Route::get('/payForMyMUTE/{order}',[MUTController::class,'viewPayForMUTE'])->name("viewPayForMUTE");

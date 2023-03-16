@@ -15,7 +15,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 
 <link rel="stylesheet" href="{{asset('assets/css/Cards/tourguideCards.css')}}">
 <section class="blog top mt-3" id="blog">
@@ -30,43 +30,43 @@
      </div>
 
 
-      
-      
-     <div class="container tourguideCard">
-        <div class="row">
-        <div class="row g-5" style="margin-top: 1rem;" >
-            @foreach ($availableTourguides as $Tourguide)
-                    <div class="col-lg-4  col-sm-6 col-12 rounded">
-                        <div class="card border-0 me-lg-4 mb-lg-0 mb-4 ">
-                            <div class="backgroundEffect"></div>
-                            <div class="pic">
-                                <img class="" src="  'img/'.{{ asset($Tourguide->User->image) }}" alt="">
-                                <div class="date">
-                                    <a href="{{route('bookWithTourguide',['order'=>$order,'tourguide'=>$Tourguide->id])}}"><span class="day">Book now!</span></a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h2>{{$Tourguide->User->name}}</h2>
-                                <p class="text-muted mt-3">price {{$Tourguide->price_per_day}} /day</p> 
-                                    {{-- @foreach($Tourguide->languages as $item)
-                                        <h6 class="h-2 mt-4"><br>{{$item['language']}} </h6>
-                                    @endforeach  --}}
-                                <p class="description" style="color:black">Language : </p>
-                                @foreach( $Tourguide->languages as $lang)
-                                <h1>  {{$lang->language}}</h1>
-                                  @endforeach
-                                <h6 class="h-5 mt-1"><br> Bio:{{isset($Tourguide->bio)?:"you will enjoy your Time"}}</h6>
-                                <div class="d-flex align-items-center justify-content-between  p-1">
-                                    <div class="d-flex align-items-center justify-content-center foot">
-                                        <h6 class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </h6>
-                                 
-                                      </div>
-                                </div>
-                                <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div>
-                            </div>
-                        </div> 
-                    </div>
-                    @endforeach
+
+        <div class="container tourguideCard">
+          <div class="row">
+          <div class="row g-5" style="margin-top: 1rem;" >
+              @foreach ($availableTourguides as $Tourguide)
+                      <div class="col-lg-4  col-sm-6 col-12 rounded">
+                          <div class="card border-0 me-lg-4 mb-lg-0 mb-4 ">
+                              <div class="backgroundEffect"></div>
+                              <div class="pic">
+                                  <img class="" src="  'img/'.{{ asset($Tourguide->User->image) }}" alt="">
+                                  <div class="date">
+                                      <a href="{{route('bookWithTourguide',['order'=>$order,'tourguide'=>$Tourguide->id])}}"><span class="day">Book now!</span></a>
+                                  </div>
+                              </div>
+                              <div class="content">
+                                  <h2>{{$Tourguide->User->name}}</h2>
+                                  <p class="text-muted mt-3">price {{$Tourguide->price_per_day}} /day</p>
+                                      {{-- @foreach($Tourguide->languages as $item)
+                                          <h6 class="h-2 mt-4"><br>{{$item['language']}} </h6>
+                                      @endforeach  --}}
+                                  <p class="description" style="color:black">Language : </p>
+                                  @foreach( $Tourguide->languages as $lang)
+                                  <h1>  {{$lang->language}}</h1>
+                                    @endforeach
+                                  <h6 class="h-2 mt-4"><br> Bio:{{isset($Tourguide->bio)?:"you will enjoy your Time"}}</h6>
+                                  <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
+                                      <div class="d-flex align-items-center justify-content-center foot">
+                                          <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
+
+                                        </div>
+                                  </div>
+                                  <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div>
+                              </div>
+                          </div>
+                      </div>
+                      @endforeach
+          </div>
         </div>
       </div>
 
@@ -83,7 +83,7 @@
 
 
 
-<form action="" method="POST">
+<form action="{{route('MUTE')}}" method="POST">
     @csrf
     <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="submit-btn m-5" type="submit">skip &submit MUTE</button>
