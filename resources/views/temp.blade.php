@@ -7,17 +7,17 @@
 
 
     {{-- =====tempStyle====== --}}
-   
+
     <link rel="stylesheet" href="{{asset("./assets/css/temp.css")}}" >
     <link rel="stylesheet" href="{{asset("./assets/css/footer.css")}}" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    
+
     {{-- ==================== --}}
 
 </head>
 
-<body class="hero-anime">	
+<body class="hero-anime">
     @include('sweetalert::alert');
 	<div class="navigation-wrap bg-light start-header start-style">
 		<div class="container">
@@ -41,32 +41,38 @@
 									<a class="nav-link" href="{{route("allHotell")}}">HOTEL</a>
 								</li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="{{route('Placesall')}}">PLACES</a>
+									<a class="nav-link" href="{{route('Placesallll')}}">PLACES</a>
 								</li>
+
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
+                                    <a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
 								</li>
-                             
+                                {{-- @isset($record)
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									{{-- <a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a> --}}
-								</li>
+                                    <a class="nav-link">
+                                        {{Auth::user()->name}}</a>
+                                    </li>
+                                    @endisset --}}
+                                {{-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a>
+								</li> --}}
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     @auth
 
                                     @if(Auth::user()->Role->name =="hotelOwner")
-									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">MY hotelOwner</a>
+									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">HotelOwner</a>
                                     @endif
 
 								    @if(Auth::user()->Role->name =="tourguide")
-									<a class="nav-link" href="{{route('TourguideProfile.index')}}">MY tourguide</a>
+									<a class="nav-link" href="{{route('TourguideProfile.index')}}">My Tourguide</a>
                                     @endif
                                     @if(Auth::user()->Role->name =="driver")
-									<a class="nav-link" href="{{route('driverprofileDash.index')}}">MY driver</a>
+									<a class="nav-link" href="{{route('driverprofileDash.index')}}">Driver</a>
                                     @endif
                                     {{-- {{dd(Auth::user()->user_type)}} --}}
                                     @if(Auth::user()->Role->name =="admin")
-									<a class="nav-link" href="{{route('AdminDash')}}">MY AdminDash</a>
+									<a class="nav-link" href="{{route('AdminDash')}}">AdminDash</a>
                                     @endif
 								@endauth
                                 </li>
@@ -122,9 +128,7 @@
 
   @yield('bodyContent')
 
-
-
-</div>
+    </div>
 
 
 
@@ -132,7 +136,7 @@
 
 
 
-  <div class="footer">
+  <div class="footer" style="margin-top:30rem ">
 
         <div class="waves">
             <div class="wave" id="wave1"></div>

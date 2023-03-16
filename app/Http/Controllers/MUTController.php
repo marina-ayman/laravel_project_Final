@@ -365,6 +365,26 @@ class MUTController extends Controller
         OrderDetail::create([
             'order_id' => $order->id
         ]);
+        $BookedRooms = BookedRoom::where('order_id',$order->id)->get();
+        // $order->Tourguide
+        $BookedTourguide = BookTourGuide::where('order_id',$order->id)->get();
+        // $order->place
+        $orderedPlaces = OrderedPlace::where('order_id',$order->id)->get();
+        $totalPaidInPlaces = DB::table("places")
+        ->select(DB::raw('sum(places.price)as sum'))
+        ->join('ordered_places', 'places.id', '=', 'ordered_places.place_id')
+        ->where('ordered_places.order_id', '=', $order->id)
+        ->get();
+        $totalPaidInTourguide = DB::table("tourguides")
+        ->select(DB::raw('sum(tourguides.price)as sum'))
+        ->join('book_tour_guide', 'tourguides.id', '=', 'book_tour_guide.tourguide_id')
+        ->where('book_tour_guide.order_id', '=', $order->id)
+        ->get();
+        $totalPaidInRooms = DB::table("rooms")
+        ->select(DB::raw('sum(rooms.price)as sum'))
+        ->join('booked_room', 'rooms.id', '=', 'booked_room.room_id')
+        ->where('booked_room.order_id', '=', $order->id)
+        ->get();
         return view('cart', [
             'order' => $order
         ]);

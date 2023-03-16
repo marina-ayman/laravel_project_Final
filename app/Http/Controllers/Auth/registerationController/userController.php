@@ -161,10 +161,20 @@ public function validateLogin(Request $request) {
 
         }
 
+            elseif (Auth::user()->HotelOwner) {
+              //  dd($request['email']);
+                return redirect()->route('hotelOwnerDashboard');
+            }
+            elseif (Auth::user()->Tourguide) {
+              //  dd($request['email']);
+                return redirect()->route('TourguideProfile');
+            }
 
-    return redirect('/home');
-
- }else{
+                return view('home');
+                
+                //dd(Auth::user());
+        }
+ else{
 
      Alert::error('sorry', 'credentials invalid! :(');
      return redirect()->back();

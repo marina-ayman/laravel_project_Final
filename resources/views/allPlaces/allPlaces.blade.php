@@ -6,18 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Places</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    {{-- <link href="{{asset('./assets/asset/css/placedesc.css')}}"  rel="stylesheet"> --}}
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> --}}
    <!-- Google Web Fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet"> 
    <!-- Font Awesome -->
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+
+
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+   <!-- Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+   <!-- Libraries Stylesheet -->
+   <link href="./assets/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+   <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+   <!-- Customized Bootstrap Stylesheet -->
+   <link href="./assets/home/css/style.css" rel="stylesheet">
+</head>
    <!-- Flaticon Font -->
    {{-- <link href="./assets/asset/lib/flaticon/font/flaticon.css" rel="stylesheet"> --}}
    <!-- Libraries Stylesheet -->
-   <link href="./assets/asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-   <link href="./assets/asset/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+   {{-- <link href="./assets/asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> --}}
+   {{-- <link href="./assets/asset/lib/lightbox/css/lightbox.min.css" rel="stylesheet"> --}}
    <!-- Customized Bootstrap Stylesheet -->
-   <link href="./assets/asset/css/placedesc.css" rel="stylesheet">
+
 </head>
 <style>
     .carousel {
@@ -27,7 +44,7 @@
   object-fit: cover;
 }
 #carousel-thumbs {
-  background: rgba(255,255,255,.3);
+  background: rgba(227, 225, 225, 0.3);
   bottom: 0;
   left: 0;
   padding: 0 50px;
@@ -71,86 +88,52 @@
 <!-- Carousel Start -->
     <div class="container-fluid p-0">
       <div id="header-carousel" class="carousel slide" data-ride="carousel" >
-          <div class="carousel-inner">
+      
               <div class="carousel-item active">
-                  <img class="w-100" src="./assets/asset//img/314808358_496147105875154_6500443200089010113_n.jpg" alt="Image" style="height: 60vh">
-                  <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                      <div class="p-3" style="max-width: 800px;">
-                          <h4 class="text-primary text-uppercase font-weight-normal mb-md-3">Creative Interior Design</h4>
-                          <h3 class="display-3 text-white mb-md-4">Make Your Home Better</h3>
-                          <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2 mt-md-4">Learn More</a>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="carousel-item ">
-                <img class="w-100" src="./assets/asset//img/314808358_496147105875154_6500443200089010113_n.jpg" alt="Image" style="height: 60vh">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 800px;">
-                        <h4 class="text-primary text-uppercase font-weight-normal mb-md-3">Creative Interior Design</h4>
-                        <h3 class="display-3 text-white mb-md-4">Make Your Home Better</h3>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2 mt-md-4">Learn More</a>
-                    </div>
-                </div>
-            </div>
-              <div class="carousel-item">
                   <img class="w-100" src="./assets/asset/img/Nub Inn Nubian Dream_files/vvvv/Aswan-Nilme.jpg" alt="Image" style="height: 60vh">
                   <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                       <div class="p-3" style="max-width: 800px;">
-                          <h4 class="text-primary text-uppercase font-weight-normal mb-md-3">Creative Interior Design</h4>
+                          <h4 class=" text-uppercase font-weight-normal mb-md-3" style="color:#ffffff">Creative Interior Design</h4>
                           <h3 class="display-3 text-white mb-md-4">Stay At Home In Peace</h3>
-                          <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2 mt-md-4">Learn More</a>
+                      
                       </div>
                   </div>
               </div>
           </div>
-          <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-              <div class="btn btn-primary" style="width: 45px; height: 45px;">
-                  <span class="carousel-control-prev-icon mb-n2"></span>
-              </div>
-          </a>
-          <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-              <div class="btn btn-primary" style="width: 45px; height: 45px;">
-                  <span class="carousel-control-next-icon mb-n2"></span>
-              </div>
-          </a>
+        
       </div>
     </div>
-    <!-- Carousel End -->
-    <!-- Blog Start -->
-    <div class="container-fluid bg-light pt-5">
-      <div class="container py-5">
-          <div class="row justify-content-center">
-              <div class="col-lg-6 col-md-8 col text-center mb-4">
-                  <h6 class="text-primary font-weight-normal text-uppercase mb-3">Our Places</h6>
-                  <h1 class="mb-4">Discover Places you can visit in the Land of Gold</h1>
-              </div>
-          </div>
-          <div class="row pb-3">
-            @foreach($allPlaces as $Place)
-              <div class="col-md-4 mb-4" style="height: 5rem">
-                  <div class="card border-0 mb-2">
-                    <img class="card-img-top" src="{{ asset('img/'.$Place->cover_img) }}" alt="">
-                      <div class="card-body bg-white p-4">
-                          <div class="d-flex align-items-center mb-3">
-                              <a class="btn btn-primary" href=""><i class="fa fa-link"></i></a>
-                              <h5 class="m-0 ml-3 text-truncate">{{$Place ->name}}</h5>
-                          </div>
-                          <p>{{$Place->description}}</p>
-                          <div class="d-flex">
-                              <small class="mr-3"><i class="fa fa-user text-primary"></i>Price : {{$Place ->price}}</small>
-                              <small class="mr-3"><i class="fa fa-folder text-primary"></i>Type : {{$Place ->type}}</small>
-                              <!-- <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small> -->
-                          </div>
-                        </div>
-                        <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div>
-                    </div>
-                          
+ 
+
+<div class="container" style="margin-buttom:20rem; margin-top:30rem ; " >
+    <div class="row">
+      @foreach($allPlaces as $Place)
+      <div class="col-lg-4 col-md-6 mb-4" style="width: 25rem">
+          <div class="package-item bg-white mb-2" >
+            <img class="card-img-top"  src="{{url('http://localhost:8000/storage/imgs/'.$Place->cover_img)}}" alt="" 
+            style="height:17rem;border-radius:solid 2px rgb(75, 159, 255)"
+            >
+              <div class="p-4">
+                  <div class="d-flex justify-content-between mb-3">
+                      <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>  {{$Place->type}}</small>
+                      <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>Price : {{$Place ->price}}</small>
+                      <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>{{$Place ->name}}</small>
+                  </div>
+                  <p class="h5 text-decoration-none" >{{$Place->description}}</p>
+                  <div class="border-top mt-4 pt-4">
+                      <div class="d-flex justify-content-between">
+                          <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i><small>({{$Place ->price}})</small></h6>
+                          <h5 class="m-0">$350</h5>
                       </div>
                   </div>
               </div>
-              @endforeach
-         
+          </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+
+
          
                 <!-- The Modal -->
                 <div class="modal" id="myModal">
@@ -271,7 +254,7 @@
 
 
       <div class="booking-form">
-                                            <form action="{{route('storeRegPlace.store',)}}" class="form" id="form2" method="POST">
+                                            <form action="{{route('storeRegPlace.store',['id'=>$Place->id])}}" class="form" id="form2" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-6">
@@ -296,7 +279,7 @@
 
                         </div>
                         <!-- Modal footer -->
-                        <div class="modal-footer">
+                        <div class="modal">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         </div>
                       </div>
@@ -308,80 +291,35 @@
     <!-- Blog End -->
     @endsection
         <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/asset/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="./assets/asset/lib/easing/easing.min.js"></script>
-    <script src="./assets/asset/lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="./assets/asset/lib/lightbox/js/lightbox.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> --}}
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script> --}}
+    {{-- <script src="./assets/asset/lib/owlcarousel/owl.carousel.min.js"></script> --}}
+    {{-- <script src="./assets/asset/lib/easing/easing.min.js"></script> --}}
+    {{-- <script src="./assets/asset/lib/isotope/isotope.pkgd.min.js"></script> --}}
+    {{-- <script src="./assets/asset/lib/lightbox/js/lightbox.min.js"></script> --}}
         <!-- Contact Javascript File -->
         <!-- Template Javascript -->
-    <script src="./assets/asset/js/placedesc.js "></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>  
+    {{-- <script src="./assets/asset/js/placedesc.js "></script> --}}
 
     
-<script>
-    $('#myCarousel').carousel({
-  interval: false
-});
-$('#carousel-thumbs').carousel({
-  interval: false
-});
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/home/lib/easing/easing.min.js"></script>
+    <script src="./assets/home/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./assets/home/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="./assets/home/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-// handles the carousel thumbnails
-// https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnails-multiple-carousel
-$('[id^=carousel-selector-]').click(function() {
-  var id_selector = $(this).attr('id');
-  var id = parseInt( id_selector.substr(id_selector.lastIndexOf('-') + 1) );
-  $('#myCarousel').carousel(id);
-});
-// Only display 3 items in nav on mobile.
-if ($(window).width() < 575) {
-  $('#carousel-thumbs .row div:nth-child(4)').each(function() {
-    var rowBoundary = $(this);
-    $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
-  });
-  $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function() {
-    var boundary = $(this);
-    $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
-  });
-}
-// Hide slide arrows if too few items.
-if ($('#carousel-thumbs .carousel-item').length < 2) {
-  $('#carousel-thumbs [class^=carousel-control-]').remove();
-  $('.machine-carousel-container #carousel-thumbs').css('padding','0 5px');
-}
-// when the carousel slides, auto update
-$('#myCarousel').on('slide.bs.carousel', function(e) {
-  var id = parseInt( $(e.relatedTarget).attr('data-slide-number') );
-  $('[id^=carousel-selector-]').removeClass('selected');
-  $('[id=carousel-selector-'+id+']').addClass('selected');
-});
-// when user swipes, go next or previous
-$('#myCarousel').swipe({
-  fallbackToMouseEvents: true,
-  swipeLeft: function(e) {
-    $('#myCarousel').carousel('next');
-  },
-  swipeRight: function(e) {
-    $('#myCarousel').carousel('prev');
-  },
-  allowPageScroll: 'vertical',
-  preventDefaultEvents: false,
-  threshold: 75
-});
-/*
-$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-  event.preventDefault();
-  $(this).ekkoLightbox();
-});
-*/
+ 
+    <!-- Template Javascript -->
+    <script src="./assets/home/js/main.js"></script>
 
-$('#myCarousel .carousel-item img').on('click', function(e) {
-  var src = $(e.target).attr('data-remote');
-  if (src) $(this).ekkoLightbox();
-});
-</script>
+
+
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>   --}}
+
+ 

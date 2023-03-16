@@ -8,8 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-<link rel="stylesheet" href="{{asset('assets/css/Cards/tourguideCards.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="./assets/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset("./assets/home/css/style.css")}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
+{{-- <link rel="stylesheet" href="{{asset('assets/css/Cards/tourguideCards.css')}}"> --}}
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> --}}
     <title>Tourguide</title>
  </head>
 <body>
@@ -17,85 +31,18 @@
     @extends("temp")
 @section('bodyContent')
 
-  <section class="section about" style="position:relative; background-image: url(./assets/asset/img/yellow-swoosh-background.jpg); background-size: cover; ">
-    <!-- <img src="../../assets/img/footer-dec.png" style="width: max-content; position:absolute ; z-index: -1"> -->
-    <div class="container">
-        <div class="about-content">
-            <h1 class="h2 section-title" style="color:#ad7424">Explore all tour of the world with us.</h1>
-            <p class="about-text">
-                Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,
-                or
-                randomised words
-                which don't look even slightly believable.
-            </p>
-            <ul class="about-list">
-                <li class="about-item">
-                    <div class="about-item-icon">
-                        <i name="compass"></i>
-                    </div>
-                    <div class="about-item-content">
-                        <h3 class="h3 about-item-title">Tour guide</h3>
-                        <p class="about-item-text">
-                            Lorem Ipsum available, but the majority have suffered alteration in some.
-                        </p>
-                    </div>
-                </li>
-                <li class="about-item">
-                    <div class="about-item-icon">
-                        <i name="briefcase"></i>
-                    </div>
-                    <div class="about-item-content">
-                        <h3 class="h3 about-item-title">Friendly price</h3>
-                        <p class="about-item-text">
-                            Lorem Ipsum available, but the majority have suffered alteration in some.
-                        </p>
-                    </div>
-                </li>
-                <li class="about-item">
-                    <div class="about-item-icon">
-                        <i name="umbrella"></i>
-                    </div>
-                    <div class="about-item-content">
-                        <h3 class="h3 about-item-title">Reliable tour</h3>
-                        <p class="about-item-text">
-                            Lorem Ipsum available, but the majority have suffered alteration in some.
-                        </p>
-                    </div>
-                </li>
-            </ul>
-            <a href="#" style="background:#f6ac45 ;" class="btn">Booking Now</a>
-        </div>
-        <figure class="about-banner">
-            <img src="{{asset('./assets/asset/img/about-banner.png')}}" width="556" height="700" loading="lazy" alt="" class="w-100">
-        </figure>
-    
-    </div>
-  </section>
+
     <!-- ===================== -->
- <div style="text-align: center;" class="mb-4">
-    <button class="button">TOURGUIDE</button>
- </div>
+
     <!-- ===================== bagination ===================== -->
- <div class="demo">
-    <nav class="pagination-outer" aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Spanish</a></li>
-            <li class="page-item"><a class="page-link" href="#">English</a></li>
-            <li class="page-item active"><a class="page-link" href="#">Arabic</a></li>
-            <li class="page-item"><a class="page-link" href="#">Frencey</a></li>
-            <li class="page-item"><a class="page-link" href="#">German</a></li>
-            <li class="page-item">
-            </li>
-        </ul>
-    </nav>
- </div>
+
     <!-- ===================== cards ===================== -->
     <section>
         <div class="container tourguideCard">
-            <div class="row g-5" style="margin-top: 1rem;" >
+            <div class="row g-5"  >
                 @foreach ($allTourGides as $Tourguide)
-                        <div class="col-lg-4  col-sm-6 col-12 rounded">
-                            <div class="card border-0 me-lg-4 mb-lg-0 mb-4 ">
+                        <div class="col-lg-4  col-sm-6 col-12 rounded" >
+                            <div class="card border-0 me-lg-4 mb-lg-0 mb-4 " style="margin-top: 1rem;margin-button:1rem">
                                 <div class="backgroundEffect"></div>
                                 <div class="pic">
                                     <img class="" src="  'img/'.{{ asset($Tourguide->User->image) }}" alt="">
@@ -150,7 +97,7 @@
                                     <div class="col-md-10 ">
                                         <!-- col-md-pull-7 -->
                                         <div class="booking-form">
-                                            <form action="{{route('storeRegPlace.store')}}" class="form" id="form2" method="POST">
+                                            <form action="{{route('storeRegTourguide.store',['id'=>$Tourguide->id])}}" class="form" id="form2" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-6">
@@ -187,7 +134,7 @@
      </section>
  @endsection
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>  
 </body>

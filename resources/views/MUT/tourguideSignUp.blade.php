@@ -26,19 +26,17 @@
     @endif
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
-		<div class="container__form container--signup">
+		<div class="container__form container--signup"  style="height:34rem ">
 			<form action="{{route('tourguide.store')}}" class="form" id="form1" method="post" enctype="multipart/form-data">
-@csrf
+                @csrf
                 <h2 class="form__title">Sign Up</h2>
-				{{-- <div class="profImg"> <label for="files">
-						<img src="./assets/imgs/profImg.png" alt="">
+				<div class="profImg"> <label for="files">
+					Put Your Image <img src="./assets/imgs/profImg.png" alt="" style="width:20px">
 
-
-						<input type="file" id="files" style="visibility:hidden;"
-							accept="image/png, image/gif, image/jpeg" />
+						<input type="file" id="files" style="visibility:hidden;" accept="image/png, image/gif, image/jpeg" name="image" />
 					</label>
-				</div> --}}
-                <input type="file" name="image">
+				</div>
+             {{-- Your Image:   <input type="file" name="image"> --}}
 				<input type="text" placeholder="Your Name" name="name" class="input" required />
 				<div>
                     Gender :
@@ -76,8 +74,8 @@
                 </form>
 
 		</div>
-		<div class="container__form container--signin">
-			<form action="{{route('login.store')}}" class="form" id="form2" method="POST">
+		<div class="container__form container--signin" >
+			<form action="{{route('login.store')}}" class="form" id="form2" method="POST" >
                 @csrf
 				<h2 class="form__title">Sign In</h2>
 				<input type="email" placeholder="Email" name="email" class="input" required />
@@ -87,14 +85,14 @@
 				<a href="#" class="link" id="signUp">Don't have an account Yet?</a>
 			</form>
 		</div>
-		<div class="container__overlay">
+		<div class="container__overlay" style="height:35rem ">
 
 			<div class="overlay">
 				<div class="overlay__panel overlay--left">
-					<img src="{{asset("./assets/imgs/tourG.jpg")}}" alt="">
+					<img src="{{asset("./assets/imgs/tourG.jpg")}}" alt="" >
 				</div>
 				<div class="overlay__panel overlay--right">
-				<img src="{{asset("./assets/imgs/MrstourG.jpg")}}" alt="">
+				<img src="{{asset("./assets/imgs/MrstourG.jpg")}}" alt="" >
 				</div>
 			</div>
 		</div>

@@ -54,7 +54,7 @@ p {
     width: 100%;
     position: absolute;
     z-index: -1;
-    background: #e5b563;;
+    background: #f7c15c;;
     animation: popBackground 0.3s ease-in
 }
 
