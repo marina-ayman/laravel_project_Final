@@ -59,8 +59,14 @@ class TourguideController extends Controller
     public function store(StoreTourgideRequest $request,StoreUserRequest $requestUser)
     {
 // dd($request);
-$name=md5(microtime()).$request['image']->getClientOriginalName();
-        $request['image']->storeAs("public/imgs",$name);
+if(!empty($request->image)){
+
+    $name=md5(microtime()).$request['image']->getClientOriginalName();
+            $request['image']->storeAs("public/imgs",$name);
+}
+
+// $name=md5(microtime()).$request['image']->getClientOriginalName();
+//         $request['image']->storeAs("public/imgs",$name);
 
        $user=  User::create([
         'name' => $requestUser['name'] ,
@@ -132,7 +138,7 @@ $name=md5(microtime()).$request['image']->getClientOriginalName();
 
     public function storeTourguide(StoreTourgideRequest $request,StoreUserRequest $requestUser)
     {
-// dd($request);
+// dd($request->image);
 if(!empty($request->image)){
 
     $name=md5(microtime()).$request['image']->getClientOriginalName();
