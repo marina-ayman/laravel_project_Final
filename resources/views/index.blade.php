@@ -144,6 +144,48 @@
 
 <body>
 	
+<<<<<<< HEAD
+	
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" style="height: 90vh;">
+                <div class="carousel-item active" >
+                    <img class="w-100" src="./assets/imgs/Aswan-Nilme.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4">Let's Discover Aswan Together</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="./assets/imgs/Aswan-Nilme.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4">Discover The Land of Gold With Us</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+=======
+>>>>>>> 626eb73476e7a35976958fa91f5b9561b1c8a1c4
 
 
 
@@ -160,8 +202,13 @@
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
+<<<<<<< HEAD
+                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                        <p></p>
+=======
                         <h1 class="mb-1">We Provide Best Tour Packages In Your Budget</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+>>>>>>> 626eb73476e7a35976958fa91f5b9561b1c8a1c4
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 12rem">
