@@ -165,13 +165,23 @@ Route::post('/changeRequest/{order}',[DashboardController :: class ,"changeStatu
 Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name('AdminDash');
 
 
-Route::get('/Placesall',[ViewPlacesController::class,'index'])->name('Placesall');
+Route::get('/Placesall',[ViewPlacesController::class,'index'])->name('Placesallll');
 
 Route::get('allHotel',[viewHotelsController::class,'index'])->name('allHotell');
 Route::get('Hotel/{id}',[viewHotelsController::class,'showhotel'])->name('hotel.show');
 Route::get('Room/{id}',[viewHotelsController::class,'room'])->name('roomm');
 
-Route::post('/bookRoom', [viewHotelsController::class, 'store'])->name('bookRoomm');
+Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
+Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
 
-Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
-Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
+
+
+Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
+Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
+Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
+// =========================================
+Route::get('/tourguideRequests/{id}',[DashboardController :: class ,"tourguideRequests"])->name("tourguideRequests");
+Route::post('/tourChangeStatus/{order}',[DashboardController :: class ,"tourChangeStatus"])->name("tourChangeStatus");
+Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
+Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
+Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");

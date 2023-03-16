@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hotel</title>
+    <title>Tourguide</title>
     <link rel="stylesheet" href="{{ asset('./assets/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('./assets/css/framework.css') }}" />
     <link rel="stylesheet" href="{{ asset('./assets/css/master.css') }}" />
@@ -17,11 +17,11 @@
 <body>
     @include('sweetalert::alert')
     <div class="sidebar bg-white p-20 p-relative">
-        <h3 class="p-relative txt-c mt-0"><a href="{{route("homePage")}}">M.U.T.E</a></h3>
+        <h3 class="p-relative txt-c mt-0">Safary</h3>
         <ul>
             <li>
                 <a class=" d-flex align-center fs-14 c-black  rad-6 p-10 text-decoration-none"
-                    href="{{ route('hotelOwnerDashboard') }}">
+                    href="{{ route('TourguideProfile.index') }}">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>My Dashboard</span>
                 </a>
@@ -32,16 +32,10 @@
                 <span>Add Room</span>
               </a>
             </li> --}}
-            <li>
-                <a class=" d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none"
-                    href="{{ route('MyOwnedHotels') }}">
-                    <i class="fa-solid fa-graduation-cap fa-fw"></i>
-                    <span>Hotels</span>
-                </a>
-            </li>
+         
             <li>
                 <a class="active d-flex align-center fs-14 c-black  rad-6 p-10 text-decoration-none"
-                    href="{{ route('MyOwnedHotels') }}">
+                    href="{{ route('tourguideRequests') }}">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>Requests</span>
                 </a>
@@ -72,10 +66,7 @@
                         <td colspan="2">check In</td>
                         <td colspan="2">check out</td>
                         <td>user Name</td>
-                        <td>room price:roomType</td>
 
-
-                        <td>hotel Name</td>
 
                         {{-- <td>license</td> --}}
                         <td>Action</td>
@@ -102,20 +93,14 @@
                                     {{-- <td>{{$request->check_in}}</td> --}}
                                     <td>{{ $request->name }}</td>
 
-<td>
-                                    @foreach($requests as $req)
-                                    {{$req->price}}    :   {{$req->type}}
-                                    <br> <hr>
-                                        @endforeach
-
-                                    </td>
 
 
-                            <td>{{ $request->hotel_name }}</td>
+
+
 
 
                             <td>
-                                <form action="{{ route('changeStatus', ['order' => $request->order_id]) }}" method="POST"
+                                <form action="{{ route('tourChangeStatus', ['order' => $request->order_id]) }}" method="POST"
                                     accept-charset="UTF-8" style="display:inline">
                                     @csrf
                                     <input type="text" name="hotel_id" value="{{ $request->hotel_id }}" hidden>

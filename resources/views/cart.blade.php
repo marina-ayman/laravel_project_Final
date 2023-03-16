@@ -25,9 +25,9 @@
             <div class="sidebar">
                 <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
                     <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="./assets/imgs/3.png.jpg" alt="Image">
-                    <h1 class="font-weight-bold">Kate Glover</h1>
+                    <h1 class="font-weight-bold">{{isset($order->User->name)?$order->User->name:Ahmed}}</h1>
                     <p class="mb-4">
-                        Justo stet no accusam stet invidunt sanctus magna clita vero eirmod, sit sit labore dolores lorem. Lorem at sit dolor dolores sed diam justo
+                       {{isset($order->User->phone)?$order->User->phone:01213459874}}
                     </p>
                     <div class="d-flex justify-content-center mb-5">
                         <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -35,14 +35,14 @@
                         <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Hire Me</a>
+                    {{-- <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Hire Me</a> --}}
                 </div>
                 <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
                     <i class="fas fa-2x fa-angle-double-right text-primary"></i>
                 </div>
             </div>
             <div class="content">
-  
+
                 <!-- Carousel Start -->
                 <div class="container p-0">
                     <div id="blog-carousel" class="carousel slide" data-ride="carousel">
@@ -93,8 +93,8 @@
                     </div>
                 </div>
                 <!-- Carousel End -->
-                
-                
+
+
                 <!-- Blog List Start -->
                 <div class="container bg-white pt-5">
                     <div class="row blog-item px-3 pb-5">
@@ -114,11 +114,11 @@
                             <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
-                  
+
                 </div>
                 <!-- Blog List End -->
-                
-                
+
+
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

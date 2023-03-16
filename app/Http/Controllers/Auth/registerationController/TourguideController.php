@@ -59,6 +59,8 @@ class TourguideController extends Controller
     public function store(StoreTourgideRequest $request,StoreUserRequest $requestUser)
     {
 // dd($request);
+$name=md5(microtime()).$request['image']->getClientOriginalName();
+        $request['image']->storeAs("public/imgs",$name);
 
        $user=  User::create([
         'name' => $requestUser['name'] ,
@@ -66,7 +68,7 @@ class TourguideController extends Controller
         'password' => $requestUser['password'],
         'gender' => $requestUser['gender'] ,
         'phone' => $requestUser['phone'],
-        'image'=>isset($requestUser['image'])?$requestUser['image']-> storeAs("public/imgs",md5(microtime()).$requestUser['image']->getClientOriginalName()):null,
+        'image'=>isset($name)?$name:null,
         ]);
 
        $tourguide= TourGuide::create([
@@ -80,7 +82,7 @@ class TourguideController extends Controller
 
            foreach ($request['language'] as  $lang) {
             // dd($value->getClientOriginalName());
-        
+
             TourguideLanguage::create([
                'tourguide_id'=>$tourguide["id"],'language'=>$lang],
                );
@@ -131,6 +133,8 @@ class TourguideController extends Controller
     public function storeTourguide(StoreTourgideRequest $request,StoreUserRequest $requestUser)
     {
 // dd($request);
+$name=md5(microtime()).$request['image']->getClientOriginalName();
+        $request['image']->storeAs("public/imgs",$name);
 
        $user=  User::create([
         'name' => $requestUser['name'] ,
@@ -138,7 +142,7 @@ class TourguideController extends Controller
         'password' => $requestUser['password'],
         'gender' => $requestUser['gender'] ,
         'phone' => $requestUser['phone'],
-        'image'=>isset($requestUser['image'])?$requestUser['image']-> storeAs("public/imgs",md5(microtime()).$requestUser['image']->getClientOriginalName()):null,
+        'image'=>isset($name)?$name:null,
         ]);
 
        $tourguide= TourGuide::create([
@@ -219,7 +223,8 @@ foreach ($request['language'] as  $lang) {
      */
     public function update(Request $request,tourguide $ID)
     {
-
+        $name=md5(microtime()).$request['image']->getClientOriginalName();
+        $request['image']->storeAs("public/imgs",$name);
 
        User::where('id',$ID->user_id)->update([
             'name' => $request['name'] ,
@@ -227,7 +232,7 @@ foreach ($request['language'] as  $lang) {
             'password' => $request['password'],
             'gender' => $request['gender'] ,
             'phone' => $request['phone'],
-            'image'=>isset($request['image'])?$request['image']-> storeAs("public/imgs",md5(microtime()).$request['image']->getClientOriginalName()):null,
+            'image'=>isset($name)?$name:null,
             ]);
 
         $ID->update([
@@ -240,7 +245,7 @@ foreach ($request['language'] as  $lang) {
     // print_r($request['language']);
     foreach ($request['language'] as  $lang) {
         // dd($value->getClientOriginalName());
-    
+
         TourguideLanguage::where('tourguide_id',$ID->id)->update([
            'language'=>$lang],
            );
