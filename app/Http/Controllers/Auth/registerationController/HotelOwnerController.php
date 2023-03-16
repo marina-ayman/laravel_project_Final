@@ -76,8 +76,8 @@ class HotelOwnerController extends Controller
        }
 
 // print_r($hotelOwner->User);
-return route("login.create",['role'=>$role->name]);
-// return redirect(route('login.create',['role'=>$request->role]));
+// return route("login.create",['role'=>$role->name]);
+return redirect(route('login.create',['role'=>$request->role]));
     }
 
 
@@ -140,7 +140,7 @@ return redirect('dashboardAdmin.user.users',['role'=>$request->role]);
      */
     public function update(Request $request, hotelOwner $hotelOwner)
     {
-        
+
        User::where('id',$hotelOwner->user_id)->update([
         'name' => $request['name'] ,
         'email' => $request['email'],

@@ -71,7 +71,7 @@ class MUTController extends Controller
 
         // dd($budgetForHotels);
 
-        $order->budget;
+        // $order->budget;
         // dd($order->budget);
         // dd($percent);
         if ($percent != 0) {
@@ -127,8 +127,9 @@ class MUTController extends Controller
         //    dd($request->percent);
         //    dd($hotel);
         $availableRooms = $request->availableRooms;
+        // dd($availableRooms);
 
-        return view('MUT.availableRooms', [
+        return view('MUT.availableRooms',[
             'availableRooms' => $availableRooms,
             'order' => $order,
             'hotel' => $hotel,
@@ -148,6 +149,9 @@ class MUTController extends Controller
                 'hotel_id' => (int)$hotel->id,
                 'room_id' => (int)$room
             ]);
+            Alert::congrats('Thanks','we are processing Your order ^^');
+            return back();
+
         }
         // $bookedRooms=[];
         // $i=0;
@@ -160,38 +164,40 @@ class MUTController extends Controller
 
         // }
         // dd($bookedRooms);
-        // dd($room);
-        $totalPaidInroomsPerDay = DB::table("rooms")
-            ->select(DB::raw('sum(rooms.price)as sum'))
-            ->join('booked_rooms', 'rooms.id', '=', 'booked_rooms.room_id')
-            ->where('booked_rooms.order_id', '=', $order->id)
-            ->get();
-        //    dd($totalPaidInroomsPerDay[0]->sum);
-        $roomBudget = $totalPaidInroomsPerDay[0]->sum * $order->n_of_days;
-        // dd($roomBudget);
-        $restOfBudget = $order->budget - $roomBudget;
-        // dd($restOfBudget);
+        // // dd($room);
+        // $totalPaidInroomsPerDay = DB::table("rooms")
+        //     ->select(DB::raw('sum(rooms.price)as sum'))
+        //     ->join('booked_rooms', 'rooms.id', '=', 'booked_rooms.room_id')
+        //     ->where('booked_rooms.order_id', '=', $order->id)
+        //     ->get();
+        // //    dd($totalPaidInroomsPerDay[0]->sum);
+        // $roomBudget = $totalPaidInroomsPerDay[0]->sum * $order->n_of_days;
+        // // dd($roomBudget);
+        // $restOfBudget = $order->budget - $roomBudget;
+        // // dd($restOfBudget);
 
-        $availablePlaces = Place::where('price', '<', $restOfBudget)->get();
-        // dd(empty($availablePlaces[0]));
-        // the places won't be empty
-        // dd($availablePlaces);
-        if (empty($availablePlaces[0])) {
-            // return view('MUT.availableTourguide',[
-            //     'message'=>'there is not enough budget raise it '
+        // $availablePlaces = Place::where('price', '<', $restOfBudget)->get();
+        // // dd(empty($availablePlaces[0]));
+        // // the places won't be empty
+        // // dd($availablePlaces);
+        // if (empty($availablePlaces[0])) {
+        //     // return view('MUT.availableTourguide',[
+        //     //     'message'=>'there is not enough budget raise it '
 
-            // ]);
-            return back();
-        } else {
-            return view('MUT.availablePlaces', [
-                'availablePlaces' => $availablePlaces,
-                'order' => $order,
-                'percent' => $request->percent,
-                'restOfBudget' => $restOfBudget
+        //     // ]);
+        //     Alert::alert('we are very sorry :(', 'there is no available hotels
+        //     increase your budget or derease or change number of days you want to stay or skip this step....^^');
+        //     return back();
+        // } else {
+        //     return view('MUT.availablePlaces', [
+        //         'availablePlaces' => $availablePlaces,
+        //         'order' => $order,
+        //         'percent' => $request->percent,
+        //         'restOfBudget' => $restOfBudget
 
 
-            ]);
-        }
+        //     ]);
+        // }
     }
     public function getAvailablePlaces(Order $order, Request $request)
     {
@@ -208,7 +214,16 @@ class MUTController extends Controller
             // dd($totalPaidInroomsPerDay[0]->sum);
             if ($totalPaidInroomsPerDay[0]->sum != 0 || $totalPaidInroomsPerDay[0]->sum == null) {
                 $totalPaidInRooms = $totalPaidInroomsPerDay[0]->sum * (int)$order->n_of_days;
+          $paidInRoom = DB::table("rooms")
+          ->select(DB::raw('sum(rooms.price)as sum'))
+          ->join('booked_rooms', 'rooms.id', '=', 'booked_rooms.room_id')
+          ->where('booked_rooms.order_id', '=', $order->id)
+          ->get();
                 $restOfBudget = ($order->budget) - $totalPaidInRooms;
+                if($restOfBudget<0){
+                    Alert::alert('be aware , your booking exceeds your budget^^');
+
+                }
             }
         } else {
             $restOfBudget = (int)$order->budget;
@@ -220,14 +235,15 @@ class MUTController extends Controller
         $availablePlaces = Place::where('price', '<', $restOfBudget)->get();
         // dd($availablePlaces);
         if (empty($availablePlaces[0])) {
-
+            Alert::alert('we are very sorry :(', 'there is no available places
+               you can book a tourguide or you can skip this step....^^');
             // dd($totalPaidInPlaces[0]->sum);
             $restBudgetBeforeTourguide = $restOfBudget;
             // dd($restBudget);
             $budgetperday = $restBudgetBeforeTourguide / $order->n_of_days;
             // dd($budgetperday);
             $availableTourguides = Tourguide::where('price_per_day', '<', $budgetperday)->get();
-            return view('MUT.availableTourguide', [
+            return view('MUT.availableTourguides', [
                 'availableTourguides' => $availableTourguides,
                 'order' => $order,
                 'percent' => $request->percent,
@@ -251,13 +267,13 @@ class MUTController extends Controller
         // dd($request);
 
 
-            // foreach ($request->place_id as $placeID) {
-            //     // dd($placeID);
-            //     OrderedPlace::create([
-            //         'order_id' => $order->id,
-            //         'place_id' => $placeID
-            //     ]);
-            // }
+            foreach ($request->place_id as $placeID) {
+                // dd($placeID);
+                OrderedPlace::create([
+                    'order_id' => $order->id,
+                    'place_id' => $placeID
+                ]);
+            }
 
         $totalPaidInPlaces = DB::table("places")
             ->select(DB::raw('sum(places.price)as sum'))
@@ -305,18 +321,12 @@ class MUTController extends Controller
 
 
                 ]);
+            }else{
+                Alert::alert('sorry :(', 'there is no enough budget ^^');
+                return back();
             }
-            // } else {
-            //     if (empty($availableTourguides[0])) {
-
-            //         return view('MUT.availableTourguide', []);
-            //     }
-            //     // dd($restBudget);
-            //     // dd($budgetperday);
-            //     // dd($availableTourguides);
 
 
-            // }
         }
     }
     public function bookWithTourguide(Order $order, Request $request, Tourguide $tourguide)
@@ -365,6 +375,7 @@ class MUTController extends Controller
         OrderDetail::create([
             'order_id' => $order->id
         ]);
+
         return view('cart', [
             'order' => $order
         ]);

@@ -17,7 +17,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="./assets/css/addCart.css" rel="stylesheet">
+        <link href="{{asset("./assets/css/addCart.css")}}" rel="stylesheet">
     </head>
 
     <body>

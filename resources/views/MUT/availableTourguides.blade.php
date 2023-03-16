@@ -15,7 +15,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 
 <link rel="stylesheet" href="{{asset('assets/css/Cards/tourguideCards.css')}}">
 <section class="blog top mt-3" id="blog">
@@ -30,7 +30,7 @@
      </div>
 
 
-      
+
         <div class="container tourguideCard">
           <div class="row">
           <div class="row g-5" style="margin-top: 1rem;" >
@@ -46,7 +46,7 @@
                               </div>
                               <div class="content">
                                   <h2>{{$Tourguide->User->name}}</h2>
-                                  <p class="text-muted mt-3">price {{$Tourguide->price_per_day}} /day</p> 
+                                  <p class="text-muted mt-3">price {{$Tourguide->price_per_day}} /day</p>
                                       {{-- @foreach($Tourguide->languages as $item)
                                           <h6 class="h-2 mt-4"><br>{{$item['language']}} </h6>
                                       @endforeach  --}}
@@ -58,12 +58,12 @@
                                   <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
                                       <div class="d-flex align-items-center justify-content-center foot">
                                           <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
-                                   
+
                                         </div>
                                   </div>
                                   <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div>
                               </div>
-                          </div> 
+                          </div>
                       </div>
                       @endforeach
           </div>
@@ -72,15 +72,38 @@
 
 <!-- ===================Card================= -->
 
-<form action="{{route('getAvailablePlaces',['order'=>$order->id])}}">
+<form action="{{route('getAvailablePlaces')}}">
+    <input type="text" name="percent" value="{{ $percent }}" hidden>
 
-    <button type="submit" >back</button>
+    <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+    <button type="submit">back step</button>
 </form>
       </div>
+      <form action="{{route('getAvailableTourguides',['order'=>$order->id])}}">
+
+        <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+        <button type="submit">Next step</button>
+
+        <form action="{{route('getAvailablePlaces')}}">
+            <input type="text" name="percent" value="{{ $percent }}" hidden>
+
+            <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+            <button type="submit">back step</button>
+        </form>
+    </form>
 
 </div>
 
 
+
+<form action="{{route('MUTE',['order'=>$order])}}">
+
+    <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+    <button type="submit">Finish My trip ^^ </button>
+</form>
+
+</div>
+</div>
 
 
 <form action="" method="POST">
