@@ -15,7 +15,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 
 <link rel="stylesheet" href="{{asset('assets/css/Cards/tourguideCards.css')}}">
 <section class="blog top mt-3" id="blog">
@@ -30,7 +30,7 @@
      </div>
 
 
-      
+
         <div class="container tourguideCard">
           <div class="row">
           <div class="row g-5" style="margin-top: 1rem;" >
@@ -46,7 +46,7 @@
                               </div>
                               <div class="content">
                                   <h2>{{$Tourguide->User->name}}</h2>
-                                  <p class="text-muted mt-3">price {{$Tourguide->price_per_day}} /day</p> 
+                                  <p class="text-muted mt-3">price {{$Tourguide->price_per_day}} /day</p>
                                       {{-- @foreach($Tourguide->languages as $item)
                                           <h6 class="h-2 mt-4"><br>{{$item['language']}} </h6>
                                       @endforeach  --}}
@@ -58,12 +58,12 @@
                                   <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
                                       <div class="d-flex align-items-center justify-content-center foot">
                                           <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
-                                   
+
                                         </div>
                                   </div>
                                   <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div>
                               </div>
-                          </div> 
+                          </div>
                       </div>
                       @endforeach
           </div>
@@ -83,7 +83,7 @@
 
 
 
-<form action="" method="POST">
+<form action="{{route('MUTE')}}" method="POST">
     @csrf
     <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="submit-btn m-5" type="submit">skip &submit MUTE</button>
