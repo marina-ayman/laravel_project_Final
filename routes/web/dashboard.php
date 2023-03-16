@@ -172,6 +172,7 @@ Route::get('Hotel/{id}',[viewHotelsController::class,'showhotel'])->name('hotel.
 Route::get('Room/{id}',[viewHotelsController::class,'room'])->name('roomm');
 
 Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
+Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
 
 
 

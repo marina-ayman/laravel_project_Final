@@ -61,18 +61,18 @@
                                     @auth
 
                                     @if(Auth::user()->Role->name =="hotelOwner")
-									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">MY hotelOwner</a>
+									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">HotelOwner</a>
                                     @endif
 
 								    @if(Auth::user()->Role->name =="tourguide")
-									<a class="nav-link" href="{{route('TourguideProfile.index')}}">MY tourguide</a>
+									<a class="nav-link" href="{{route('TourguideProfile.index')}}">My Tourguide</a>
                                     @endif
                                     @if(Auth::user()->Role->name =="driver")
-									<a class="nav-link" href="{{route('driverprofileDash.index')}}">MY driver</a>
+									<a class="nav-link" href="{{route('driverprofileDash.index')}}">Driver</a>
                                     @endif
                                     {{-- {{dd(Auth::user()->user_type)}} --}}
                                     @if(Auth::user()->Role->name =="admin")
-									<a class="nav-link" href="{{route('AdminDash')}}">MY AdminDash</a>
+									<a class="nav-link" href="{{route('AdminDash')}}">AdminDash</a>
                                     @endif
 								@endauth
                                 </li>

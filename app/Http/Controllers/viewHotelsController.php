@@ -10,6 +10,7 @@ use App\Models\RoomImg;
 use App\Http\Controllers\Controller;
 use App\Models\HotelOwner;
 use App\Models\BookedRoom;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
 
