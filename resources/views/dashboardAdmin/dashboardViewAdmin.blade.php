@@ -18,7 +18,7 @@
   <body>
   <div class="page d-flex">
       <div class="sidebar bg-white p-20 p-relative">
-        <h3 class="p-relative txt-c mt-0">SAFARY</h3>
+        <h3 class="p-relative txt-c mt-0"><a href="{{route("homePage")}}" style="text-decoration:none ; color: black">M.U.T.E</a></h3>
         <ul>
 
           <li>
