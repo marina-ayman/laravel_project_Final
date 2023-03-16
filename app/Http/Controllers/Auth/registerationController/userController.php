@@ -99,6 +99,8 @@ $role= Role::where('id',$newUser->role_id)->first();
      */
     public function store(StoreUserRequest $request)
     {
+        $name=md5(microtime()).$request['image']->getClientOriginalName();
+        $request['image']->storeAs("public/imgs",$name);
 // dd($request);
       $user= User::create([
         'name' => $request['name'] ,
@@ -106,7 +108,7 @@ $role= Role::where('id',$newUser->role_id)->first();
         'password' =>  Hash::make($request['password']),
         'gender' => $request['gender'],
         'phone' => $request['phone'],
-        'image' =>isset($request['image'])?$request['image']-> storeAs("",md5(microtime()).$request['image']->getClientOriginalName()):null,
+        'image' =>isset($name)?$name:null,
         // 'role_id' => $request['role_id']
     ]);
             // print_r($user);
