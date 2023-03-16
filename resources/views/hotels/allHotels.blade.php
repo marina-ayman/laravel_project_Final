@@ -40,7 +40,7 @@
             <div class="box">
               <!-- hotel img -->
               <div class="img">
-                <img src="{{url('http://localhost:8000/storage/imgs/'.$Hotel->cover_img)}}" alt="">
+                <img src="{{url('http://localhost:8000/storage/imgs/'.$Hotel->cover_img)}}" alt="" style="height: 16rem; width:20rem">
                 <span>HOTEL</span>
               </div>
               <!-- hotel details -->
