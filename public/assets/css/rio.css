@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.386);
+
+}
+header img{
+    width: 50px;
+    height: 50px;;
+}
+header span{
+    color: #ffffff;
+    margin-right: 20px;
+    font-size: 1.2rem;
+}
+header i{
+    color: #ffffff;
+}
+
+nav{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+nav a{
+    padding-right: 150px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+.main{
+    padding-left: 200px;
+    min-height: 100vh;
+    align-items: center;
+    width: 100%;
+    /* position: fixed; */
+    display: flex;
+    
+    text-align: center;
+}
+.main h2{
+    font-size: 1.3em;
+    font-weight: 500;
+    color: rgb(241, 232, 220);
+    
+}
+.main h2 span{
+    font-size: 3em;
+    font-weight: 600;
+    color: rgb(241, 232, 220);
+    display: inline-block;
+    margin-top: 10px;
+}
+.main h3{
+    font-size: 1.6em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: rgb(241, 232, 220);
+}
+.main-btn{
+    /* border: 3px  rgb(108, 108, 229) solid; */
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: .8em;
+    font-weight: 600;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    padding: 0.9357em 2.1875em;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    letter-spacing: 1px;
+    transition: 1s ease;
+}
+.main-btn:hover{
+    transform: scale(1.1);
+    background-color:rgb(13, 114, 228); 
+}
+
+
+.bg-img{
+    background: url(/img/micro-photography-of-purple-petaled-flower-wallpaper-preview.jpg);
+    background-position: center;
+    background-size: cover;
+    /* position: relative; */
+}
+.sec-one{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.card{
+    text-align: center;
+    /* display: flex; */
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    padding: 30px;
+    margin-left: 40px;
+    width: 200px;
+    height: 170px;
+    /* margin-bottom: 100px; */
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 15%);
+    transition: 1s ease;
+    position: relative;
+    top: -60px;
+    z-index: 1;
+}
+.card .icon{
+    color: rgb(34, 112, 228);
+    font-size: 30px;
+}
+/* .card:hover{
+    width: 220px;
+    height: 200px;
+    background-color: rgb(16, 141, 219);
+    transform: scale(1.1);
+} */
+.card h1{
+    color: rgb(34, 112, 228);
+}
+/* .card h1:hover{
+    color: white;
+} */
+.card p{
+    color: rgb(7, 80, 191);
+}
+.card p:hover{
+    color: white;
+}
+.sec-two{
+    /* display: flex; */
+    width: 100%;
+    justify-content: center;
+}
+.sec-two .qestion{
+    text-align: center;
+    color: rgb(34, 112, 228);
+    font-size: 1.3rem;
+    margin-bottom: 100px;
+}
+.sec-two .contant{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 100px auto;
+}
+.contant img{
+    width: 400px;
+    height: 300px;
+    margin-right: 100px;
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 85%);
+}
+.contant p{
+    font-size: 1.1rem;
+    color: rgb(27, 27, 87);
+}
+.cover{
+    background-color: rgba(168, 168, 240, 0.299);
+    padding: 40px 0;
+}
+.sec-three{
+    display: flex;
+    width: 70%;
+    margin: 100px auto;
+    justify-content: center;
+    /* background-color: rgba(168, 168, 240, 0.45); */
+}
+.card-one{
+    margin-right: 50px;
+}
+.card-one h4{
+    color: rgb(34, 112, 228);
+    font-size: 1.5rem;
+}
+.card-one h2{
+    color: rgb(34, 112, 228);
+    font-size: 1rem ;
+}
+.card-one p{
+    color: rgb(13, 26, 45);
+    font-size: 1rem ;
+    margin-bottom: 30px;
+}
+
+.card-two h2{
+    color: rgb(34, 112, 228);
+    font-size: 1rem ;
+}
+.card-two img {
+    width: 250px;
+    height: 150px;
+}
+.cover2{
+    background-color: rgb(26, 26, 85);
+    padding: 100px 0;
+}
+.sec-four{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+
+}
+.sec-five{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+
+}
+.sec-four .def-card{
+    /* text-align: center; */
+    padding: 30px;
+    width: 30%;
+    height: 170px;
+    /* margin-bottom: 100px; */
+    margin-right: 40px;
+    
+}
+.def-card h1{
+    color: white;
+}
+.icon-plus{
+    color: #ffffff;
+    font-size: 30px;
+    position: relative;
+    top: -50px;
+    /* margin: 5px 0; */
+}
+.last-card{
+    border: 2px solid rgba(255, 255, 255, 0.226);
+    padding: 30px;
+    width: 30%;
+    height: 170px;
+    margin-bottom: 100px;
+    margin-right: 40px;
+    /* box-shadow: 0 5px 25px rgba(1, 1, 1, 15%); */
+    
+}
+.last-card h1{
+    color: white;
+}
+.last-card p{
+    color: rgba(255, 255, 255, 0.42);
+}
+.last-card:hover{
+    border: 3px solid rgba(255, 255, 255, 0.756);
+    
+}
+.last-card p:hover{
+    color: rgba(255, 255, 255, 0.858);
+}
+
+/* //////////////////// */
+footer {
+	background: #101010;
+	padding: 86px 0;
+}
+.single-content {
+	text-align: center;
+	padding: 115px 0;
+}
+.single-box p {
+	color: #fff;
+	line-height: 1.9;
+}
+.single-box h3 {
+	font-size: 16px;
+	font-weight: 700;
+	color: #fff;
+}
+.single-box .card-area i {
+	color: #ffffff;
+	font-size: 20px;
+	margin-right: 10px;
+}
+.single-box ul {
+	list-style: none;
+	padding: 0;
+}
+.single-box ul li a {
+	text-decoration: none;
+	color: #fff;
+	line-height: 2.5;
+	font-weight: 100;
+}
+.single-box h2 {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 700;
+}
+#basic-addon2 {
+	background: #4f4ae2;
+	color: #fff;
+}
+.socials i {
+	font-size: 18px;
+	margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

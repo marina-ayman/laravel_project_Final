@@ -6,13 +6,20 @@
 <link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
 <div class="content">
 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset("./assets/css/rio.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 {{-- 
 	<link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="./assets/css/owl-carousel.css" >
 	 <link rel="stylesheet" href="./assets/css/bootstrap.min.css" > --}}
 
 {{-- need carsoul --}}
-	<div class="section full-height">
+	{{-- <div class="section full-height">
 		<div class="absolute-center">
 			<div class="section">
 				<div class="container">
@@ -39,12 +46,71 @@
 		</div>
 	</div>
 	<div class="my-5 py-5">
-	</div> 
+	</div>  --}}
 
 
-
-
+        <section>
+        <section class="main">
+            <div>
+                <h2>
+                    Ships Any Things<br />
+                    <span>AROUND THE WORLD</span>
+                </h2>
+                <a href="{{route("MUT.create")}}" class="main-btn">M.U.T.E</a>
+            </div>
+        </section>
+    </section>
 </div>
+<section class="sec-one">
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-plane"></i>
+        </div>
+        <h1>
+            hola 
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-car-battery"></i>
+        </div>
+        <h1>
+            hola 
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-car"></i>
+        </div>
+        <h1>
+            hola 
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-plane"></i>
+        </div>
+        <h1>
+            hola 
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-blind"></i>
+        </div>
+        <h1>
+            hola 
+        </h1>
+        <p>hola</p>
+    </div>
+</section>
+
+
+
 
 
 
