@@ -174,3 +174,4 @@ Route::get('Room/{id}',[viewHotelsController::class,'room'])->name('roomm');
 Route::post('/bookRoom', [viewHotelsController::class, 'store'])->name('bookRoomm');
 
 Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
+Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
