@@ -47,10 +47,12 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
 								</li>
-
+                                @isset($record)
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link">{{Auth::user()->name}}</a>
-                                </li>
+                                    <a class="nav-link">
+                                        {{Auth::user()->name}}</a>
+                                    </li>
+                                    @endisset
                                 {{-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a>
 								</li> --}}
