@@ -145,8 +145,13 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+	
+	
+=======
 
 
+>>>>>>> 6deb9194ee7e83f8423d7266c88b0b0443f75521
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -201,13 +206,8 @@
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-<<<<<<< HEAD
                         <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
                         <p></p>
-=======
-                        <h1 class="mb-1">We Provide Best Tour Packages In Your Budget</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
->>>>>>> 626eb73476e7a35976958fa91f5b9561b1c8a1c4
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 12rem">
