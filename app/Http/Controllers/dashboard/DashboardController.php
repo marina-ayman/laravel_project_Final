@@ -188,7 +188,7 @@ class DashboardController extends Controller
 
     public function AllRooms(Hotel $hotelID){
         // dd($hotel->Room());
-        $rooms=$hotelID->Rooms()->get();
+        $rooms=Room::where('hotel_id',$hotelID->id)->get();
         // dd($hotelID->id);
         // $rooms= Room::where('hotel_id',$hotelID)->get();
 // dd($rooms);

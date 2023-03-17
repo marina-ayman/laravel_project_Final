@@ -58,13 +58,13 @@
                   @endforeach
                   <td>
 
-                    <button  class="label btn-shape bg-green c-white">
+                    {{-- <button  class="label btn-shape bg-green c-white">
                       <a href="{{route('PlaceDash.edit',['id'=>$place->id])}}" class="btn btn-outline-success">Edit</a>
                       </button>
 
                       <button  class="label btn-shape bg-red c-white">
                         <a href="{{route('PlaceeDash.destroy',['id'=>$place->id])}}" class="title bg-red c-white btn-shape"  onclick="return confirm('Are you sure you want to delete?')" >delete </a>
-                      </button>
+                      </button> --}}
 
                       {{-- {{dd($place->id)}} --}}
                     {{-- <form method="POST" action="{{route('PlaceeDash.destroy'),[ 'id'=>$place->id ] }}" accept-charset="UTF-8" style="display:inline">

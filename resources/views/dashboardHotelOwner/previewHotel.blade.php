@@ -59,8 +59,8 @@
           </li>
         </ul>
       <div class="course bg-white rad-6 p-relative">
-        <img class="cover w-full" src="https://imgs.search.brave.com/4pvgpXiuGnb_H1ZZTe666J9zcYKttnnDxpiTiOBjxaY/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/VkRfRWROTWVENER2/MTc4c2hMNmhRSGFG/aiZwaWQ9QXBp" alt="" />
-        <img class="cover w-full" src="{{$hotel->cover_img}}" alt="" />
+        {{-- <img class="cover w-full" src="https://imgs.search.brave.com/4pvgpXiuGnb_H1ZZTe666J9zcYKttnnDxpiTiOBjxaY/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/VkRfRWROTWVENER2/MTc4c2hMNmhRSGFG/aiZwaWQ9QXBp" alt="" /> --}}
+        <img class="cover w-full" src="../storage/imgs/{{$hotel->cover_img}}" alt="" />
         <!-- <img class="instructor" src="imgs/team-01.png" alt="" /> -->
         <div class="p-20">
           <h4 class="m-0">{{$hotel->name}}</h4>

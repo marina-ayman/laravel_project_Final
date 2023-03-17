@@ -23,7 +23,7 @@
 
 
     <!-- HERO SECTION -->
-    <section class="home" id="home" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/3d/8a/7a/movenpick-resort-aswan.jpg?w=1200&h=-1&s=1')">
+    <section class="home" id="home" style="background-image: url('./assets/asset/img/Old Cataract Hotel - Aswan 2.jpg')">
         <div class="container">
           <h1>Our Hotels</h1>
         </div>
@@ -31,16 +31,16 @@
       <!-- HOTELS CARD -->
        <section class="blog top" id="blog">
         <div class="container">
-          <div class="heading">
+          <div class="heading"  >
             <h5>OUR Hotels</h5>
             <h3>Discover your best stay in Aswan</h3>
           </div>
-          <div class="content grid mtop">
+          <div class="content grid mtop" >
             @foreach ($allHotels as $Hotel)
-            <div class="box">
+            <div class="box" style="width:23rem">
               <!-- hotel img -->
               <div class="img">
-                <img src="{{url('http://localhost:8000/storage/imgs/'.$Hotel->cover_img)}}" alt="">
+                <img src="{{url('http://localhost:8000/storage/imgs/'.$Hotel->cover_img)}}" alt="" style="height: 16rem; width:23rem">
                 <span>HOTEL</span>
               </div>
               <!-- hotel details -->

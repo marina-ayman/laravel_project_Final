@@ -53,7 +53,8 @@
           <div class="content  mtop">
             <div class="box">
               <div class="img">
-                <img src=" {{$room->Hotel->cover_img}} " alt="">
+                <img src="{{url('http://localhost:8000/storage/imgs/'.$room->Hotel->cover_img)}}" alt="" style="height: 16rem; width:23rem">
+               
                 <span>Hotel {{$room->Hotel->id}} </span>
               </div>
               <div class="text">

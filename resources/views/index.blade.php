@@ -21,14 +21,8 @@
     <link href="{{asset("./assets/home/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet">
     <link href="{{asset("./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")}}" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset("./assets/home/css/style.css")}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
-</head>
-
-<body>
-
-
+<link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
+<div class="content">
 
 {{--
 	<link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css" >
@@ -36,8 +30,6 @@
 	 <link rel="stylesheet" href="./assets/css/bootstrap.min.css" > --}}
 
 {{-- need carsoul --}}
-@extends('temp')
-@section('bodyContent')
 	<div class="section full-height">
 		<div class="absolute-center">
 			<div class="section">
@@ -68,9 +60,68 @@
 	</div>
 
 
-
-
+        <section>
+        <section class="main">
+            <div>
+                <h2>
+                    Ships Any Things<br />
+                    <span>AROUND THE WORLD</span>
+                </h2>
+                <a href="{{route("MUT.create")}}" class="main-btn">M.U.T.E</a>
+            </div>
+        </section>
+    </section>
 </div>
+<section class="sec-one">
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
+        </div>
+        <h1>
+            hola
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
+        </div>
+        <h1>
+            hola
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-car"></i>
+        </div>
+        <h1>
+            hola
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-plane"></i>
+        </div>
+        <h1>
+            hola
+        </h1>
+        <p>hola</p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fa fa-blind"></i>
+        </div>
+        <h1>
+            hola
+        </h1>
+        <p>hola</p>
+    </div>
+</section>
+
+
+
 
 
 
@@ -150,8 +201,13 @@
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
+<<<<<<< HEAD
+                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                        <p></p>
+=======
                         <h1 class="mb-1">We Provide Best Tour Packages In Your Budget</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+>>>>>>> 626eb73476e7a35976958fa91f5b9561b1c8a1c4
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 12rem">

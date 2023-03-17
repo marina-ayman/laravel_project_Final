@@ -87,7 +87,7 @@
         @endforeach
        
     </div>
-    <button class="btn btn-success">send</button>
+    <button class="btn btn-success" type="submit">send</button>
 </div>
  
     </form>

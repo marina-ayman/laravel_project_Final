@@ -99,8 +99,12 @@ $role= Role::where('id',$newUser->role_id)->first();
      */
     public function store(StoreUserRequest $request)
     {
-        $name=md5(microtime()).$request['image']->getClientOriginalName();
-        $request['image']->storeAs("public/imgs",$name);
+        // dd($request['image']);
+        if($request['image']){
+
+            $name=md5(microtime()).$request['image']->getClientOriginalName();
+            $request['image']->storeAs("public/imgs",$name);
+        }
 // dd($request);
       $user= User::create([
         'name' => $request['name'] ,

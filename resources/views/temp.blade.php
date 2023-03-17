@@ -47,10 +47,12 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
 								</li>
-
+                                {{-- @isset($record)
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link">{{Auth::user()->name}}</a>
-                                </li>
+                                    <a class="nav-link">
+                                        {{Auth::user()->name}}</a>
+                                    </li>
+                                    @endisset --}}
                                 {{-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a>
 								</li> --}}
@@ -59,18 +61,18 @@
                                     @auth
 
                                     @if(Auth::user()->Role->name =="hotelOwner")
-									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">MY hotelOwner</a>
+									<a class="nav-link" href="{{route('hotelOwnerDashboard')}}">HotelOwner</a>
                                     @endif
 
 								    @if(Auth::user()->Role->name =="tourguide")
-									<a class="nav-link" href="{{route('TourguideProfile.index')}}">MY tourguide</a>
+									<a class="nav-link" href="{{route('TourguideProfile.index')}}">My Tourguide</a>
                                     @endif
                                     @if(Auth::user()->Role->name =="driver")
-									<a class="nav-link" href="{{route('driverprofileDash.index')}}">MY driver</a>
+									<a class="nav-link" href="{{route('driverprofileDash.index')}}">Driver</a>
                                     @endif
                                     {{-- {{dd(Auth::user()->user_type)}} --}}
                                     @if(Auth::user()->Role->name =="admin")
-									<a class="nav-link" href="{{route('AdminDash')}}">MY AdminDash</a>
+									<a class="nav-link" href="{{route('AdminDash')}}">AdminDash</a>
                                     @endif
 								@endauth
                                 </li>
@@ -103,7 +105,7 @@
 										<a class="dropdown-item" href="{{route("user.create")}}">As User</a>
 										<a class="dropdown-item" href="{{route("tourguide.create")}}">As Tourguide</a>
 										<a class="dropdown-item" href="{{route("hotelOwner.create")}}">As HotelOwner</a>
-										<a class="dropdown-item" href="{{route("driver.create")}}">As Driver</a>
+										{{-- <a class="dropdown-item" href="{{route("driver.create")}}">As Driver</a> --}}
 									</div>
 								</li>
                                 @endif
@@ -134,7 +136,7 @@
 
 
 
-  <div class="footer">
+  <div class="footer" style="margin-top:30rem ">
 
         <div class="waves">
             <div class="wave" id="wave1"></div>
