@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
             <div class="col-md-5">
                 <img class="img-fluid mb-4 mb-md-0" src="./assets/asset/img/axp-photography-Ih4RkQ554bQ-unsplash.jpg" alt="Image">
             </div>
-            <div class="col-md-7"> 
+            <div class="col-md-7">
                 <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Booked Rooms Status :
                 </h3>
                 {{$room->room_status}}
@@ -56,7 +56,7 @@
                 <img class="img-fluid mb-4 mb-md-0" src="./assets/imgs/3.png.jpg" alt="Image">
             </div>
             <div class="col-md-7">
-                <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">TourGuide Request : 
+                <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">TourGuide Request :
                 </h3>
                 {{$room->room_status}}
                 <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
@@ -86,11 +86,11 @@
     </div>
     <button class="btn btn-success" type="submit">send</button>
 </div>
- 
+
     </form>
     <button type="submit" class="btn btn-success">Back </button>
 
-  
+
        <!-- JavaScript Libraries -->
        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -99,8 +99,8 @@
        <script src="{{asset("./assets/home/lib/tempusdominus/js/moment.min.js")}}"></script>
        <script src="{{asset("./assets/home/lib/tempusdominus/js/moment-timezone.min.js")}}"></script>
        <script src="{{asset("./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script>
-   
-    
+
+
        <!-- Template Javascript -->
        <script src="{{asset("./assets/home/js/main.js")}}"></script>
 </body>
