@@ -15,7 +15,7 @@
 
 <body>
     @include('sweetalert::alert');
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -23,7 +23,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup"  style="height:34rem ">
@@ -32,12 +32,16 @@
                 <h2 class="form__title">Sign Up</h2>
 				<div class="profImg"> <label for="files">
 					Put Your Image <img src="./assets/imgs/profImg.png" alt="" style="width:20px">
-
 						<input type="file" id="files" style="visibility:hidden;" accept="image/png, image/gif, image/jpeg" name="image" />
 					</label>
 				</div>
              {{-- Your Image:   <input type="file" name="image"> --}}
-				<input type="text" placeholder="Your Name" name="name" class="input" required />
+				<input type="text" placeholder="Your Name" name="name" class="input"/>
+					@error('name')
+                    	<span class="text-danger" role="alert">
+                        	<strong>{{$message}}</strong>
+                    	</span>
+                	@enderror
 				<div>
                     Gender :
 					<span>Male<input class="specifyColor" type="radio" name="gender" id="male" value="male"
@@ -45,12 +49,31 @@
 					<span>Female<input class="specifyColor" type="radio" name="gender" id="female"
 							value="female"></span>
 				</div>
+				<input type="phone" placeholder="Phone" name="phone" class="input"/>
+					@error('phone')
+						<span class="text-danger" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
 
-				<input type="phone" placeholder="Phone" name="phone" class="input" required />
-
-				<input type="email" placeholder="Email" name="email" class="input" required />
-				<input type="password" placeholder="Password" name="password" class="input" required />
-				<input type="text" placeholder="syndicate_No" name="syndicate_No" class="input" required />
+				<input type="email" placeholder="Email" name="email" class="input"/>
+					@error('email')
+						<span class="text-danger" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				<input type="password" placeholder="Password" name="password" class="input"/>
+					@error('password')
+						<span class="text-danger" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				<input type="text" placeholder="syndicate_No" name="syndicate_No" class="input"/>
+					@error('syndicate_No')
+						<span class="text-danger" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
 				<input type="textarea" placeholder="bio about you" name="desc" class="input"  />
 			
 {{-- <select name="language[]"  multiple>Language

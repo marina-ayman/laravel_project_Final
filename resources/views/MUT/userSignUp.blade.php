@@ -12,7 +12,7 @@
 
 <body>
     @include('sweetalert::alert');
-    <!-- @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -20,7 +20,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif -->
+    @endif --}}
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup">
@@ -109,14 +109,9 @@
 			<div class="overlay">
 				<div class="overlay__panel overlay--left">
 					<img src="{{asset("assets/imgs/sign-up-page-1886582-1598253.png")}}" alt="">
-
-
 				</div>
-
 				<div class="overlay__panel overlay--right">
-
 					<img src="{{asset("assets/imgs/6a7458116bc7b6b81a23a258b7488246.jpg")}}" alt="">
-
 				</div>
 			</div>
 		</div>

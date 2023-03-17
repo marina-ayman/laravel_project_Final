@@ -4,7 +4,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +11,10 @@
 	<title>Welcome</title>
 	<link rel="stylesheet" href="{{asset("./assets/css/userSignning.css")}}">
 	<script src="./assets/js/jquery-3.6.1.min.js"></script>
-
 </head>
-
 <body>
     @include('sweetalert::alert');
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -25,7 +22,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup">
@@ -34,14 +31,17 @@
                 <h2 class="form__title">Sign Up</h2>
 				{{-- <div class="profImg"> <label for="files">
 						<img src="./assets/imgs/profImg.png" alt="">
-
-
 						<input type="file" id="files" style="visibility:hidden;"
 							accept="image/png, image/gif, image/jpeg" name ="image"/>
 					</label>
 				</div> --}}
-                <input type="file" accept="image/png, image/gif, image/jpeg" name ="image" >
-				<input type="text" placeholder="Your Name" name="name" class="input" required />
+                <input type="file" accept="image/png, image/gif, image/jpeg" name ="image">
+				<input type="text" placeholder="Your Name" name="name" class="input"/>
+				@error('name')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
 				<div>
 					<span>Male<input class="specifyColor" type="radio" name="gender" id="male" value="male"
 							checked></span>
@@ -49,13 +49,31 @@
 							value="female"></span>
 
 				</div>
-
-				<input type="email" placeholder="Email" name="email" class="input" required />
-				<input type="phone" placeholder="Phone" name="phone" class="input" required />
-                <input type="password" placeholder="Password" name="password" class="input" required />
-				<input type="text" placeholder="Commercial Registration Number" name="commercial_reg_No" class="input" required />
+				<input type="email" placeholder="Email" name="email" class="input"/>
+				@error('email')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+				<input type="phone" placeholder="Phone" name="phone" class="input"/>
+				@error('phone')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+                <input type="password" placeholder="Password" name="password" class="input"/>
+				@error('password')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+				<input type="text" placeholder="Commercial Registration Number" name="commercial_reg_No" class="input"/>
+				@error('commercial_reg_No')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
                 <input type="text" class="input" name="role" value="hotelOwner" hidden>
-
                 <button type="submit" class="btn">Explore Aswan with US</button>
 				<a href="#" class="link" id="signIn">Already a user </a>
 			</form>
