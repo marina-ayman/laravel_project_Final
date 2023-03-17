@@ -2,9 +2,9 @@
 @extends("temp")
 @section('bodyContent')
 
-
+{{--
 @extends('MUT.multistepsNav')
-@section('customBoddy')
+@section('customBoddy') --}}
 
 
 
@@ -54,7 +54,7 @@
             <div class="box">
               <div class="img">
                 <img src="{{url('http://localhost:8000/storage/imgs/'.$room->Hotel->cover_img)}}" alt="" style="height: 16rem; width:23rem">
-               
+
                 <span>Hotel {{$room->Hotel->id}} </span>
               </div>
               <div class="text">
@@ -73,7 +73,7 @@
                 </form>
 
                 </p>
-                <a href="#">Read More <i class='fas fa-long-arrow-alt-right'></i></a>
+                <a href="{{route('hotel.show',['id'=>$room->Hotel->id])}}">Read More <i class='fas fa-long-arrow-alt-right'></i></a>
               </div>
             </div>
           </div>

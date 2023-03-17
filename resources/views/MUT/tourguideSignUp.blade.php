@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    @include('sweetalert::alert');
+    @include('sweetalert::alert')
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -52,7 +52,7 @@
 				<input type="password" placeholder="Password" name="password" class="input" required />
 				<input type="text" placeholder="syndicate_No" name="syndicate_No" class="input" required />
 				<input type="textarea" placeholder="bio about you" name="desc" class="input"  />
-			
+
 {{-- <select name="language[]"  multiple>Language
     <option value="arabic" selected>arabic</option>
     <option value="english" selected>english</option>
