@@ -105,7 +105,7 @@
 										<a class="dropdown-item" href="{{route("user.create")}}">As User</a>
 										<a class="dropdown-item" href="{{route("tourguide.create")}}">As Tourguide</a>
 										<a class="dropdown-item" href="{{route("hotelOwner.create")}}">As HotelOwner</a>
-										<a class="dropdown-item" href="{{route("driver.create")}}">As Driver</a>
+										{{-- <a class="dropdown-item" href="{{route("driver.create")}}">As Driver</a> --}}
 									</div>
 								</li>
                                 @endif

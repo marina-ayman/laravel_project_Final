@@ -165,7 +165,7 @@ Route::post('/changeRequest/{order}',[DashboardController :: class ,"changeStatu
 Route::get('/AdminDash',function(){return view('/dashboardAdmin/admin');})->name('AdminDash');
 
 
-Route::get('/Placesall',[ViewPlacesController::class,'index'])->name('Placesallll');
+Route::get('/Placesall',[PlaceController::class,'places'])->name('Placesallll');
 
 Route::get('allHotel',[viewHotelsController::class,'index'])->name('allHotell');
 Route::get('Hotel/{id}',[viewHotelsController::class,'showhotel'])->name('hotel.show');

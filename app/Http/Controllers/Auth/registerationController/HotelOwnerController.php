@@ -76,7 +76,7 @@ class HotelOwnerController extends Controller
        }
 
 // print_r($hotelOwner->User);
-return route("login.create",['role'=>$role->name]);
+return redirect()->route("login.create",['role'=>$role->name]);
 // return redirect(route('login.create',['role'=>$request->role]));
     }
 

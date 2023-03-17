@@ -20,12 +20,18 @@
 
 <link rel="stylesheet" href="{{asset('assets/css/hotels.css')}}" >
     <title>Hotels</title>
+
+    <style>
+      #home{
+        background-image: url('../assets/imgs/3.png.jpg')
+      }
+    </style>
 </head>
 <body>
 
 
     <!-- HERO SECTION -->
-    <section class="home" id="home" style="background-image: url('./assets/asset/img/Old Cataract Hotel - Aswan 2.jpg')">
+    <section class="home" id="home" >
         <div class="container">
           <h1>Our Tourguide</h1>
         </div>
@@ -38,6 +44,7 @@
             <h3>Discover your best stay in Aswan</h3>
           </div>
           <div class="content grid mtop" >
+            @if($availableTourguides)
             @foreach ($availableTourguides as $Tourguide)
             <div class="box" style="width:23rem">
               <!-- hotel img -->
@@ -54,12 +61,14 @@
                   @endforeach
                   <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
                   <h6 class="h-2 mt-4"><br> Bio:{{isset($Tourguide->bio)?:"you will enjoy your Time"}}</h6>
-                <a href="{{route('hotel.show',['id'=>$Hotel->id])}}">Show More<i class='far fa-long-arrow-alt-right'></i></a>
+                {{-- <a href="{{route('hotel.show',['id'=>$Hotel->id])}}">Show More<i class='far fa-long-arrow-alt-right'></i></a> --}}
             
               </div>  
                 <!-- "hotels.hotel",["Hotel"=> $hotelInfo],["hotelImg"=>$hotelImgs] -->
             </div>
             @endforeach
+            @endif
+            <a href="{{route('MUTE',['order'=>$order])}}">Finish My Trip</a>
           </div>
         </div>
       </section> 
