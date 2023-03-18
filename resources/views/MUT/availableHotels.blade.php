@@ -3,10 +3,6 @@
 @section('bodyContent')
 
 
-@extends('MUT.multistepsNav')
-@section('customBoddy')
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,3 +104,19 @@
 </body>
 </html>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

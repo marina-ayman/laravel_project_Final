@@ -185,3 +185,20 @@ Route::post('/tourChangeStatus/{order}',[DashboardController :: class ,"tourChan
 Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
 Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
 Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
+
+
+
+
+
+
+
+Route::get('MakeYourTrip',function(){
+    return view ('/MUT/makeYourTrip');
+});
+
+
+
+
+
+
+
