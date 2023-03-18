@@ -286,13 +286,14 @@ return redirect()->route("allRequests",['id'=>$request->hotel_id]);
 
 public function tourguideRequests(Tourguide $id, Request $request){
 
-
+// dd($id);
     $data= DB::table("regular_booked_tourguide")
     ->select('regular_booked_tourguide.check_in','regular_booked_tourguide.check_out' ,'regular_booked_tourguide.status','users.name as clientName' )
     ->join('users','users.id','=','regular_booked_tourguide.user_id')
      // $order = Order::find($request['order_id']);
  ->where('regular_booked_tourguide.tourguide_id', '=', $id->id)
    ->get();
+//    dd($data);
    return view('dashboardTourguide.allRequests',['requests'=>$data]);
 }
 

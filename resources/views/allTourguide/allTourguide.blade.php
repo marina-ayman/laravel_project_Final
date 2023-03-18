@@ -20,9 +20,9 @@
     <title>Hotels</title>
 </head>
 <body>
-
+{{--
     @extends("temp")
-    @section('bodyContent')
+    @section('bodyContent') --}}
 
     <!-- HERO SECTION -->
     <section class="home" id="home" style="background-image: url('./assets/asset/img/325656190_568416741475078_7206769026493477752_n.jpg') " style="height:20vh">
@@ -131,4 +131,4 @@
 </body>
 </html>
 
-@endsection
+{{-- @endsection --}}

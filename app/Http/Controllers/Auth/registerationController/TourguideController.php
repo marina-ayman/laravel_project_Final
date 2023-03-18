@@ -9,7 +9,6 @@ use App\Http\Requests\StoreTourgideRequest;
 use App\Models\Role;
 use App\Models\TourguideLanguage;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 class TourguideController extends Controller
 {
@@ -31,7 +30,7 @@ class TourguideController extends Controller
     public function indexprofile()
     {
 
-        return view("dashboardTourguide.tourguidProfile");
+        return view("dashboardTourguide.tourguideProfile");
         //show table from DB
 
     }
@@ -72,7 +71,7 @@ if(!empty($request->image)){
        $user=  User::create([
         'name' => $requestUser['name'] ,
         'email' => $requestUser['email'],
-        'password' =>  Hash::make($request['password']),
+        'password' => $requestUser['password'],
         'gender' => $requestUser['gender'] ,
         'phone' => $requestUser['phone'],
         'image'=>isset($name)?$name:null,
@@ -107,6 +106,19 @@ if(!empty($request->image)){
 
   return redirect(route('login.create',['role'=>$role->name]));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,8 +3,8 @@
 @section('bodyContent')
 
 
-@extends('MUT.multistepsNav')
-@section('customBoddy')
+{{-- @extends('MUT.multistepsNav')
+@section('customBoddy') --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

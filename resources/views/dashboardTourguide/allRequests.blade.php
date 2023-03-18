@@ -17,7 +17,7 @@
 <body>
     @include('sweetalert::alert')
     <div class="sidebar bg-white p-20 p-relative">
-        <h3 class="p-relative txt-c mt-0">Safary</h3>
+        <h3 class="p-relative txt-c mt-0">M.U.T.E</h3>
         <ul>
             <li>
                 <a class=" d-flex align-center fs-14 c-black  rad-6 p-10 text-decoration-none"
@@ -32,10 +32,10 @@
                 <span>Add Room</span>
               </a>
             </li> --}}
-         
+
             <li>
                 <a class="active d-flex align-center fs-14 c-black  rad-6 p-10 text-decoration-none"
-                    href="{{ route('tourguideRequests') }}">
+                    href="{{ route('tourguideRequests',['id'=>Auth::user()->Tourguide[0]->id]) }}">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>Requests</span>
                 </a>
@@ -78,7 +78,7 @@
 
 
 @endfor --}}
-
+{{-- {{dd($requests[0])}} --}}
 
                     @if (!empty($requests[0]))
                         <?php $prev_order = null;
