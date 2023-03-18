@@ -17,7 +17,7 @@
 <body>
     @include('sweetalert::alert')
     <div class="sidebar bg-white p-20 p-relative">
-        <h3 class="p-relative txt-c mt-0">Safary</h3>
+        <h3 class="p-relative txt-c mt-0">M.U.T.E</h3>
         <ul>
             <li>
                 <a class=" d-flex align-center fs-14 c-black  rad-6 p-10 text-decoration-none"
@@ -32,10 +32,10 @@
                 <span>Add Room</span>
               </a>
             </li> --}}
-         
+
             <li>
                 <a class="active d-flex align-center fs-14 c-black  rad-6 p-10 text-decoration-none"
-                    href="{{ route('tourguideRequests') }}">
+                    href="{{ route('tourguideRequests',['id'=>Auth::user()->Tourguide[0]->id]) }}">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>Requests</span>
                 </a>
@@ -65,7 +65,7 @@
                         {{-- <td>#</td> --}}
                         <td colspan="2">check In</td>
                         <td colspan="2">check out</td>
-                        <td>user Name</td>
+                        <td>client Name</td>
 
 
                         {{-- <td>license</td> --}}
@@ -78,36 +78,34 @@
 
 
 @endfor --}}
+{{-- {{dd($requests)}} --}}
 
+                    @if (!empty($requests))
 
-                    @if (!empty($requests[0]))
-                        <?php $prev_order = null;
-                        $prev_room_id = null;
-                        $type = null; ?>
+                    {{-- {{dd($requests)}} --}}
                         @foreach ($requests as $request)
                             <tr>
 
-                                @if ($prev_order != $request->order_id && $prev_room_id != $request->room_id && $type != $request->type)
                                     <td colspan="2">{{ $request->check_in }}</td>
                                     <td colspan="2">{{ $request->check_out }}</td>
                                     {{-- <td>{{$request->check_in}}</td> --}}
-                                    <td>{{ $request->name }}</td>
+                                    <td>{{ $request->clientName }}</td>
 
 
 
 
 
 
-
+{{-- {{dd($request)}} --}}
                             <td>
-                                <form action="{{ route('tourChangeStatus', ['order' => $request->order_id]) }}" method="POST"
+                                <form action="{{ route('tourChangeStatus', ['id' => $request->id]) }}" method="POST"
                                     accept-charset="UTF-8" style="display:inline">
                                     @csrf
-                                    <input type="text" name="hotel_id" value="{{ $request->hotel_id }}" hidden>
-
+                                    {{-- <input type="text" name="hotel_id" value="{{ $request->hotel_id }}" hidden> --}}
+                                         <h3>{{$request->status}}</h3>
                                     <button type="submit" name="status" value="Reject"
                                         class="title bg-red c-white btn-shape" title="Delete Student"
-                                        onclick="return confirm('Confirm delete?')">
+                                        onclick="return confirm('Confirm Reject?')">
                                         Reject
                                     </button>
                                     <button type="submit" name="status" value="Accept"
@@ -120,10 +118,7 @@
                                     </button>
                                 </form>
                             </td>
-                            <?php $prev_order = $request->order_id;
-                            $prev_price = $request->price;
-                            $type = $request->type; ?>
-                            @endif
+
                         @endforeach
                         </tr>
 @endif

@@ -1,15 +1,14 @@
+@extends('temp')
+@section('bodyContent')
 
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
+<div class="content">
 
-<head>
-    <meta charset="utf-8">
-    <title>MUTE</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
-
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset("./assets/css/rio.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,10 +18,17 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{asset("./assets/home/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet">
-    <link href="{{asset("./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")}}" rel="stylesheet" />
+    {{-- <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> --}}
 
-<link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
-<div class="content">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset("./assets/home/css/style.css")}}" rel="stylesheet">
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset("./assets/css/rio.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 {{--
 	<link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css" >
@@ -32,7 +38,7 @@
      {{-- @extends("temp")
      @section('bodyContent') --}}
 {{-- need carsoul --}}
-	<div class="section full-height">
+	{{-- <div class="section full-height">
 		<div class="absolute-center">
 			<div class="section">
 				<div class="container">
@@ -59,7 +65,7 @@
 		</div>
 	</div>
 	<div class="my-5 py-5">
-	</div>
+	</div>  --}}
 
 
         <section>
@@ -129,28 +135,23 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
 
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="./assets/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="./assets/home/css/style.css" rel="stylesheet">
-</head>
+<head>
+    <meta charset="utf-8">
+    <title>MUTE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
 <body>
+	
+	
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0">
+    {{-- <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="height: 90vh;">
                 <div class="carousel-item active" >
@@ -158,7 +159,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                            <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
+                            <h1 class="display-3 text-white mb-md-4">Let's Discover Aswan Together</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
                         </div>
                     </div>
@@ -168,7 +169,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                            <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
+                            <h1 class="display-3 text-white mb-md-4">Discover The Land of Gold With Us</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
                         </div>
                     </div>
@@ -185,7 +186,7 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div> --}}
     <!-- Carousel End -->
 
 
@@ -278,7 +279,7 @@
                         <img class="img-fluid" src="./assets/asset/img/Old Cataract Hotel - Aswan 1.jpg" alt="" style="height: 17rem ">
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">old Cataract</h5>
-                            <span>__Aswan__</span>
+                            <span>_Aswan_</span>
                         </a>
                     </div>
                 </div>
@@ -287,7 +288,7 @@
                         <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Croas places</h5>
-                            <span>__Aswan__</span>
+                            <span>_Aswan_</span>
                         </a>
                     </div>
                 </div>
@@ -296,7 +297,7 @@
                         <img class="img-fluid" src="./assets/asset/img/imagey.png" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Safary</h5>
-                            <span>__Aswan__</span>
+                            <span>_Aswan_</span>
                         </a>
                     </div>
                 </div>
@@ -305,7 +306,7 @@
                         <img class="img-fluid" src="./assets/asset/img/istockphoto-869707314-612x612.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Friendly Tourguide</h5>
-                            <span>__Aswan__</span>
+                            <span>_Aswan_</span>
                         </a>
                     </div>
                 </div>
@@ -314,7 +315,7 @@
                         <img class="img-fluid" src="./assets/asset/img/313435305_5270331853076727_6941305933810485371_n.jpg" alt="" style="height: 17rem ">>
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Motel</h5>
-                            <span>__Aswan__</span>
+                            <span>_Aswan_</span>
                         </a>
                     </div>
                 </div>
@@ -709,23 +710,18 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset("./assets/home/lib/easing/easing.min.js")}}"></script>
-    <script src="{{asset("./assets/home/lib/owlcarousel/owl.carousel.min.js")}}"></script>
-    <script src="{{asset("./assets/home/lib/tempusdominus/js/moment.min.js")}}"></script>
-    <script src="{{asset("./assets/home/lib/tempusdominus/js/moment-timezone.min.js")}}"></script>
-    <script src="{{asset("./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script>
+    <script src="./assets/home/lib/easing/easing.min.js"></script>
+    <script src="./assets/home/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./assets/home/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="./assets/home/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 
     <!-- Template Javascript -->
-    <script src="{{asset("./assets/home/js/main.js")}}"></script>
+    <script src="./assets/home/js/main.js"></script>
 </body>
 
 </html>
 
 
-
-
-
-
-
-
+	@endsection

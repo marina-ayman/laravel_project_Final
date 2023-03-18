@@ -14,8 +14,10 @@ class RegularBookedTourguide extends Model
         'check_out',
         'status',
         'user_id',
-        'tourguide_id'
+        'tourguide_id',
+        'n_of_people'
     ];
+    public $timestamps = false;
     public function User()
     {
         return $this->belongsTo(User::class);

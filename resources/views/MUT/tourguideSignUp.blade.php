@@ -74,7 +74,7 @@
 						</span>
 					@enderror
 				<input type="textarea" placeholder="bio about you" name="desc" class="input"  />
-			
+
 {{-- <select name="language[]"  multiple>Language
     <option value="arabic" selected>arabic</option>
     <option value="english" selected>english</option>

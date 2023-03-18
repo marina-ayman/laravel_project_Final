@@ -16,16 +16,10 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="{{asset('assets/css/hotels.css')}}" >
     <title>Hotels</title>
-
-    <style>
-      #home{
-        background-image: url('../assets/imgs/3.png.jpg')
-      }
-    </style>
 </head>
 <body>
 
@@ -49,7 +43,8 @@
             <div class="box" style="width:23rem">
               <!-- hotel img -->
               <div class="img">
-                <img class="" src="  'img/'.{{ asset($Tourguide->User->image) }}" alt="">
+                {{-- <img class="" src="  'img/'.{{ asset($Tourguide->User->image) }}" alt=""> --}}
+                <img src="{{url('http://localhost:8000/storage/imgs/'.$Tourguide->User->image)}}" alt="" style="height: 16rem; width:23rem" >
                 <span>   {{$Tourguide->price_per_day}} L.E/Day</span>
               </div>
               <!-- hotel details -->
@@ -57,7 +52,7 @@
                 <h2>{{$Tourguide->User->name}}</h2>
                 <p class="description" style="color:black">Language : </p>
                 @foreach( $Tourguide->languages as $lang)
-                <h1>  {{$lang->language}}</h1>
+                <h4>  {{$lang->language}}</h4>
                   @endforeach
                   <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
                   <h6 class="h-2 mt-4"><br> Bio:{{isset($Tourguide->bio)?:"you will enjoy your Time"}}</h6>
@@ -66,25 +61,19 @@
               </div>  
                 <!-- "hotels.hotel",["Hotel"=> $hotelInfo],["hotelImg"=>$hotelImgs] -->
             </div>
-            @endforeach
-            @endif
-            <a href="{{route('MUTE',['order'=>$order])}}">Finish My Trip</a>
+       @endforeach
+       @endif
           </div>
+          <form action="{{route('getAvailablePlaces')}}">
+            <input type="text" name="percent" value="{{ $percent }}" hidden>
+
+            <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+            <button type="submit">back step</button>
+        </form>
         </div>
       </section> 
   
     
 </body>
 </html>
-
 @endsection
-
-
-
-
-
-
-
-
-
-

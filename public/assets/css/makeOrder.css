@@ -10,7 +10,7 @@
 
 #register{
 
-  color: #6A1B9A;
+  color: #1d3194;
 }
 
 h1 {
@@ -31,13 +31,13 @@ input {
 
 .tab input:focus{
 
-  border:1px solid #6a1b9a !important;
+  border:1px solid #0d1f76 !important;
   outline: none;
 }
 
 input.invalid {
  
-    border:1px solid #e03a0666;
+    border:1px solid #067ee066;
 }
 
 .tab {
@@ -45,14 +45,15 @@ input.invalid {
 }
 
 button {
-    background-color: #6A1B9A;
+    background-color: #00157d;
     color: #ffffff;
     border: none;
     border-radius: 50%;
     padding: 10px 20px;
     font-size: 17px;
     font-family: Raleway;
-    cursor: pointer
+    cursor: pointer;
+    margin: 1rem;
 }
 
 button:hover {
@@ -89,7 +90,7 @@ button:focus{
     justify-content: center;
     align-items: center;
     font-size: 15px;
-    color: #6a1b9a;
+    color: #0e1b7a;
     opacity: 0.5;
 }
 
@@ -100,7 +101,7 @@ button:focus{
 
 .step.finish {
    color: #fff;
-   background: #6a1b9a;
+   background: #0b1855;
    opacity: 1;
 
 }

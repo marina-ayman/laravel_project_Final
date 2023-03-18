@@ -286,23 +286,27 @@ return redirect()->route("allRequests",['id'=>$request->hotel_id]);
 
 public function tourguideRequests(Tourguide $id, Request $request){
 
-
+// dd($id);
     $data= DB::table("regular_booked_tourguide")
-    ->select('regular_booked_tourguide.check_in','regular_booked_tourguide.check_out' ,'regular_booked_tourguide.status','users.name as clientName' )
-    ->join('users','users.id','=','regular_booked_tourguide.user_id')
+    ->select('regular_booked_tourguide.id','regular_booked_tourguide.check_in','regular_booked_tourguide.check_out' ,'regular_booked_tourguide.status','users.name as clientName' )
+    ->join('users','regular_booked_tourguide.user_id','=','users.id')
      // $order = Order::find($request['order_id']);
  ->where('regular_booked_tourguide.tourguide_id', '=', $id->id)
    ->get();
+//    dd($data);
    return view('dashboardTourguide.allRequests',['requests'=>$data]);
 }
 
-public function tourChangeStatus(Tourguide $order,Request $request){
-    // dd($room);
-RegularBookedTourguide::where('tourguide_id',$order->id)->update([
+public function tourChangeStatus(RegularBookedTourguide $id,Request $request){
+    // dd($id);
+//    $tourguideID= Tourguide::where('user_id',$id->id)->get();
+//    dd($tourguideID);
+$id->update([
     'status'=>$request->status,
 ]);
 Alert::success('Done', 'status udated Successfully ^^');
-return redirect()->route("allRequests",['id'=>$request->hotel_id]);
+// return $this->tourguideRequests($id->id,$request);
+return back();
 }
 
 
