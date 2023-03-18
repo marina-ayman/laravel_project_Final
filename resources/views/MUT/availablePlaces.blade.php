@@ -164,14 +164,16 @@ span {
         <span class="post">{{$place->id}}</span>
         <h5 class="name">
           <a href="#">
-            <a href="{{route('showPlace',['place'=>$place->id])}}">{{$place->name}}</a>
+            <a >{{$place->name}}</a>
           </a>
         </h5>   
         <span> {{$place->price}}</span> 
         </div>
       <div class="product-price-btn">
        
-        <button type="button">buy now</button>
+        <a type="button" href="{{route('showPlace',['placeID'=>$place->id])}}"><button>show More</button></a>
+        <a  class="mx-1"><i class="fa fa-link m-1  border border-2 rounded-5" style="color: rgb(12, 115, 249);"></i> Book  <input type="checkbox" name="place_id[]"  value="{{$place->id}}" class="btn btn-warning"></a><span ></span>‏
+
       </div>
     </div>
   </div>
@@ -188,7 +190,7 @@ span {
         <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
         <button type="submit">Next step</button>
     </form>
-    <form action="{{route('getAvailablePlaces')}}">
+    <form action="{{route('getAvailablePlaces',['order'=>$order->id])}}">
         <input type="text" name="percent" value="{{ $percent }}" hidden>
   
         <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
@@ -197,6 +199,10 @@ span {
     <form action="{{route('MUTE',['order'=>$order])}}">
         <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
         <button type="submit">Finish My trip ^^ </button>
+    </form>
+    <form action="{{route('cancelOrder',['orderID'=>$order->id])}}" method="POST">
+      @csrf
+      <button type="submit" class="btn btn-danger "style="margin-left:80rem">cancel the Trip</button>
     </form>
   </div>
   @endif

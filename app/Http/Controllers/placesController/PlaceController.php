@@ -104,9 +104,9 @@ class PlaceController extends Controller
      * @param  \App\Models\place  $place
      * @return \Illuminate\Http\Response
      */
-    public function show(Place $place)
+    public function show(Place $placeID)
     {
-        // $place = Place::find($placeID);
+        $place=$placeID;
         // dd($placeID);
         return  view('MUT.placeDetails',[
             'place'=> $place,

@@ -81,29 +81,33 @@
         <?php $prev_hotel = $room->Hotel; ?>
         @endforeach
         @endif
-        <form action="{{route('getAvailablePlaces',['order'=>$order->id])}}" method="POST">
-            @csrf
-            <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
-            <input type="text" name="percent" value="{{ $percent }}" hidden>
-            <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
-          <button type="submit" >Next Step </button>
-        </form>
-        <a href="{{route("cancelOrder",['orderID'=>$order->id])}}" type="submit" class="btn btn-danger">cancel the Trip</a>
-
+       
+        
+        
       </div>
     </div>
+   
     {{-- <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">
       <button class="submit-btn m-5"   >Confirm</button>
     </div> --}}
   </div>
 </section>
 
+<form action="{{route('getAvailablePlaces',['order'=>$order->id])}}" method="POST">
+  @csrf
+  <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
+  <input type="text" name="percent" value="{{ $percent }}" hidden>
+  <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+<button type="submit" >Next Step </button>
+</form>
 
 
 
-
-
-
+<form action="{{route('cancelOrder',['orderID'=>$order->id])}}" method="POST">
+  @csrf
+  <button type="submit" class="btn btn-danger "style="margin-left:80rem">cancel the Trip</button>
+</form>
+{{-- <a href="{{route('cancelOrder',['orderID'=>$order->id])}}" type="submit"  >cancel the Trip</a> --}}
 </body>
 </html>
 @endsection

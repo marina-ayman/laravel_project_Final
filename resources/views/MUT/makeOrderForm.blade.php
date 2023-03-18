@@ -19,7 +19,7 @@
       <div class="container" >
         <div class="row d-flex justify-content-center align-items-center" style="margin-top:9rem">
           <div class="col-md-8">
-              <form id="regForm"action="{{route('MUT.store')}}"  method="POST">
+              <form action="{{route('MUT.store')}}"  method="post" id="regForm">
                   @csrf
                   <h1 id="register">Survey Form</h1>
                   <div class="all-steps" id="all-steps">
@@ -51,25 +51,40 @@
                         <input placeholder="" oninput="this.className = ''" type="date" name="check_in">
                       </span>
 
-                  </div>
-                  <div class="tab">
-                    <h6>Date check_out</h6>
+                      <h6>Date check_out</h6>
                       <span><input placeholder="City" oninput="this.className = ''" type="date" name="check_out"></span>
 
                   </div>
+                 
+
                   <div class="tab">
-                      <h6>Number Of Rooms U want</h6>
-                        <span><input placeholder="Number Of Rooms" oninput="this.className = ''" type="number" name="n_of_room[]"></span>
-
+                   
                         Type of it
-                        <select class="form-control" oninput="this.className = ''"  name="room_type[]" >
-                          <option value="single">single</option>
-                          <option value="double">double</option>
-                          <option>triple</option>
-                        </select>
-                    </div>
 
+                        <div class="container">
+                          <div class='row'>
+                            
+                          
+                         
+                            <div class="col-4-lg">
+                              <span> No Of Single Room<input placeholder="Number Of Rooms" oninput="this.className = ''" type="text" name="room_type[]" value='single' hidden></span>
+                              <span><input placeholder="Number Of Rooms" oninput="this.className = ''" type="number" name="n_of_room[]" ></span>
 
+                            </div>
+                            <div class="col-4-lg">
+                              <span> No Of Double Room<input placeholder="Number Of Rooms" oninput="this.className = ''" type="text" name="room_type[]" value='double' hidden></span>
+                              <span><input placeholder="Number Of Rooms" oninput="this.className = ''" type="number" name="n_of_room[]"></span>
+
+                            </div>
+                           
+                           <div class="col-4-lg">
+                            <span> No Of Triple Room :<input placeholder="Number Of Rooms" oninput="this.className = ''" type="text" name="room_type[]" value='triple' hidden></span>
+                            <span><input placeholder="Number Of Rooms" oninput="this.className = ''" type="number" name="n_of_room[]"></span>
+
+                           </div>
+                         </div>
+                       </div>
+                  </div>
 
                   <div class="tab">
                       <h6>Number of Adults</h6>
@@ -98,7 +113,6 @@
   </div>
       </div>
     </div>
-
 
 
 

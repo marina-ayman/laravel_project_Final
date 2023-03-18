@@ -16,6 +16,9 @@ Route::get('/register',[userController :: class ,"create"])->name("user.create")
 Route::get('/home',function () {
     return view('index');
 })->name('homePage');
+Route::get('/navbar',function () {
+    return view('nav');
+});
 // Route::get('/userRegistrations/create',[userController :: class ,"create"])->name("userRegistrations");
 
 // Route::post('/userRegistrations',[userController :: class ,"store"])->name("user.store");

@@ -12,6 +12,7 @@ use App\Models\OrderDetail;
 use App\Models\OrderedPlace;
 use App\Models\Place;
 use App\Models\Room;
+use DateTime;
 use App\Models\Tourguide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,50 @@ class MUTController extends Controller
         return view('MUT.makeOrderForm');
     }
     // stored the order
+    public function storeOrder(Request $request)
+    {
+        // dd($request);
+// dd(Auth::user());
+// dd(Auth::user()->id);
+// dd((int)$request['budget']);
+$check_in_datetime = new DateTime($request['check_in']);
+// dd($first_datetime);
+$check_out_datetime = new DateTime($request['check_out']);
+$interval = $check_in_datetime->diff($check_out_datetime);
+$n_of_days = $interval->format('%a');//and then print do whatever you like with $final_days
+// dd($n_of_days);
+        $request->validate([
+            // 'budget'=>['required','digits_between:3,6'],
+        ]);
+        $order = Order::create([
+            'user_id'=>Auth::user()->id,
+            'budget' => (int)$request['budget'],
+            'check_in' =>$request['check_in'],
+            'check_out' =>$request['check_out'],
+            'n_of_adults'=>(int)$request['n_of_adults'],
+            'n_of_childeren'=>isset($request['n_of_childeren'])?(int)$request['n_of_childeren']:0,
+            'n_of_days'=>(int)$n_of_days
+        ]);
+// dd($order);
+        for($i=0; $i < count($request['n_of_room']) ; $i++) {
+            // dd($nOfroomArray);
+           // echo "here";
+            OrderedRoom::create([
+                 'order_id' => $order->id,
+                 'n_of_room'=> (int)$request['n_of_room'][$i],
+                 'room_type' => $request['room_type'][$i]
+             ]);
+        }
+       $orderedRoom =OrderedRoom::where('order_id',$order->id)->get();
 
+       return redirect(route('getAvailableHotels',['order'=>$order->id,
+       'budgetForHotels'=>(int)$request->percent
+    ]));
+    //    return view('MUT.hotel',['data'=>['order'=>$order,
+    //    'orderedRoom'=>$orderedRoom,] ,'message'=>'the order is saved']);
+
+
+    }
     public function getAvailableHotels($budgetForHotels, Order $order)
     {
         $percent = (int)$budgetForHotels / 100;
@@ -103,7 +147,7 @@ class MUTController extends Controller
 
 
         }
-        Alert::congrats('Thanks','we are processing Your order ^^');
+        Alert::success('Thanks','we are processing Your order ^^');
 
         return $this->getAvailablePlaces($order,$request);
     // }
@@ -176,15 +220,15 @@ class MUTController extends Controller
     public function bookPlaces(Order $order, Request $request)
     {
         // dd($request);
+// if(!empty($request->place_id)){
 
-
-            foreach ($request->place_id as $placeID) {
-                // dd($placeID);
-                OrderedPlace::create([
-                    'order_id' => $order->id,
-                    'place_id' => $placeID
-                ]);
-            }
+//             foreach ($request->place_id as $placeID) {
+//                 // dd($placeID);
+//                 OrderedPlace::create([
+//                     'order_id' => $order->id,
+//                     'place_id' => $placeID
+//                 ]);
+//             }
 
         $totalPaidInPlaces = DB::table("places")
             ->select(DB::raw('sum(places.price)as sum'))
@@ -216,8 +260,9 @@ class MUTController extends Controller
 
 
             ]);
-        }
+        // }
     }
+}
     public function getAvailableTourguides(Order $order, Request $request)
     {
         if ($request->restBudget) {
@@ -247,11 +292,11 @@ class MUTController extends Controller
     {
         // dd($tourguide);
         // dd($request->restBudgetBeforeTourguide);
-        BookTourGuide::create([
-            'tourguide_id' => $tourguide->id,
-            'order_id' => $order->id,
-            'n_of_days' => $order->n_of_days
-        ]);
+        // BookTourGuide::create([
+        //     'tourguide_id' => $tourguide->id,
+        //     'order_id' => $order->id,
+        //     'n_of_days' => $order->n_of_days
+        // ]);
 
 
 
@@ -266,14 +311,14 @@ class MUTController extends Controller
         ->where('ordered_places.order_id', '=', $order->id)
         ->get();
         $totalPaidInTourguide = DB::table("tourguides")
-        ->select(DB::raw('sum(tourguides.price)as sum'))
+        ->select(DB::raw('sum(tourguides.price_per_day)as sum'))
         ->join('book_tour_guide', 'tourguides.id', '=', 'book_tour_guide.tourguide_id')
         ->where('book_tour_guide.order_id', '=', $order->id)
         ->get();
         $totalPaidInRooms = DB::table("rooms")
         ->select(DB::raw('sum(rooms.price)as sum'))
-        ->join('booked_room', 'rooms.id', '=', 'booked_room.room_id')
-        ->where('booked_room.order_id', '=', $order->id)
+        ->join('booked_rooms', 'rooms.id', '=', 'booked_rooms.room_id')
+        ->where('booked_rooms.order_id', '=', $order->id)
         ->get();
         return view('cart',[
             'order'=>$order,
@@ -323,11 +368,47 @@ class MUTController extends Controller
 
         ]);
     }
-    public function viewPayForMUTE(Order $order)
+    public function PayForMUTE(Order $order)
     {
+        Alert::success('Welcome to M.U.T.E', 'you have finished your M.U.T.E Hope U Enjoy Ur Aswan Time ^^');
 
-        return view('MUT.cart', [
-            'order' => $order
-        ]);
+       return view('MUT.payment');
+    }
+
+
+    public function cancelOrder(order $orderID)
+    {
+        // Alert::question('Are u sure u want to cancel the trip ?!', 'There is much fun u will miss :(');
+
+        // dd($orderID);
+       $deleteOrder= $orderID->delete();
+        if($deleteOrder){
+            $rooms=OrderedRoom::where('order_id',$orderID->id)->get();
+            if(!is_null($rooms)){
+
+                $query='delete from ordered_room where order_id ='.$orderID->id;
+                DB::delete($query);
+            }
+           $roomsBooked= BookedRoom::where ('order_id',$orderID->id)->get();
+           if(!is_null($roomsBooked)){
+            $query='delete from booked_rooms where order_id ='.$orderID->id;
+            DB::delete($query);
+           }
+           $tourguideBooked= BookTourGuide::where('order_id',$orderID->id)->first();
+           if(!is_null($roomsBooked)){
+
+               $query='delete from book_tour_guide where order_id ='.$orderID->id;
+               DB::delete($query);
+           }
+                    $placesBooked= OrderedPlace::where ('order_id',$orderID->id)->get();
+                  if(!is_null($placesBooked)){
+                    $query='delete from ordered_places where order_id ='.$orderID->id;
+                    DB::delete($query);
+                  }
+
+        }
+        Alert::warning('your trip canceled want to hear from u soon', 'There is much fun u will miss :(');
+        return redirect('/home');
+
     }
 }

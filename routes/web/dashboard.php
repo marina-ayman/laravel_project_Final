@@ -178,7 +178,7 @@ Route::get('allTourguide',[ViewTourGidesController::class,'index'])->name('allTo
 
 Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
 Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
-Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
+Route::post('/storeRegPlace',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace");
 // ==================================================
 
 Route::get('/tourguideRequests/{id}',[DashboardController :: class ,"tourguideRequests"])->name("tourguideRequests");
@@ -188,15 +188,17 @@ Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTour
 Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
 
 
+// Route::get('/cancelOrder/{orderID}',[OrderController::class,""])->name('cancelOrder');
 
 
 
 
 
 Route::get('MakeYourTrip',function(){
-    return view ('/MUT/makeYourTrip');
+    return view ('MUT.makeYourTrip');
 });
 
+Route::get('/showPlace/{placeID}',[PlaceController::class,'show'])->name('showPlace');
 
 
 

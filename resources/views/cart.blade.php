@@ -29,7 +29,7 @@
 {{-- {{dd($hotel->id)}} --}}
 
 
-    <form action="" method="POST">
+    <form action="{{route('PayForMUTE')}}" method="get">
       @csrf
 <div class="container" style="margin:10rem">
     <div class="container bg-white pt-5">
@@ -45,7 +45,8 @@
                 <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Booked Rooms Status :
                 </h3>
                 {{$room->room_status}}
-                <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                {{$room->Hotel->name}}
+                {{-- <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a> --}}
                @endforeach
                @endif
             </div>
@@ -64,23 +65,37 @@
                @endif
             </div>
         <div class="row blog-item px-3 pb-5">
+            {{-- {{dd(count($orderedPlaces))}} --}}
             @if($orderedPlaces)
-            @foreach($orderedPlaces as $room)
-            <div class="col-md-5">
-                <img class="img-fluid mb-4 mb-md-0" src="./assets/imgs/3.png.jpg" alt="Image">
-            </div>
-            <div class="col-md-7">
-                <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Ordered Places Approval:
-                </h3>
-                {{$room->room_status}}
-                <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
-               @endforeach
+            {{-- @foreach($orderedPlaces as $room) --}}
+     {{-- {{dd($room)}} --}}
+    <h1> Number of Places You Booked is : {{count($orderedPlaces)}} Places</h1>
+     <div class="col-md-5">
+         {{-- <img class="img-fluid mb-4 mb-md-0" src="./assets/imgs/3.png.jpg" alt="Image"> --}}
+        </div>
+        <div class="col-md-7">
+            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">
+            </h3>
+            {{-- {{$room->room_status}}
+            {{$room->Status}} --}}
+            {{-- <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a> --}}
+            {{dd(auth()->user()->name)}}
+            {{-- @endforeach --}}
+            {{-- {{dd($totalPaidInRooms)}} --}}
                @endif
             </div>
-            <h1 align="center">Your Payment</h1>
-            <h1>totalPaidInPlaces :{{$totalPaidInPlaces}} EGP</h1>
-            <h1>totalPaidInRooms :{{$totalPaidInRooms[0]->sum}} EGP</h1>
-            <h1>totalPaidInTourguide :{{$totalPaidInTourguide}}EGP</h1>
+            @if($totalPaidInPlaces !=0)
+            <h1 align="center">Your Payment {{$totalPaidInPlaces[0]->sum + $totalPaidInRooms[0]->sum + $totalPaidInRooms[0]->sum * $order->n_of_days + $totalPaidInTourguide}} EGP</h1>
+            <h1>totalPaidInPlaces :{{$totalPaidInPlaces[0]->sum}} EGP</h1>
+            @endif
+            @if($totalPaidInRooms!=0  )
+            <h1>totalPaidInRooms :{{isset($totalPaidInRooms[0]->sum)}} EGP per day <br>
+                totalPaidInRooms in {{$order->n_of_days}} days  :{{$totalPaidInRooms[0]->sum * $order->n_of_days}} EGP </h1>
+                @endif
+                {{-- {{dd($totalPaidInTourguide[0]->sum)}} --}}
+                @if($totalPaidInTourguide[0]->sum !=0 )
+            <h1>totalPaidInTourguide :{{$totalPaidInTourguide[0]->sum}}EGP</h1>
+            @endif
         </div>
 
     </div>
@@ -88,7 +103,17 @@
 </div>
 
     </form>
-    <button type="submit" class="btn btn-success">Back </button>
+    <form action="{{route('cancelOrder',['orderID'=>$order->id])}}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-danger "style="margin-left:50rem">cancel the Trip</button>
+      </form>
+    {{-- <form action="{{route('getAvailablePlaces',['order'=>$order])}}">
+        <input type="text" name="percent" value="{{ $percent }}" hidden>
+
+        <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+        <button type="submit">back step</button>
+    </form> --}}
+    {{-- <button type="submit" class="btn btn-success">Back </button> --}}
 
 
        <!-- JavaScript Libraries -->

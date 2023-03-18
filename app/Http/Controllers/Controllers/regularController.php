@@ -15,6 +15,7 @@ class regularController extends Controller
 {
     public function storeRegRoom(Room $id,Request $request)
     {
+        dd($id);
         $request->validate([
             'check_in'=>'required',
             'check_out'=>'required',
@@ -33,6 +34,7 @@ class regularController extends Controller
             'room_id'=>$id->id,
             'user_id'=>auth()->user()->id
         ]);
+        Alert::sucess('Thanks^^', 'Ur Reservation has been sent successfully^^');
         return back();
     }
     public function storeRegTourguide(Tourguide $id,Request $request)
@@ -56,23 +58,27 @@ class regularController extends Controller
         ]);
         return back();
     }
-    public function storeRegPlace(Place $id,Request $request)
+    public function storeRegPlace(Request $request)
     {
-        $request->validate([
-            'check_in'=>'required',
-            'check_out'=>'required',
+        // dd($request);
+        // $request->validate([
+        //     'check_in'=>'required',
+        //     'check_out'=>'required',
 
-        ]);
+        // ]);
 
         $check_in = $request['check_in'];
         $check_out =$request['check_out'];
+foreach($request->place_id as $place){
+    dd($place);
+            $booking = RegularBookedPlace::create([
+                'check_in' => $check_in,
+                'check_out' =>$check_out,
+                'place_id'=>$place,
+                'user_id'=>auth()->user()->id
+            ]);
 
-        $booking = RegularBookedPlace::create([
-            'check_in' => $check_in,
-            'check_out' =>$check_out,
-            'place_id'=>$id->id,
-            'user_id'=>auth()->user()->id
-        ]);
+}
         return back();
     }
 }

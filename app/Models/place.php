@@ -28,4 +28,8 @@ class Place extends Model
      {
          return $this->hasMany(Trip::class);
      }
+     public function orderedPlace()
+     {
+         return $this->hasMany(orderedPlace::class);
+     }
 }

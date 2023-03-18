@@ -59,18 +59,29 @@
                 {{-- <a href="{{route('hotel.show',['id'=>$Hotel->id])}}">Show More<i class='far fa-long-arrow-alt-right'></i></a> --}}
             
               </div>  
+              <form action="{{route('bookWithTourguide',['order'=>$order->id ,'tourguide'=>$Tourguide->id])}}">
+                <button>book</button>
+              </form>
                 <!-- "hotels.hotel",["Hotel"=> $hotelInfo],["hotelImg"=>$hotelImgs] -->
             </div>
        @endforeach
        @endif
           </div>
-          <form action="{{route('getAvailablePlaces')}}">
+          <form action="{{route('getAvailablePlaces',['order'=>$order])}}">
             <input type="text" name="percent" value="{{ $percent }}" hidden>
 
             <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
             <button type="submit">back step</button>
         </form>
         </div>
+        <form action="{{route('MUTE',['order'=>$order])}}">
+          <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+          <button type="submit">Finish My trip ^^ </button>
+      </form>
+      <form action="{{route('cancelOrder',['orderID'=>$order->id])}}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-danger "style="margin-left:80rem">cancel the Trip</button>
+      </form>
       </section> 
   
     

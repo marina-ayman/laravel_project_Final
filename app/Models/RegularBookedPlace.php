@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegularBookedPlace extends Model
 {
+    public $timestamps = FALSE;
     protected $table = 'regular_booked_places';
     use HasFactory;
 
@@ -26,4 +27,6 @@ class RegularBookedPlace extends Model
     {
         return $this->hasMany(Place::class);
     }
+
+
 }
