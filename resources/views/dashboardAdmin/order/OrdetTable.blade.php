@@ -21,7 +21,7 @@
 </head>
 <body>
     
-<h1 class="p-relative">Customer</h1>
+{{-- <h1 class="p-relative">Customer</h1> --}}
         <div class="projects p-20 bg-white rad-10 m-20">
           <h2 class="mt-0 mb-20">Customers</h2>
           <div class="responsive-table">

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @include('sweetalert::alert');
+    @include('sweetalert::alert')
     {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

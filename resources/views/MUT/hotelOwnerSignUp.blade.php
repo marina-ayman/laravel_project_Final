@@ -13,7 +13,7 @@
 	<script src="./assets/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-    @include('sweetalert::alert');
+    @include('sweetalert::alert')
     {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

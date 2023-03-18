@@ -19,12 +19,11 @@ class TourguideController extends Controller
      */
     public function index()
     {
-        $users=User::all(); //fk
+        // $users=User::all(); //fk
         $tourGides=tourguide::all();
 
-        return view("dashboardAdmin.Tourguide.tourguide",[ "tourGides" => $tourGides],["users"=> $users]);
+        return view("dashboardAdmin.Tourguide.tourguide",[ "tourGides" => $tourGides]);
         //show table from DB
-
     }
 
     public function indexprofile()

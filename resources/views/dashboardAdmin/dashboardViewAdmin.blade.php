@@ -59,13 +59,13 @@
           <li>
             <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('TrippDash.index')}}">
               <i class="fa-solid fa-diagram-project fa-fw"></i>
-              <span>trippTable </span>
+              <span>tripTable </span>
             </a>
           </li>
           <li>
             <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none" href="{{route('VehiclleDash.index')}}">
               <i class="fa-solid fa-graduation-cap fa-fw"></i>
-              <span>vechileeTable </span>
+              <span>vechileTable </span>
             </a>
           </li>
           <li>
@@ -87,9 +87,6 @@
               <span><a href="{{route('userrform')}}" > userrform </a></span>
             </a>
           </li> --}}
-
-
-
           <li>
             <a class="d-flex align-center fs-14 c-black rad-6 p-10 text-decoration-none"href="{{route('AdminDash')}}">
               <i class="fa-regular fa-credit-card fa-fw"></i>

@@ -10,11 +10,10 @@
 	<title>Welcome</title>
 	<link rel="stylesheet" href="{{asset("./assets/css/tourGuideSignning.css")}}">
 	<script src="{{asset("./assets/js/jquery-3.6.1.min.js")}}"></script>
-
 </head>
 
 <body>
-    @include('sweetalert::alert');
+    @include('sweetalert::alert')
     {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

@@ -29,6 +29,8 @@
 	<link rel="stylesheet" href="./assets/css/owl-carousel.css" >
 	 <link rel="stylesheet" href="./assets/css/bootstrap.min.css" > --}}
 
+     {{-- @extends("temp")
+     @section('bodyContent') --}}
 {{-- need carsoul --}}
 	<div class="section full-height">
 		<div class="absolute-center">
@@ -145,13 +147,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-	
-	
-=======
 
 
->>>>>>> 6deb9194ee7e83f8423d7266c88b0b0443f75521
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -707,7 +704,7 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-    @endsection
+    {{-- @endsection --}}
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

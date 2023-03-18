@@ -21,7 +21,6 @@
 </head>
 <body>
   {{-- {{dd($chosentrips)}} --}}
-
 <div class="content w-full">
         <!-- Start Head -->
         <div class="head bg-white p-15 between-flex">
