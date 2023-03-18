@@ -10,6 +10,7 @@ use App\Models\OrderDetail;
 use Carbon\Carbon;
 use DateTime;
 use App\Models\Order;
+use App\Models\OrderedPlace;
 use App\Models\OrderedPlaces;
 use App\Models\OrderedRoom;
 use App\Models\Place;

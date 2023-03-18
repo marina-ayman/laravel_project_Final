@@ -68,6 +68,7 @@
                     @csrf
                     <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
                     <input type="text" name="percent" value="{{ $percent }}" hidden>
+                    <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
 
                     <button type="submit" >view Rooms &Book here</button>
                 </form>
@@ -91,6 +92,8 @@
             <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
           <button type="submit" >Next Step </button>
         </form>
+        <a href="{{route("cancelOrder",['orderID'=>$order->id])}}" type="submit" class="btn btn-danger">cancel the Trip</a>
+
       </div>
     </div>
     {{-- <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">

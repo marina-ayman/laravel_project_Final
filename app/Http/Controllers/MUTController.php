@@ -79,15 +79,19 @@ class MUTController extends Controller
             'availableRooms' => $availableRooms,
             'order' => $order,
             'hotel' => $hotel,
-            'percent' => $request->percent
+            'percent' => $request->percent,
+            'restOfBudget' => $request->restOfBudget,
 
         ]);
+
+
+
     }
     public function BookInHotel(Order $order, Request $request, Hotel $hotel)
     {
         // dd($request->percent);
         // dd($request->room_id);
-        for($i =0 ; $i<$request->room_id;$i++){
+        // for($i =0 ; $i<$request->room_id;$i++){
         foreach ($request->room_id as $room) {
             // dd($request->room_id);
             BookedRoom::create([
@@ -95,12 +99,15 @@ class MUTController extends Controller
                 'hotel_id' => (int)$hotel->id,
                 'room_id' => (int)$room
             ]);
-            Alert::congrats('Thanks','we are processing Your order ^^');
-            return back();
+
+
 
         }
-    }
-        return redirect()->route('getAvailableHotels',['budgetForHotels'=>$request->percent,'order'=>$order->id]);
+        Alert::congrats('Thanks','we are processing Your order ^^');
+
+        return $this->getAvailablePlaces($order,$request);
+    // }
+        // return redirect()->route('getAvailableHotels',['budgetForHotels'=>$request->percent,'order'=>$order->id]);
 
     }
     public function getAvailablePlaces(Order $order, Request $request)

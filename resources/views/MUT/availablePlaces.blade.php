@@ -27,6 +27,7 @@
         <h5>OUR PLACES</h5>
         <h3>Discover your best trip in Aswan</h3>
       </div>
+      <h1>The rest of Your Budget After Booking the Rooms  is {{$restOfBudget}}</h1>
 <!-- CARD ==================================================================-->
 <div class="container " >
   <form action="{{route('bookPlaces',['order'=>$order])}}" method="POST">

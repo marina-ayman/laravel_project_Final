@@ -14,10 +14,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -73,31 +73,34 @@
                     </div>
                     <input type="checkbox" name="room_id[]" value="{{ $room->id }}" >
                     <input type="text" name="percent" value="{{ $percent }}" hidden>
+                    <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
                 </div>
             </div>
 
-          
 
-          
 
-         
+
+
+
         </div>
         @endif
         @endif
         @endforeach
-       
+
     </div>
-    <button class="btn btn-success" type="submit">send</button>
+    <button class="btn btn-success" type="submit">continue My Trip</button>
 </div>
- 
+
     </form>
-    <button type="submit" class="btn btn-success">Back </button>
 
     <form action="{{route('getAvailableHotels',['budgetForHotels'=>$percent*100,'order'=>$order->id])}}" >
         @csrf
+        <button type="submit" class="btn btn-success">Back</button>
 
-    
+
+
     </form>
+    <a href="{{route("cancelOrder",['orderID'=>$order->id])}}" type="submit" class="btn btn-danger">cancel the Trip</a>
        <!-- JavaScript Libraries -->
        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -106,8 +109,8 @@
        <script src="{{asset("./assets/home/lib/tempusdominus/js/moment.min.js")}}"></script>
        <script src="{{asset("./assets/home/lib/tempusdominus/js/moment-timezone.min.js")}}"></script>
        <script src="{{asset("./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script>
-   
-    
+
+
        <!-- Template Javascript -->
        <script src="{{asset("./assets/home/js/main.js")}}"></script>
 </body>
@@ -118,14 +121,14 @@
 
 
 
-         
+
     </div>
-  
+
     <button type="submit" >Book Now & next step </button>
 </form>
-    
 
-     
+
+
 </body>
 </html>
 

@@ -31,4 +31,5 @@ Route::get('/MUTE/{order}',[MUTController::class,'MUTE'])->name("MUTE");
 
 
 Route::get('/order/{order}',[MUTController::class,'MUTE'])->name(" viewPayForMUTE");
+Route::get('/cancelOrder/{orderID}',[OrderController::class,'destroy'])->name(" cancelOrder");
 
