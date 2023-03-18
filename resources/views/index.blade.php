@@ -9,6 +9,25 @@
     <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{asset("./assets/home/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet">
+    {{-- <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> --}}
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset("./assets/home/css/style.css")}}" rel="stylesheet">
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset("./assets/css/rio.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 {{--
@@ -124,28 +143,11 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="./assets/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="./assets/home/css/style.css" rel="stylesheet">
-</head>
-
-
 <body>
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0">
+    {{-- <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="height: 90vh;">
                 <div class="carousel-item active" >
@@ -180,7 +182,7 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div> --}}
     <!-- Carousel End -->
 
 
@@ -715,12 +717,6 @@
 </body>
 
 </html>
-
-
-
-
-
-
 
 
 	@endsection

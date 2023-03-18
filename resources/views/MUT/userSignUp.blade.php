@@ -95,6 +95,11 @@
 			<form action="{{route('login.store')}}" class="form" id="form2" method="POST">
                 @csrf
 				<h2 class="form__title">Sign In</h2>
+                @error('email')
+                <span class="text-danger" role="alert">
+                    <strong>{{$message}}</strong>
+                </span>
+                 @enderror
 				<input type="email" placeholder="Email" name="email" class="input" required />
 				<input type="password" placeholder="Password" name="password" class="input" required />
 				<a href="#" class="link">Forgot your password?</a>

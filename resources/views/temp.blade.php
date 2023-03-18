@@ -1,3 +1,5 @@
+
+@yield('headOfContent')
 <!DOCTYPE html>
 <html lang="en">
 <head>
