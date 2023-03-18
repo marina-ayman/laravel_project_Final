@@ -50,7 +50,7 @@
             <div class="box">
               <div class="img">
                 <img src="{{url('http://localhost:8000/storage/imgs/'.$room->Hotel->cover_img)}}" alt="" style="height: 16rem; width:23rem">
-               
+
                 <span>Hotel {{$room->Hotel->id}} </span>
               </div>
               <div class="text">
@@ -60,16 +60,17 @@
           </div> -->
                 <h3>Hotel Name {{$room->Hotel->name}} </h3>
                 <p>
-                  <form action="{{route('getAvailableRooms',['order'=>$order->id,'hotel'=>$room->hotel_id])}}" method="POST">
+                  <form action="{{route('getAvailableRooms',['order'=>$order->id,'hotel'=>$room->hotel_id])}} " method="POST">
                     @csrf
                     <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
                     <input type="text" name="percent" value="{{ $percent }}" hidden>
+                    <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
 
                     <button type="submit" >view Rooms &Book here</button>
                 </form>
 
                 </p>
-                <a href="#">Read More <i class='fas fa-long-arrow-alt-right'></i></a>
+                <a href="{{route('hotel.show',['id'=>$room->Hotel->id])}}">Read More <i class='fas fa-long-arrow-alt-right'></i></a>
               </div>
             </div>
           </div>
@@ -87,6 +88,8 @@
             <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
           <button type="submit" >Next Step </button>
         </form>
+        <a href="{{route("cancelOrder",['orderID'=>$order->id])}}" type="submit" class="btn btn-danger">cancel the Trip</a>
+
       </div>
     </div>
     {{-- <div class="form-btn d-grid gap-2 d-md-flex justify-content-md-end">

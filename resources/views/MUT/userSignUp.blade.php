@@ -12,7 +12,7 @@
 
 <body>
     @include('sweetalert::alert');
-    <!-- @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -20,7 +20,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif -->
+    @endif --}}
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup">
@@ -95,6 +95,11 @@
 			<form action="{{route('login.store')}}" class="form" id="form2" method="POST">
                 @csrf
 				<h2 class="form__title">Sign In</h2>
+                @error('email')
+                <span class="text-danger" role="alert">
+                    <strong>{{$message}}</strong>
+                </span>
+                 @enderror
 				<input type="email" placeholder="Email" name="email" class="input" required />
 				<input type="password" placeholder="Password" name="password" class="input" required />
 				<a href="#" class="link">Forgot your password?</a>
@@ -109,14 +114,9 @@
 			<div class="overlay">
 				<div class="overlay__panel overlay--left">
 					<img src="{{asset("assets/imgs/sign-up-page-1886582-1598253.png")}}" alt="">
-
-
 				</div>
-
 				<div class="overlay__panel overlay--right">
-
 					<img src="{{asset("assets/imgs/6a7458116bc7b6b81a23a258b7488246.jpg")}}" alt="">
-
 				</div>
 			</div>
 		</div>

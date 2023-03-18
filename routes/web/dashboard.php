@@ -117,7 +117,7 @@ Route::get('/deleteOrderDetails/{id}',[OrderDetailsController::class,'destroy'])
 // //===========================================================================================================================================
 
 
-Route::get('/TourguideProfile',[TourguideController :: class ,"index"])->name("TourguideProfile.index");
+Route::get('/TourguideProfile',[TourguideController :: class ,"indexprofile"])->name("TourguideProfile.index");
 Route::delete('/deleterequest/{id}',[TourguideController::class,'destroy'])->name("deleterequest.destroy");
 Route::post('/TourguideProfile',[TourguideController :: class ,"storeTourguide"])->name("TourguideProfile.store");
 Route::PUT('/TourguideProfile/{id}', [TourguideController::class, 'update'])->name('TourguideProfile.update');
@@ -171,15 +171,16 @@ Route::get('allHotel',[viewHotelsController::class,'index'])->name('allHotell');
 Route::get('Hotel/{id}',[viewHotelsController::class,'showhotel'])->name('hotel.show');
 Route::get('Room/{id}',[viewHotelsController::class,'room'])->name('roomm');
 
-Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
-Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
+Route::get('allTourguide',[ViewTourGidesController::class,'index'])->name('allTourguide');
+// Route::get('allPlaces',[ViewTourGidesController::class,'index'])->name('allTourguide');
 
 
 
 Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");
 Route::post('/storeRegTourguide/{id}',[regularController :: class ,"storeRegTourguide"])->name("storeRegTourguide.store");
 Route::post('/storeRegPlace/{id}',[regularController :: class ,"storeRegPlace"])->name("storeRegPlace.store");
-// =========================================
+// ==================================================
+
 Route::get('/tourguideRequests/{id}',[DashboardController :: class ,"tourguideRequests"])->name("tourguideRequests");
 Route::post('/tourChangeStatus/{order}',[DashboardController :: class ,"tourChangeStatus"])->name("tourChangeStatus");
 Route::post('/storeRegRoom/{id}',[regularController :: class ,"storeRegRoom"])->name("storeRegRoom.store");

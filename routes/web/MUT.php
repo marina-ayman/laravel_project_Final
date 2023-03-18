@@ -27,3 +27,9 @@ Route::get('/bookWithTourguide/{order}/{tourguide}',[MUTController::class,'bookW
 
 Route::get('/MUTE/{order}',[MUTController::class,'MUTE'])->name("MUTE");
 // Route::get('/payForMyMUTE/{order}',[MUTController::class,'viewPayForMUTE'])->name("viewPayForMUTE");
+// Route::get('/payForMyMUTE/{order}',[MUTController::class,'viewPayForMUTE'])->name("viewPayForMUTE");
+
+
+Route::get('/order/{order}',[MUTController::class,'MUTE'])->name(" viewPayForMUTE");
+Route::get('/cancelOrder/{orderID}',[OrderController::class,'destroy'])->name(" cancelOrder");
+

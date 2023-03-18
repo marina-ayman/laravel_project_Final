@@ -140,7 +140,7 @@ return redirect('dashboardAdmin.user.users',['role'=>$request->role]);
      */
     public function update(Request $request, hotelOwner $hotelOwner)
     {
-        
+
        User::where('id',$hotelOwner->user_id)->update([
         'name' => $request['name'] ,
         'email' => $request['email'],

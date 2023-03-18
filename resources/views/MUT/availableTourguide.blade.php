@@ -1,7 +1,7 @@
 
 
-{{-- ================================================ --}}
-
+@extends("temp")
+@section('bodyContent') 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="{{asset('assets/css/hotels.css')}}" >
     <title>Hotels</title>
@@ -24,11 +24,22 @@
 <body>
 
 
-    
-
-  @if($availableTourguides)
-  @foreach ($availableTourguides as $Tourguide)
-
+    <!-- HERO SECTION -->
+    <section class="home" id="home" >
+        <div class="container">
+          <h1>Our Tourguide</h1>
+        </div>
+    </section>
+      <!-- HOTELS CARD -->
+       <section class="blog top" id="blog">
+        <div class="container">
+          <div class="heading"  >
+            <h5>OUR Tourguide</h5>
+            <h3>Discover your best stay in Aswan</h3>
+          </div>
+          <div class="content grid mtop" >
+            @if($availableTourguides)
+            @foreach ($availableTourguides as $Tourguide)
             <div class="box" style="width:23rem">
               <!-- hotel img -->
               <div class="img">
@@ -45,21 +56,23 @@
                   @endforeach
                   <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
                   <h6 class="h-2 mt-4"><br> Bio:{{isset($Tourguide->bio)?:"you will enjoy your Time"}}</h6>
-                  <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal"  style="background-color: #CC8C18">Book now!</div>
-                               
+                {{-- <a href="{{route('hotel.show',['id'=>$Hotel->id])}}">Show More<i class='far fa-long-arrow-alt-right'></i></a> --}}
+            
               </div>  
                 <!-- "hotels.hotel",["Hotel"=> $hotelInfo],["hotelImg"=>$hotelImgs] -->
             </div>
        @endforeach
        @endif
           </div>
+          <form action="{{route('getAvailablePlaces')}}">
+            <input type="text" name="percent" value="{{ $percent }}" hidden>
+
+            <input type="text" name="restOfBudget" value="{{ $restOfBudget }}" hidden>
+            <button type="submit">back step</button>
+        </form>
         </div>
-
-
-
-
-
-
-
+      </section> 
+  
+    
 </body>
 </html>

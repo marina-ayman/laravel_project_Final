@@ -1,6 +1,5 @@
 
-@extends("temp")
-@section('bodyContent') 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +14,15 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="{{asset('assets/css/hotels.css')}}" >
     <title>Hotels</title>
 </head>
 <body>
 
+    @extends("temp")
+    @section('bodyContent')
 
     <!-- HERO SECTION -->
     <section class="home" id="home" style="background-image: url('./assets/asset/img/325656190_568416741475078_7206769026493477752_n.jpg') " style="height:20vh">
@@ -55,26 +56,13 @@
                   <p class="admin">syndicate_No:{{$Tourguide->syndicate_No}} </p>
                   <h6 class="h-2 mt-4"><br> Bio:{{isset($Tourguide->bio)?:"you will enjoy your Time"}}</h6>
                   <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal"  style="background-color: #CC8C18">Book now!</div>
-                               
-              </div>  
+
+              </div>
                 <!-- "hotels.hotel",["Hotel"=> $hotelInfo],["hotelImg"=>$hotelImgs] -->
             </div>
-            @endforeach
+
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <div class="modal" id="myModal">
@@ -127,6 +115,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
                 <!-- Modal footer -->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -134,11 +123,11 @@
               </div>
             </div>
         </div>
-  
-  
-        </section> 
-  
-    
+
+
+        </section>
+
+
 </body>
 </html>
 

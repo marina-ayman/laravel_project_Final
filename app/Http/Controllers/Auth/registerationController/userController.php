@@ -164,8 +164,6 @@ public function validateLogin(Request $request) {
             return redirect()->route('AdminDash');
 
         }
-
-
     return redirect('/home');
 
  }else{
@@ -174,21 +172,7 @@ public function validateLogin(Request $request) {
      return redirect()->back();
  }
 
-    // ->withErrors(['email'=>'credentials invalid!'])
-    // $request->validate([
-    //     'email' => 'required|email',
-    //     'password' => 'required',
-
-    // ]);
-
-    // $user = User::where('email', $request->email)->first();
-
-    // if (! $user || ! Hash::check($request->password, $user->password)) {
-    //     throw ValidationException::withMessages([
-    //         'email' => ['The provided credentials are incorrect.'],
-    //         // 'password' => ['The provided credentials are incorrect.'],
-    //     ]);
-    // }
+  
 }
 
 
