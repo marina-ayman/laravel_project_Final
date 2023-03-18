@@ -99,8 +99,12 @@ $role= Role::where('id',$newUser->role_id)->first();
      */
     public function store(StoreUserRequest $request)
     {
-        $name=md5(microtime()).$request['image']->getClientOriginalName();
-        $request['image']->storeAs("public/imgs",$name);
+        // dd($request['image']);
+        if($request['image']){
+
+            $name=md5(microtime()).$request['image']->getClientOriginalName();
+            $request['image']->storeAs("public/imgs",$name);
+        }
 // dd($request);
       $user= User::create([
         'name' => $request['name'] ,
@@ -161,20 +165,10 @@ public function validateLogin(Request $request) {
 
         }
 
-            elseif (Auth::user()->HotelOwner) {
-              //  dd($request['email']);
-                return redirect()->route('hotelOwnerDashboard');
-            }
-            elseif (Auth::user()->Tourguide) {
-              //  dd($request['email']);
-                return redirect()->route('TourguideProfile');
-            }
 
-                return view('home');
-                
-                //dd(Auth::user());
-        }
- else{
+    return redirect('/home');
+
+ }else{
 
      Alert::error('sorry', 'credentials invalid! :(');
      return redirect()->back();

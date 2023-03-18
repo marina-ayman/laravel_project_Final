@@ -72,15 +72,15 @@
         </div>
         <!-- End Head -->
         <h1 class="p-relative">Rooms</h1>
-        <a href="{{route('editRoom',['roomID'=>$room->id])}}" class="title bg-blue c-white btn-shape">Edit </a>
-
+        
         @foreach($rooms as $room)
+        <a href="{{route('editRoom',['roomID'=>$room->id])}}" class="title bg-blue c-white btn-shape">Edit </a>
 
 
         <div class="courses-page d-grid m-20 gap-20">
           <div class="course bg-white rad-6 p-relative">
-            <img class="cover w-full" src="https://imgs.search.brave.com/4pvgpXiuGnb_H1ZZTe666J9zcYKttnnDxpiTiOBjxaY/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/VkRfRWROTWVENER2/MTc4c2hMNmhRSGFG/aiZwaWQ9QXBp" alt="" />
-            <img class="cover w-full" src="{{$room->cover_img}}" alt="" />
+            {{-- <img class="cover w-full" src="https://imgs.search.brave.com/4pvgpXiuGnb_H1ZZTe666J9zcYKttnnDxpiTiOBjxaY/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/VkRfRWROTWVENER2/MTc4c2hMNmhRSGFG/aiZwaWQ9QXBp" alt="" /> --}}
+            <img class="cover w-full" src="../storage/imgs/{{$room->cover_img}}" alt="" />
             <!-- <img class="instructor" src="imgs/team-01.png" alt="" /> -->
             <div class="p-20">
               <h4 class="m-0">Type :{{$room->type}}</h4>

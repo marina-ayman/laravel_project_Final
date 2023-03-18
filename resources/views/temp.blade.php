@@ -47,12 +47,12 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" href="{{route('allTourguide')}}">TOURGUIDES</a>
 								</li>
-                                @isset($record)
+                                {{-- @isset($record)
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link">
                                         {{Auth::user()->name}}</a>
                                     </li>
-                                    @endisset
+                                    @endisset --}}
                                 {{-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="{{route('allVehciles')}}">ROUTES</a>
 								</li> --}}
@@ -105,7 +105,7 @@
 										<a class="dropdown-item" href="{{route("user.create")}}">As User</a>
 										<a class="dropdown-item" href="{{route("tourguide.create")}}">As Tourguide</a>
 										<a class="dropdown-item" href="{{route("hotelOwner.create")}}">As HotelOwner</a>
-										<a class="dropdown-item" href="{{route("driver.create")}}">As Driver</a>
+										{{-- <a class="dropdown-item" href="{{route("driver.create")}}">As Driver</a> --}}
 									</div>
 								</li>
                                 @endif

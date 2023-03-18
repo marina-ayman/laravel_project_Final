@@ -53,7 +53,8 @@
           <div class="content  mtop">
             <div class="box">
               <div class="img">
-                <img src=" {{$room->Hotel->cover_img}} " alt="">
+                <img src="{{url('http://localhost:8000/storage/imgs/'.$room->Hotel->cover_img)}}" alt="" style="height: 16rem; width:23rem">
+               
                 <span>Hotel {{$room->Hotel->id}} </span>
               </div>
               <div class="text">
@@ -63,7 +64,7 @@
           </div> -->
                 <h3>Hotel Name {{$room->Hotel->name}} </h3>
                 <p>
-                  <form action="{{route('getAvailableRooms',['order'=>$order->id,'hotel'=>$room->hotel_id])}}" method="POST">
+                  <form action="{{route('getAvailableRooms',['order'=>$order->id,'hotel'=>$room->hotel_id])}} " method="POST">
                     @csrf
                     <input type="text" name="availableRooms" value="{{ $availableRooms }}" hidden>
                     <input type="text" name="percent" value="{{ $percent }}" hidden>

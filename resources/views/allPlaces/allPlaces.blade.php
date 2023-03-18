@@ -107,7 +107,7 @@
 
 <div class="container" style="margin-buttom:20rem; margin-top:30rem ; " >
     <div class="row">
-      @foreach($allPlaces as $Place)
+      @foreach($places as $Place)
       <div class="col-lg-4 col-md-6 mb-4" style="width: 25rem">
           <div class="package-item bg-white mb-2" >
             <img class="card-img-top"  src="{{url('http://localhost:8000/storage/imgs/'.$Place->cover_img)}}" alt="" 
@@ -124,12 +124,14 @@
                       <div class="d-flex justify-content-between">
                           <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i><small>({{$Place ->price}})</small></h6>
                           <h5 class="m-0">$350</h5>
+
+                          <div class="btn" data-bs-toggle="modal" data-bs-target="#myModal">Book now!</div>
                       </div>
                   </div>
               </div>
           </div>
       </div>
-      @endforeach
+
     </div>
   </div>
 
@@ -246,7 +248,7 @@
       </a>
     </div>
     
-
+  
 
     </div> <!-- /row -->
     </div> <!-- /container -->
@@ -288,6 +290,7 @@
           </div>
       </div>
     </div>
+    @endforeach
     <!-- Blog End -->
     @endsection
         <!-- JavaScript Libraries -->

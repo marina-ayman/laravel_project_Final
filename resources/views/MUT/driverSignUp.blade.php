@@ -1,10 +1,7 @@
-
 @extends("temp")
 @section('bodyContent')
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +9,8 @@
 	<title>Welcome</title>
 	<link rel="stylesheet" href="{{asset("./assets/css/userSignning.css")}}">
 	<script src="./assets/js/jquery-3.6.1.min.js"></script>
-
 </head>
-
 <body>
-
 	@include('sweetalert::alert');
     @auth
     <form action="{{ route("logout") }}" method="POST" >
@@ -25,7 +19,7 @@
 </form>
 @endauth
 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -33,7 +27,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup">
@@ -49,20 +43,44 @@
                         </label>
 				</div> --}}
                 <input type="file" accept="image/png, image/gif, image/jpeg" name ="image" >
-
-				<input type="text" placeholder="Your Name" name="name" class="input" required />
+				<input type="text" placeholder="Your Name" name="name" class="input"/>
+				@error('name')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
 				<div>
 					<span>Male<input class="specifyColor" type="radio" name="gender" id="male" value="male"
 							checked></span>
-                            <span>Female<input class="specifyColor" type="radio" name="gender" id="female"
+                    <span>Female<input class="specifyColor" type="radio" name="gender" id="female"
                                 value="female"></span>
-                            </div>
-                            <input type="email" placeholder="Email" name="email" class="input" required />
-                            <input type="phone" placeholder="Phone" name="phone" class="input" required />
+                </div>
+                <input type="email" placeholder="Email" name="email" class="input"/>
+				@error('email')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+                <input type="phone" placeholder="Phone" name="phone" class="input"/>
+				@error('phone')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
                             
-                            <input type="password" placeholder="Password" name="password" class="input" required />
-                            <input type="text" placeholder="License" name="license" class="input" required />
-                            <input type="text" class="input" name="role" value="driver" hidden>
+                <input type="password" placeholder="Password" name="password" class="input"/>
+				@error('password')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+                <input type="text" placeholder="License" name="license" class="input"/>
+				@error('license')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+                <input type="text" class="input" name="role" value="driver" hidden>
 				<button type="submit" class="btn">Sign Up</button>
 				<a href="#" class="link" id="signIn">Already a user </a>
 			</form>

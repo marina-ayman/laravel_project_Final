@@ -1,25 +1,36 @@
 
+<!DOCTYPE html>
+<html lang="en">
 
-@extends('temp')
-@section('bodyContent')
+<head>
+    <meta charset="utf-8">
+    <title>MUTE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{asset("./assets/home/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet">
+    <link href="{{asset("./assets/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")}}" rel="stylesheet" />
 
 <link rel="stylesheet" href="{{asset("./assets/css/index.css")}}">
 <div class="content">
 
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{asset("./assets/css/rio.css")}}" />
-    <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-{{-- 
+{{--
 	<link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="./assets/css/owl-carousel.css" >
 	 <link rel="stylesheet" href="./assets/css/bootstrap.min.css" > --}}
 
 {{-- need carsoul --}}
-	{{-- <div class="section full-height">
+	<div class="section full-height">
 		<div class="absolute-center">
 			<div class="section">
 				<div class="container">
@@ -27,10 +38,10 @@
 						<div class="col-12">
 				<h1><span>M</span><span>A</span><span>K</span><span>E</span>  <span>U</span><span>R</span>  <span>T</span><span>R</span><span>I</span><span>P</span><br>
 				<span>M</span><span>U</span><span>T</span><span>E</span></h1>
-				<p>🤍💙</p>	
-						</div>	
-					</div>		
-				</div>		
+				<p>🤍💙</p>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="section mt-5">
 				<div class="container">
@@ -39,14 +50,14 @@
 							<div id="switch">
 								<div id="circle"></div>
 							</div>
-						</div>	
-					</div>		
-				</div>			
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="my-5 py-5">
-	</div>  --}}
+	</div>
 
 
         <section>
@@ -67,7 +78,7 @@
             <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
         </div>
         <h1>
-            hola 
+            hola
         </h1>
         <p>hola</p>
     </div>
@@ -76,7 +87,7 @@
             <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
         </div>
         <h1>
-            hola 
+            hola
         </h1>
         <p>hola</p>
     </div>
@@ -85,7 +96,7 @@
             <i class="fa fa-car"></i>
         </div>
         <h1>
-            hola 
+            hola
         </h1>
         <p>hola</p>
     </div>
@@ -94,7 +105,7 @@
             <i class="fa fa-plane"></i>
         </div>
         <h1>
-            hola 
+            hola
         </h1>
         <p>hola</p>
     </div>
@@ -103,7 +114,7 @@
             <i class="fa fa-blind"></i>
         </div>
         <h1>
-            hola 
+            hola
         </h1>
         <p>hola</p>
     </div>
@@ -116,20 +127,11 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>MUTE</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -143,7 +145,51 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	
+	
+=======
+
+
+>>>>>>> 6deb9194ee7e83f8423d7266c88b0b0443f75521
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" style="height: 90vh;">
+                <div class="carousel-item active" >
+                    <img class="w-100" src="./assets/imgs/Aswan-Nilme.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="./assets/imgs/Aswan-Nilme.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
 
 
 
@@ -160,8 +206,8 @@
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-1">We Provide Best Tour Packages In Your Budget</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                        <p></p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="./assets/imgs/Aswan-Nilme.jpg" alt="" style="height: 12rem">
@@ -661,19 +707,20 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+    @endsection
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/home/lib/easing/easing.min.js"></script>
-    <script src="./assets/home/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="./assets/home/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="./assets/home/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{asset("./assets/home/lib/easing/easing.min.js")}}"></script>
+    <script src="{{asset("./assets/home/lib/owlcarousel/owl.carousel.min.js")}}"></script>
+    <script src="{{asset("./assets/home/lib/tempusdominus/js/moment.min.js")}}"></script>
+    <script src="{{asset("./assets/home/lib/tempusdominus/js/moment-timezone.min.js")}}"></script>
+    <script src="{{asset("./assets/home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 
- 
+
     <!-- Template Javascript -->
-    <script src="./assets/home/js/main.js"></script>
+    <script src="{{asset("./assets/home/js/main.js")}}"></script>
 </body>
 
 </html>
@@ -685,4 +732,3 @@
 
 
 
-	@endsection
