@@ -65,7 +65,7 @@
                                     @endif
 
 								    @if(Auth::user()->Role->name =="tourguide")
-									<a class="nav-link" href="{{route('TourguideProfile.index')}}">My Tourguide</a>
+									<a class="nav-link" href="{{route('TourguideProfile.index')}}">MyTourguide</a>
                                     @endif
                                     @if(Auth::user()->Role->name =="driver")
 									<a class="nav-link" href="{{route('driverprofileDash.index')}}">Driver</a>

@@ -9,6 +9,7 @@ use App\Http\Requests\StoreTourgideRequest;
 use App\Models\Role;
 use App\Models\TourguideLanguage;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class TourguideController extends Controller
 {
@@ -71,7 +72,7 @@ if(!empty($request->image)){
        $user=  User::create([
         'name' => $requestUser['name'] ,
         'email' => $requestUser['email'],
-        'password' => $requestUser['password'],
+        'password' =>  Hash::make($request['password']),
         'gender' => $requestUser['gender'] ,
         'phone' => $requestUser['phone'],
         'image'=>isset($name)?$name:null,
