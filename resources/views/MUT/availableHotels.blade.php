@@ -2,10 +2,6 @@
 @extends("temp")
 @section('bodyContent')
 
-{{--
-@extends('MUT.multistepsNav')
-@section('customBoddy') --}}
-
 
 
 <!DOCTYPE html>
@@ -111,3 +107,19 @@
 </body>
 </html>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

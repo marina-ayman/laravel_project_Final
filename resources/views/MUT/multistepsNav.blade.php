@@ -117,12 +117,12 @@ margin-left: 7rem;
 
 <div class="breadcrumb">
     <a class="breadcrumb__step breadcrumb__step--active" href="{{route('MUT.store')}}"> orders Details </a>
-    {{-- <a class="breadcrumb__step" href="{{route('getAvailableHotels')}}">Hotel</a>
-    <a class="breadcrumb__step" href="{{route('getAvailablePlaces')}}">places</a>
-    <a class="breadcrumb__step" href="{{route('bookWithTourguide')}}">tourguide</a> --}}
-    {{-- <a class="breadcrumb__step" href="{{route(getAvailableHotels)}}">Hotels  MUTE</a> --}}
-    {{-- <a class="breadcrumb__step" href="{{route('getAvailablePlaces')}}">Places MUTE</a> --}}
-    {{-- <a class="breadcrumb__step" href="{{route('bookWithTourguide')}}">Tourguide MUTE</a> --}}
+   <a class="breadcrumb__step" href="">Hotel</a>
+    <a class="breadcrumb__step" href="">places</a>
+    <a class="breadcrumb__step" href="">tourguide</a>
+    <a class="breadcrumb__step" href="">Hotels  MUTE</a>
+    <a class="breadcrumb__step" href="">Places MUTE</a>
+    <a class="breadcrumb__step" href="">Tourguide MUTE</a>
     {{-- <a class="breadcrumb__step" href="{{route('cart')}}">cart</a> --}}
 
 </div>
