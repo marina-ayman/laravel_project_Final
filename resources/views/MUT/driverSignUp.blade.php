@@ -1,33 +1,32 @@
-@extends("temp")
-@section('bodyContent')
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Welcome</title>
-	<link rel="stylesheet" href="{{asset("./assets/css/userSignning.css")}}">
-	<script src="./assets/js/jquery-3.6.1.min.js"></script>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Welcome</title>
+		<link rel="stylesheet" href="{{asset("./assets/css/userSignning.css")}}">
+		<script src="./assets/js/jquery-3.6.1.min.js"></script>
+	</head>
 <body>
-	@include('sweetalert::alert');
+	{{-- @extends("temp")
+	@section('bodyContent') --}}
+	@include('sweetalert::alert')
     @auth
-    <form action="{{ route("logout") }}" method="POST" >
-        @csrf
- <button type="submit" >Log out</button>
-</form>
-@endauth
-
-    {{-- @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
+		<form action="{{ route("logout") }}" method="POST" >
+			@csrf
+			<button type="submit" >Log out</button>
+		</form>
+	@endauth
+		{{-- @if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif --}}
 	<div class="container right-panel-active">
 		<!-- Sign Up -->
 		<div class="container__form container--signup">
@@ -66,8 +65,7 @@
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
-				@enderror
-                            
+				@enderror        
                 <input type="password" placeholder="Password" name="password" class="input"/>
 				@error('password')
 					<span class="invalid-feedback" role="alert">
@@ -85,7 +83,6 @@
 				<a href="#" class="link" id="signIn">Already a user </a>
 			</form>
 		</div>
-
 		<!-- Sign In -->
 		<div class="container__form container--signin">
 			<form action="{{route('login.store')}}" class="form" id="form2" method="POST">
@@ -98,28 +95,19 @@
 				<a href="#" class="link" id="signUp">Don't have an account Yet?</a>
 			</form>
 		</div>
-
 		<!-- Overlay -->
 		<div class="container__overlay">
-
 			<div class="overlay">
 				<div class="overlay__panel overlay--left">
 					<img src="{{asset("./assets/imgs/driver.jpg")}}" alt="">
-
-
 				</div>
-
 				<div class="overlay__panel overlay--right">
-
 					<img src="{{asset("./assets/imgs/driver.jpg")}}" alt="">
-
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="{{asset("./assets/Js/signning.js")}}"></script>
+	{{-- @endsection --}}
 </body>
-
-<script src="{{asset("./assets/Js/signning.js")}}"></script>
-
 </html>
-@endsection
