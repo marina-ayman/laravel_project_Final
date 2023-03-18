@@ -31,7 +31,7 @@ class TourguideController extends Controller
     public function indexprofile()
     {
 
-        return view("dashboardTourguide.tourguideProfile");
+        return view("dashboardTourguide.tourguidProfile");
         //show table from DB
 
     }

@@ -117,7 +117,7 @@ Route::get('/deleteOrderDetails/{id}',[OrderDetailsController::class,'destroy'])
 // //===========================================================================================================================================
 
 
-Route::get('/TourguideProfile',[TourguideController :: class ,"index"])->name("TourguideProfile.index");
+Route::get('/TourguideProfile',[TourguideController :: class ,"indexprofile"])->name("TourguideProfile.index");
 Route::delete('/deleterequest/{id}',[TourguideController::class,'destroy'])->name("deleterequest.destroy");
 Route::post('/TourguideProfile',[TourguideController :: class ,"storeTourguide"])->name("TourguideProfile.store");
 Route::PUT('/TourguideProfile/{id}', [TourguideController::class, 'update'])->name('TourguideProfile.update');

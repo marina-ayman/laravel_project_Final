@@ -10,15 +10,15 @@
         <div class="col-md-7">
 
             <div class="card p-3 py-4" >
-
+{{dd(auth()->user()->Tourguide->id)}}
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('tourguideRequests',['id'=>Auth::user()->TourGuide->id])}}" >
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{route('tourguideRequests',['id'=>Auth::user()->TourGuide[0]->id])}}" >
                       <i class="fa-regular fa-chart-bar fa-fw"></i>
                       <span>Booking Requests</span>
                     </a>
                   </li>
                 <div class="user_icon">
-
+                    <img src="{{url('http://localhost:8000/storage/imgs/'.Auth::user()->image)}}" alt="" style="height: 16rem; width:23rem">
                     {{-- <img [src]=" 'http://localhost:8000/' + Tourguide?.touguide?.image" style="width: 70px;height: 70px; border-radius: 10px;" > --}}
                 </div>
 
@@ -29,10 +29,10 @@
                     <span>{{ Auth::user()->gender }}</span>
                     <span>{{ Auth::user()->phone }}</span>
                     <div class="px-4 mt-1">
-                        <p class="fonts">{{Auth::user()->TourGuide->price_per_day}}</p>
+                        <p class="fonts">{{Auth::user()->TourGuide[0]->price_per_day}}</p>
                     </div>
                     <div class="px-4 mt-1">
-                        <p class="fonts">{{Auth::user()->TourGuide->syndicate_No}}</p>
+                        <p class="fonts">{{Auth::user()->TourGuide[0]->syndicate_No}}</p>
                     </div>
 
                      <ul class="social-list">
@@ -43,18 +43,20 @@
                         <li><i class="fa fa-google"></i></li>
                     </ul>
                     <div class="px-4 mt-1">
-                        <p class="fonts">{{Auth::user()->TourGuide->bio}}</p>
+                        <p class="fonts">{{Auth::user()->TourGuide[0]->bio}}</p>
                     </div>
 
                 <div   *ngFor="let lang of TourguideDashboard ;">
-                    <button class="btn btn-primary px-4 ms-3">{{Auth::user()->TourGuide()->TourguideLanguage->language}}</button>
+                    @foreach( Auth::user()->TourGuide[0]->languages as $lang)
+                    <h4>  {{$lang->language}}</h4>
+                      @endforeach
                 </div>
 
                 </div>
 
 
                 <div class="buttons">
-                    <button >  <a href="{{ route('TourguideProfile.edit', [Auth::user()->TourGuide->id]) }}" class="ms-auto fs-4 me-4 text-dark"> Update</a>
+                    <button >  <a href="{{ route('TourguideProfile.edit', [Auth::user()->TourGuide[0]->id]) }}" class="ms-auto fs-4 me-4 text-dark"> Update</a>
                    </button>
 
                 </div>
@@ -86,7 +88,7 @@
                 <h2>{{$place->name}}</h2>
                 @endforeach
               </div>
-              @endforeach
+
               <div class="stats">
                 @foreach ($orders as $order )
                   <div class="stat1">
