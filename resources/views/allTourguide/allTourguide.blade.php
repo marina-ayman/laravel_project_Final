@@ -103,6 +103,12 @@
                                                             <input class="form-control" type="date" name="check_out" required>
                                                         </div>
                                                     </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <span class="form-label">Check out</span>
+                                                            <input class="form-control" type="number" name="n_of_people" required>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="form-btn">
                                                     <button class="submit-btn bookbtnn"onclick() type="submit">Send a request</button>

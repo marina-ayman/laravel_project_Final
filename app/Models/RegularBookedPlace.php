@@ -17,6 +17,7 @@ class RegularBookedPlace extends Model
         'user_id',
         'place_id'
     ];
+    public $timestamps = false;
     public function User()
     {
         return $this->belongsTo(User::class);

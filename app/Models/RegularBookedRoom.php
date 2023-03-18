@@ -9,7 +9,7 @@ class RegularBookedRoom extends Model
 {
     protected $table = 'regular_booked_room';
     use HasFactory;
-
+    public $timestamps = false;
 
     protected $fillable =[
         'check_in',

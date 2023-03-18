@@ -124,7 +124,7 @@ Route::PUT('/TourguideProfile/{id}', [TourguideController::class, 'update'])->na
 Route::get('/TourguideProfile/{id}/edit', [TourguideController::class, 'edit'])->name('TourguideProfile.edit');
 
 Route::get('/tourguideRequests/{id}',[DashboardController :: class ,"tourguideRequests"])->name("tourguideRequests");
-Route::post('/tourChangeStatus/{order}',[DashboardController :: class ,"tourChangeStatus"])->name("tourChangeStatus");
+Route::post('/tourChangeStatus/{id}',[DashboardController :: class ,"tourChangeStatus"])->name("tourChangeStatus");
 
 
 
