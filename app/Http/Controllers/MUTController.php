@@ -125,15 +125,15 @@ class MUTController extends Controller
             // dd($totalPaidInroomsPerDay[0]->sum);
             if ($totalPaidInroomsPerDay[0]->sum != 0 || $totalPaidInroomsPerDay[0]->sum == null) {
                 $totalPaidInRooms = $totalPaidInroomsPerDay[0]->sum * (int)$order->n_of_days;
-          $paidInRoom = DB::table("rooms")
-          ->select(DB::raw('sum(rooms.price)as sum'))
-          ->join('booked_rooms', 'rooms.id', '=', 'booked_rooms.room_id')
-          ->where('booked_rooms.order_id', '=', $order->id)
-          ->get();
+        //   $paidInRoom = DB::table("rooms")
+        //   ->select(DB::raw('sum(rooms.price)as sum'))
+        //   ->join('booked_rooms', 'rooms.id', '=', 'booked_rooms.room_id')
+        //   ->where('booked_rooms.order_id', '=', $order->id)
+        //   ->get();
                 $restOfBudget = ($order->budget) - $totalPaidInRooms;
                 if($restOfBudget<0){
                     Alert::alert('be aware , your booking exceeds your budget^^');
-
+                    return back();
                 }
             }
         } else {
@@ -210,7 +210,9 @@ class MUTController extends Controller
             return view('MUT.availableTourguide', [
                 'availableTourguides' => $availableTourguides,
                 'order' => $order,
-                'restBudgetBeforeTourguide' => $restBudgetBeforeTourguide
+                'restBudgetBeforeTourguide' => $restBudgetBeforeTourguide,
+                'percent'=>$request->percent,
+                'restOfBudget'=>$request->restOfBudget,
 
 
             ]);
@@ -228,6 +230,7 @@ class MUTController extends Controller
                     'availableTourguides' => $availableTourguides,
                     'order' => $order,
                     'percent'=>$request->percent,
+                    'restOfBudget'=>$request->restOfBudget,
                     'restBudgetBeforeTourguide' => $restBudgetBeforeTourguide
 
 
