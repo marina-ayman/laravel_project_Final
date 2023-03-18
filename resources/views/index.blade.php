@@ -23,6 +23,13 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset("./assets/home/css/style.css")}}" rel="stylesheet">
 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset("./assets/css/rio.css")}}" />
+    <link rel="stylesheet" href="{{asset("./assets/css/ruo.css")}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 {{--
 	<link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="./assets/css/owl-carousel.css" >
@@ -126,15 +133,19 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MUTE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
 <body>
-<<<<<<< HEAD
-	
-	
-=======
 
 
->>>>>>> 6deb9194ee7e83f8423d7266c88b0b0443f75521
     <!-- Carousel Start -->
     {{-- <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -702,7 +713,7 @@
 
 
     <!-- Template Javascript -->
-    <script src="{{asset("./assets/home/js/main.js")}}"></script>
+    <script src="./assets/home/js/main.js"></script>
 </body>
 
 </html>

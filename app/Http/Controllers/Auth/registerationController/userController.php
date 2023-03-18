@@ -164,8 +164,6 @@ public function validateLogin(Request $request) {
             return redirect()->route('AdminDash');
 
         }
-
-
     return redirect('/home');
 
  }else{
